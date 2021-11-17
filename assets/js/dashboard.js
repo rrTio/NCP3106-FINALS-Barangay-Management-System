@@ -14,4 +14,4 @@ $(document).ready(function () {
   });
 });
 
-window.addEventListener("wheel", (e) => e.preventDefault(), { passive: false });
+//window.addEventListener("wheel", (e) => e.preventDefault(), { passive: false });
