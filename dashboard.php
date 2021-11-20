@@ -17,42 +17,40 @@
  
   </head>
   <body>
-    <div class="area">
-      <div class="container">
+      <div class="container mt-3 containerCard">
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-lg-4 cardLayout">
             <div class="card">
-              <div class="cardheader iconcolor1">
-                TOTAL RESIDENTS
-              </div>
-              <div class="cardlinks">
-                <h1>COUNT:</h1>
+              <div class="total">
+                <h4>TOTAL RESIDENTS</h4>
+                <div class="content">
+                  <p>24</p>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-lg-4 cardLayout">
             <div class="card">
-              <div class="cardheader iconcolor1">
-                MALE
-              </div>
-              <div class="cardlinks">
-                <h1>COUNT:</h1>
-              </div>
+              <div class="gender">
+                <h4>GENDER</h4>
+                <div class="content">
+                  <p id="gender">MALE &nbsp; &nbsp; FEMALE<br>12 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 12</p>
+                </div>
+            </div>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-lg-4 cardLayout">
             <div class="card">
-              <div class="cardheader iconcolor1">
-                FEMALE
-              </div>
-              <div class="cardlinks">
-                <h1>COUNT:</h1>
-              </div>
+              <div class="voter">
+                <h4>TOTAL VOTERS</h4>
+                <div class="content">
+                  <p>24</p>
+                </div>
+            </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
       <nav class="main-menu">
         <ul>
             <li>
@@ -65,71 +63,32 @@
             </li>
             <li class="has-subnav">
                 <a href="#">
-                    <i class="fa fa-laptop fa-2x"></i>
-                    <span class="nav-text">
-                        Stars Components
-                    </span>
-                </a>
-                
-            </li>
-            <li class="has-subnav">
-                <a href="#">
                     <i class="fa fa-list fa-2x"></i>
                     <span class="nav-text">
-                        Forms
+                        Resident Information
                     </span>
                 </a>
                 
             </li>
             <li class="has-subnav">
                 <a href="#">
-                    <i class="fa fa-folder-open fa-2x"></i>
+                    <i class="fa fa-user"></i>
                     <span class="nav-text">
-                        Pages
+                        Register Resident
                     </span>
                 </a>
                 
             </li>
-            <li>
+            <li class="has-subnav">
                 <a href="#">
-                    <i class="fa fa-bar-chart-o fa-2x"></i>
+                    <i class="fa fa-users"></i>
                     <span class="nav-text">
-                        Graphs and Statistics
+                        Accounts
                     </span>
                 </a>
+                
             </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-font fa-2x"></i>
-                    <span class="nav-text">
-                        Quotes
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-table fa-2x"></i>
-                    <span class="nav-text">
-                        Tables
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-map-marker fa-2x"></i>
-                    <span class="nav-text">
-                        Maps
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-info fa-2x"></i>
-                    <span class="nav-text">
-                        Documentation
-                    </span>
-                </a>
-            </li>
+            
         </ul>
         <ul class="logout">
             <li>
@@ -144,7 +103,6 @@
     </nav>
   </body>
     </html>
-<!-- partial -->
   
 </body>
 </html>
