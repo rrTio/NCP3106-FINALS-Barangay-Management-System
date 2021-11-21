@@ -78,7 +78,6 @@
                         Register Resident
                     </span>
                 </a>
-                
             </li>
             <li class="has-subnav">
                 <a href="#">
@@ -87,9 +86,7 @@
                         Accounts
                     </span>
                 </a>
-                
             </li>
-            
         </ul>
         <ul class="logout">
             <li>

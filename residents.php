@@ -47,7 +47,6 @@
                         Register Resident
                     </span>
                 </a>
-                
             </li>
             <li class="has-subnav">
                 <a href="#">
@@ -56,9 +55,7 @@
                         Accounts
                     </span>
                 </a>
-                
             </li>
-            
         </ul>
         <ul class="logout">
             <li>
@@ -82,13 +79,13 @@
 										<form>
 											<input type="search" placeholder="Search">
 											<input type="submit" value="New Resident">
-										  </form></div>  
+										</form></div>  
 
 	                                <table id="bootstrap-table" class="table">
 	                                    <thead>
-											                  <th data-field="action">Action</th>
-	                                      <th data-field="resID">Resident's ID</th>
-	                                      <th data-field="lName" data-sortable="true">Last Name</th>
+										<th data-field="action">Action</th>
+	                                    <th data-field="resID">Resident's ID</th>
+	                                    <th data-field="lName" data-sortable="true">Last Name</th>
 	                                    	<th data-field="fName" data-sortable="true">First Name</th>
 	                                    	<th data-field="mName" data-sortable="true">Middle Name</th>
 	                                    	<th data-field="alias" data-sortable="true">Alias</th>
