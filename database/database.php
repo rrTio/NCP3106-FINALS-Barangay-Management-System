@@ -6,5 +6,6 @@ if(isset($_POST['btnLogin'])){
     $adminPassword = $_POST['password'];
 
     //more codes
+    header("Location: ../dashboard.php");
 }
 ?>

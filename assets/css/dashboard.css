@@ -1,6 +1,7 @@
 @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
 }
 @import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+
 .fa-2x {
 font-size: 2em;
 }
@@ -150,11 +151,13 @@ background-color:#5fa2db;
 }
 
 .content{
-  background-color: #5fa2db;
+  background-color: #676a6b;
   margin: 20px;
   text-align: center;
   font-size: 40px;
   height: 70px;
+  border-radius: 10px;
+  color: white;
 }
 
  .total, .gender, .voter{
@@ -174,4 +177,14 @@ background-color:#5fa2db;
 .card h4{
   text-align: center;
   margin: 2%;
+}
+
+#genderText{
+  font-size: 15px;
+  line-height: 10px;
+  font-weight: 600;
+}
+
+.headText{
+  margin-top: 15px;
 }
