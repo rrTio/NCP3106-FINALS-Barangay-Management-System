@@ -1,7 +1,78 @@
-*{
+* {
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+/** --------------------------------
+ -- Sidebar
+-------------------------------- */
+.sidebar {
+  background-color: #505050;
+  width: 250px;
+  transition: all 0.3s ease-in-out;
+  transform: translateX(0);
+  z-index: 9999999;
+  border-right: 1px solid black;
+}
+
+.sidebar .close-aside {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  cursor: pointer;
+  color: #eee;
+}
+
+.sidebar .sidebar-header {
+  border-bottom: 1px solid #ffffff;
+}
+
+.sidebar .sidebar-header h5 a {
+  color: white;
+}
+
+.sidebar .sidebar-header p {
+  color: white;
+  font-size: 0.825rem;
+}
+
+.sidebar > ul > li {
+  padding: 0.7rem 1.75rem;
+}
+
+.sidebar ul > li > a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Start numbers */
+.sidebar ul > li > a > .num {
+  line-height: 0;
+  border-radius: 3px;
+  font-size: 14px;
+  padding: 0px 5px;
+}
+
+.sidebar ul > li > i {
+  font-size: 18px;
+  margin-right: 0.7rem;
+  color: white;
+}
+
+.show-sidebar {
+  transform: translateX(-270px);
+}
+
+@media (max-width: 767px) {
+  .sidebar ul > li {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .sidebar .search {
+    padding: 10px 0 10px 30px;
+  }
 }
