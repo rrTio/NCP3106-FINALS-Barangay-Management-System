@@ -13,87 +13,50 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"/>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-	<link rel="stylesheet" href="./assets/css/dashboard.css">
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
-	<link href="/assets/css/main.css" rel="stylesheet"/>
-    <link href="/assets/css/residents.css" rel="stylesheet"/>
+	<link href="/assets/css/residents.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="./assets/css/main.css">   
 </head>
 
 <body>
-	<nav class="main-menu">
-        <ul>
-            <li>
-                <a href="#">
-                    <i class="fa fa-home fa-2x"></i>
-                    <span class="nav-text">
-                        Dashboard
-                    </span>
-                </a>
-            </li>
-            <li class="has-subnav">
-                <a href="#">
-                    <i class="fa fa-list fa-2x"></i>
-                    <span class="nav-text">
-                        Resident Information
-                    </span>
-                </a>
-            </li>
-            <li class="has-subnav">
-                <a href="#">
-                    <i class="fa fa-user-plus"></i>
-                    <span class="nav-text">
-                        Register Resident
-                    </span>
-                </a>
-            </li>
-            <li class="has-subnav">
-                <a href="#">
-                    <i class="fa fa-users"></i>
-                    <span class="nav-text">
-                        Accounts
-                    </span>
-                </a>
-            </li>
-            <li class="has-subnav">
-                <a href="#">
-                    <i class="fa fa-plus"></i>
-                    <span class="nav-text">
-                        Add personnel
-                    </span>
-                </a>
-            </li>
-            <li class="has-subnav">
-                <a href="#">
-                    <i class="fa fa-file"></i>
-                    <span class="nav-text">
-                        Documents
-                    </span>
-                </a>
-            </li>
-        </ul>
-        <ul class="logout">
-            <li>
-                <a href="#">
-                      <i class="fa fa-power-off fa-2x"></i>
-                    <span class="nav-text">
-                        Logout
-                    </span>
-                </a>
-            </li>  
-        </ul>
-    </nav>
-       <div class="content">
+	<aside class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
+  <i class="uil-bars close-aside d-md-none d-lg-none" data-close="show-side-navigation1"></i>
+  <div class="sidebar-header d-flex justify-content-center align-items-center px-3 py-4">
+    <img
+        class="rounded-pill img-fluid"
+        width="65"
+        src="https://uniim1.shutterfly.com/ng/services/mediarender/THISLIFE/021036514417/media/23148907008/medium/1501685726/enhance"
+        alt="">
+    <div class="ms-2">
+      <h5 class="fs-6 mb-0">
+        <a class="text-decoration-none" href="#"> &nbsp; Jone Doe</a>
+      </h5>
+      <p class="mt-1 mb-0"> &nbsp; Lorem ipsum dolor sit amet consectetur.</p>
+    </div>
+  </div>
+  <ul class="categories list-unstyled">
+    <li><i class="fa fa-home sideIcons"></i><a href="dashboard.php"> Dashboard</a></li>
+    <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Residents List</a></li>
+    <li><i class="fa fa-user-plus sideIcons"></i><a href="#"> Register Resident</a></li>
+    <li><i class="fa fa-users sideIcons"></i><a href="#"> Accounts</a></li>
+    <li><i class="fa fa-file sideIcons"></i><a href="#"> Documents</a></li>
+    <li><i class="fa fa-plus sideIcons"></i><a href="#"> Add Personnel</a></li>
+    <li><i class="fa fa-power-off sideIcons"></i><a href="#"> Logout</a></li>
+  </ul>
+</aside>
+        <div class="content mainLayout">
 	            <div class="container-fluid">
 	                <div class="row">
-	                            <div class="content">
-									<div class="heading">
-										<h4>Resident Information Management</h4>
-									  </div>
+                        <div class="content">
+                            <div class="heading">
+                                <h4>Resident Information Management</h4>
+                            </div>
                     <div class="toolbar">
-										<form>
-											<input type="search" placeholder="Search">
-											<input type="submit" value="New Resident">
-										</form></div>  
+                        <form>
+                            <input type="search" placeholder="Search">
+                            <input type="submit" value="New Resident">
+                        </form>
+                    </div>  
 
 	                                <table id="bootstrap-table" class="table">
 	                                    <thead>
