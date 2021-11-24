@@ -1,114 +1,44 @@
 <!DOCTYPE html>
 <html lang="en" >
 <head>
-  <meta charset="UTF-8">
-  <title>Dashboard</title>
-  <link rel="stylesheet" href="./assets/css/dashboard.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"/>
+    <meta charset="UTF-8">
+    <title>Register Resident</title>  
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"/>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://unicons.iconscout.com/release/v3.0.6/css/line.css'>
     <link rel="stylesheet" href="./assets/css/regResForm.css">
-
 </head>
 <body>
-<!-- partial:index.partial.html -->
-<html>
-  <head>
- 
-  </head>
-  <body>
-  <nav class="main-menu">
-        <ul>
-            <li>
-                <a href="#">
-                    <i class="fa fa-home fa-2x"></i>
-                    <span class="nav-text">
-                        Dashboard
-                    </span>
-                </a>
-            </li>
-            <li class="has-subnav">
-                <a href="#">
-                    <i class="fa fa-laptop fa-2x"></i>
-                    <span class="nav-text">
-                        Stars Components
-                    </span>
-                </a>
-                
-            </li>
-            <li class="has-subnav">
-                <a href="#">
-                    <i class="fa fa-list fa-2x"></i>
-                    <span class="nav-text">
-                        Forms
-                    </span>
-                </a>
-                
-            </li>
-            <li class="has-subnav">
-                <a href="#">
-                    <i class="fa fa-folder-open fa-2x"></i>
-                    <span class="nav-text">
-                        Pages
-                    </span>
-                </a>
-                
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-bar-chart-o fa-2x"></i>
-                    <span class="nav-text">
-                        Graphs and Statistics
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-font fa-2x"></i>
-                    <span class="nav-text">
-                        Quotes
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-table fa-2x"></i>
-                    <span class="nav-text">
-                        Tables
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-map-marker fa-2x"></i>
-                    <span class="nav-text">
-                        Maps
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-info fa-2x"></i>
-                    <span class="nav-text">
-                        Documentation
-                    </span>
-                </a>
-            </li>
-        </ul>
-        <ul class="logout">
-            <li>
-                <a href="#">
-                      <i class="fa fa-power-off fa-2x"></i>
-                    <span class="nav-text">
-                        Logout
-                    </span>
-                </a>
-            </li>  
-        </ul>
-    </nav>
-
-
+    <aside class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
+        <i class="uil-bars close-aside d-md-none d-lg-none" data-close="show-side-navigation1"></i>
+        <div class="sidebar-header d-flex justify-content-center align-items-center px-3 py-4">
+        <img
+            class="rounded-pill img-fluid"
+            width="65"
+            src="https://uniim1.shutterfly.com/ng/services/mediarender/THISLIFE/021036514417/media/23148907008/medium/1501685726/enhance"
+            alt="">
+        <div class="ms-2">
+            <h5 class="fs-6 mb-0">
+                <a class="text-decoration-none" href="#"> &nbsp; [ADMIN NAME]</a>
+            </h5>
+            <p class="mt-1 mb-0"> &nbsp; [PUROK HERE]</p>
+        </div>
+    </div>
+    <ul class="categories list-unstyled">
+        <li><i class="fa fa-home sideIcons"></i><a href="dashboard.php"> Dashboard</a></li>
+        <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Residents List</a></li>
+        <li><i class="fa fa-user-plus sideIcons"></i><a href="#"> Register Resident</a></li>
+        <li><i class="fa fa-users sideIcons"></i><a href="view-user.php"> Accounts</a></li>
+        <li><i class="fa fa-file sideIcons"></i><a href="#"> Documents</a></li>
+        <li><i class="fa fa-plus sideIcons"></i><a href="#"> Add Personnel</a></li>
+        <li><i class="fa fa-power-off sideIcons"></i><a href="#"> Logout</a></li>
+    </ul>
+    </aside>
     <section>
             <div class="container mt-5">
                 <form name="residents" method="POST" action="./database/database.php">
@@ -116,7 +46,6 @@
                         <h1>
                             New Resident Registration Form
                         </h1>
-
                     </div>
                     <div class="row mb-2">
                         <h4>
@@ -128,22 +57,18 @@
                             <div class="row mb-2">
                                 <img src="E:\xammp\htdocs\NCP3106-FINALS\assets\images\blankpic.jpg" width="180" height="170">
                             </div>
-                            
                             <div class="row">
-
                                 <div class="col-md-6 p-1">
-                                    <button type="submit" name="btnBrowse" class="btn btn-primary btn-block btn-medium">
-                                    <i class="fa fa-file sideIcons">&nbsp;BROWSE</i></button>
+                                    <button name="btnBrowse" class="btn btn-primary btn-block btn-medium">
+                                    <i class="fa fa-file sideIcon">&nbsp;BROWSE</i></button>
                                 </div>
-
                                 <div class="col-md-6 p-1">
-                                    <button type="submit" name="btnCamera" class="btn btn-primary btn-block btn-medium">
-                                    <i class="fa fa-camera sideIcons">&nbsp;CAMERA</i></button>
+                                    <button name="btnCamera" class="btn btn-primary btn-block btn-medium">
+                                    <i class="fa fa-camera sideIcon">&nbsp;CAMERA</i></button>
                                 </div>
                             </div>                     
                         </div>
                         <div class="col-md-10">
-
                             <div class="row mb-4">
                                 <div class="col-md-6">
                                     <div class="form-floating">
@@ -158,7 +83,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="row mb-4">
                                 <div class="col-md-6">
                                     <div class="form-floating">
@@ -173,8 +97,6 @@
                                     </div>
                                 </div>
                             </div>
-
-
                             <div class="row mb-4">
                                 
                                 <div class="col-md-3 pt-3">
@@ -190,8 +112,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                
-                            
                                 <div class="col-md-3">
                                     <div class="form-floating">
                                         <select class="form-control form-control-lg p-2 pt-3" id="bMonth" name="bMonth" required>
@@ -211,7 +131,6 @@
                                     <label class="form-label" for="bMonth">MONTH</label>    
                                     </div>
                                 </div>
-
                                 <div class="col-md-3">
                                     <div class="form-floating">
                                         <select class="form-control form-control-lg p-2 pt-3" id="bDay" name="bDay" required>
@@ -250,14 +169,10 @@
                                     <label class="form-label" for="bDay">DAY</label>
                                     </div> 
                                 </div>
-
-                                
-
-
                                 <div class="col-md-3">
                                     <div class="form-floating">
                                         <select class="form-control form-control-lg p-2 pt-3" id="bYear" name="bYear" required>
-                                        
+                                        <option selected disabled>YEAR</option>
                                         <option value="1900">1900</option>
                                         <option value="1901">1901</option>
                                         <option value="1902">1902</option>
@@ -268,10 +183,6 @@
                                         <option value="1907">1907</option>
                                         <option value="1908">1908</option>
                                         <option value="1909">1909</option>
-
-
-
-
                                         <option value="1910">1910</option>
                                         <option value="1911">1911</option>
                                         <option value="1912">1912</option>
@@ -282,11 +193,6 @@
                                         <option value="1917">1917</option>
                                         <option value="1918">1918</option>
                                         <option value="1919">1919</option>
-
-
-                                        
-                                        
-                                        <option value="1920">1920</option>
                                         <option value="1921">1921</option>
                                         <option value="1922">1922</option>
                                         <option value="1923">1923</option>
@@ -296,10 +202,6 @@
                                         <option value="1927">1927</option>
                                         <option value="1928">1928</option>
                                         <option value="1929">1929</option>
-
-
-
-
                                         <option value="1930">1930</option>
                                         <option value="1931">1931</option>
                                         <option value="1932">1932</option>
@@ -310,8 +212,6 @@
                                         <option value="1937">1937</option>
                                         <option value="1938">1938</option>
                                         <option value="1939">1939</option>
-
-
                                         <option value="1940">1940</option>
                                         <option value="1941">1941</option>
                                         <option value="1942">1942</option>
@@ -322,8 +222,6 @@
                                         <option value="1947">1947</option>
                                         <option value="1948">1948</option>
                                         <option value="1949">1949</option>
-
-
                                         <option value="1950">1950</option>
                                         <option value="1951">1951</option>
                                         <option value="1952">1952</option>
@@ -334,9 +232,6 @@
                                         <option value="1957">1957</option>
                                         <option value="1958">1958</option>
                                         <option value="1959">1959</option>
-
-
-
                                         <option value="1960">1960</option>
                                         <option value="1961">1961</option>
                                         <option value="1962">1962</option>
@@ -357,12 +252,6 @@
                                         <option value="1977">1977</option>
                                         <option value="1978">1978</option>
                                         <option value="1979">1979</option>
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
                                         <option value="1980">1980</option>
                                         <option value="1981">1981</option>
                                         <option value="1982">1982</option>
@@ -373,8 +262,6 @@
                                         <option value="1987">1987</option>
                                         <option value="1988">1988</option>
                                         <option value="1989">1989</option>
-
-
                                         <option value="1990">1990</option>
                                         <option value="1991">1991</option>
                                         <option value="1992">1992</option>
@@ -393,13 +280,7 @@
                                     <label class="form-label" for="bYear">YEAR</label>    
                                     </div>
                                 </div>
-
-
-
                             </div>
-
-
-
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -410,10 +291,8 @@
                                 <label for="pob">PLACE OF BIRTH</label>
                             </div>
                         </div>
-
                     </div>
                     <div class="row mb-3">
-
                         <div class="col-md-3">
                             <div class="form-floating">
                                 <select class="form-control form-control-lg p-2 pt-3" id="gender" name="gender" required>
@@ -423,7 +302,6 @@
                                 <label class="form-label" for="gender">GENDER</label>    
                             </div>
                         </div>
-
                         <div class="col-md-3">
                             <div class="form-floating">
                                         <select class="form-control form-control-lg p-2 pt-3" id="cStatus" name="Civil Status" required>
@@ -435,12 +313,8 @@
                                         <label class="form-label" for="cStatus">CIVIL STATUS</label>    
                             </div>
                         </div>
-
                         <div class="col-md-6">
-
-
                             <div class="row">
-
                                 <div class="col-md-6">
                                     <div class="form-floating">
                                         <select class="form-control form-control-lg p-2 pt-3" id="cStatus" name="Civil Status" required>
@@ -459,83 +333,31 @@
                                         <label class="form-label" for="cStatus">IF YES:</label>    
                                     </div>
                                 </div>
-
-
                             </div>
-
-
-
-
-                            
-                                
                         </div>
                     </div>
-
-
-
                     <div class="row mb-3">
-
                         <div class="col-md-6">
-
                             <div class="form-floating">
                                 <input class="form-control form-control-lg" type="text" id="religion" name="religion" placeholder="nationality" required>
                                 <label for="religion">RELIGION/BELIEF</label>
                             </div>
-                            
-
                         </div>
-
                         <div class="col-md-6">
-
-
-
                             <div class="form-floating">
                                 <input class="form-control form-control-lg" type="text" id="nationality" name="nationality" placeholder="nationality" required>
                                 <label for="nationality">NATIONALITY</label>
                             </div>
-
                         </div>
-
                     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     <div class="row mb-5">
                         <div class="col-md-6">
-
-
-
                             <div class="form-floating">
                                 <input class="form-control form-control-lg" type="text" id="occup" name="occup" placeholder="occup" required>
                                 <label for="occup">OCCUPATION</label>
-                            </div>
-
-                            
-
-
-
-                            
+                            </div>    
                         </div>
-
-
-
                         <div class="col-md-6">
-
                             <div class="form-floating">
                                 <select class="form-control form-control-lg p-2 pt-3" id="sector" name="sector" required>
                                 <option value="Private">Private</option>
@@ -553,125 +375,73 @@
                                 </select>
                                 <label class="form-label" for="sector">SECTOR</label>    
                             </div>
-
                         </div>
-
-
-
-
                     </div>
-
-
-
-
                     <div class="row mb-1">
                         <h4>
                             Contact Information
                         </h4>
                     </div>
-
                     <div class="row mb-3">
-
                         <div class="col-md-6">
-
                             <div class="form-floating">
                                 <input class="form-control form-control-lg" rows="3" type="text" id="cityAdd" name="cityAdd" placeholder="cityAdd" required>
                                 <label for="cityAdd">CITY ADDRESS</label>
                             </div>
-
                         </div>
-
-
-
                         <div class="col-md-6">
-
                             <div class="form-floating">
                                 <input class="form-control form-control-lg" rows="3" type="text" id="provAdd" name="provAdd" placeholder="provAdd" required>
                                 <label for="provAdd">PROVINCIAL ADDRESS</label>
                             </div>
-
-
                         </div>
-
                     </div>
-
-
-
                     <div class="row mb-3">
-
                         <div class="col-md-2">
-
                             <div class="form-floating">
                                 <input class="form-control form-control-lg" type="text" id="purok" name="purok" placeholder="purok" required>
                                 <label class="form-label" for="purok">PUROK</label>    
                             </div>
-
                         </div>
-
-
-
                         <div class="col-md-4">
                             <div class="form-floating">
                                 <input class="form-control form-control-lg" type="text" id="email" name="email" placeholder="email" required>
                                 <label class="form-label" for="email">E-MAIL ADDRESS</label>    
                             </div>
                         </div>
-
                         <div class="col-md-3">
                             <div class="form-floating">
                                 <input class="form-control form-control-lg" type="text" id="mNumOne" name="mNumOne" placeholder="mNumOne" required>
                                 <label class="form-label" for="mNumOne">MOBILE NUMBER 1</label>    
                             </div>
-
                         </div>
-
                         <div class="col-md-3">
                             <div class="form-floating">
                                 <input class="form-control form-control-lg" type="text" id="mNumTwo" name="mNumTwo" placeholder="mNumTwo" required>
                                 <label class="form-label" for="mNumTwo">MOBILE NUMBER 2</label>    
                             </div>
-
                         </div>
-
-
                     </div>
-
-
                     <div class="row mb-5">
-
                         <div class="col-md-6">
                             <div class="form-floating">
                                 <input class="form-control form-control-lg" type="text" id="hNumOne" name="hNumOne" placeholder="hNumOne" required>
                                 <label class="form-label" for="hNumOne">HOME NUMBER 1</label>    
                             </div>
                         </div>
-
-
-
                         <div class="col-md-6">
                             <div class="form-floating">
                                 <input class="form-control form-control-lg" type="text" id="hNumTwo" name="hNumTwo" placeholder="hNumTwo" required>
                                 <label class="form-label" for="hNumTwo">HOME NUMBER 2</label>    
                             </div>
-
                         </div>
-
-
                     </div>
-
-
-
                     <div class="row mb-3">
-
                         <h4>
                             Registration Details
                         </h4>
-
                     </div>
-
                     <div class="row mb-3">
-
-
                         <div class="col-md-6">
                             <div class="form-floating">
                                 <select class="form-control form-control-lg p-2 pt-3" id="resType" name="resType" placeholder="resType" required>
@@ -681,9 +451,6 @@
                                 <label class="form-label" for="cStatus">RESIDENT TYPE</label>    
                             </div>
                         </div>
-                        
-
-
                         <div class="col-md-6">
                             <div class="form-floating">
                                 <select class="form-control form-control-lg p-2 pt-3" id="resStat" name="resStat" placeholder="resStat" required>
@@ -693,43 +460,16 @@
                                 </select>
                                 <label class="form-label" for="cStatus">RESIDENT STATUS</label>    
                             </div>
-                        </div>     
-                        
+                        </div>
                     </div>
-
                     <div class="row mb-5">
                         <div class="col-md-12">
                             <button type="submit" name="btnNewResRegister" class="btn btn-primary btn-block btn-large">
                             SAVE NEW RESIDENT</button>
                         </div>
                     </div>
-                    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 </form>
             </div>
-               
-        
-      
-        
-    </section>
-
-  </body>
-    </html>
-<!-- partial -->
-  
-</body>
+        </section>
+    </body>
 </html>
