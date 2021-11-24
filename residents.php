@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Residents List</title>
-		<meta charset="utf-8" />
+    <meta charset="utf-8" />
+		<title>Residents List</title>		
 		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
 		<link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/apple-icon.png">
 		<link rel="icon" type="image/png" sizes="96x96" href="../../assets/img/favicon.png">
@@ -17,7 +17,6 @@
 		<link rel="stylesheet" href="./assets/css/residents.css"/>
 		<link rel="stylesheet" href="./assets/css/main.css">   
 	</head>
-
 	<body>
     <aside class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
       <i class="uil-bars close-aside d-md-none d-lg-none" data-close="show-side-navigation1"></i>
