@@ -76,3 +76,9 @@
     padding: 10px 0 10px 30px;
   }
 }
+
+.headName, .headPlace{
+  font-size: 15px;
+  font-weight: 600;
+
+}

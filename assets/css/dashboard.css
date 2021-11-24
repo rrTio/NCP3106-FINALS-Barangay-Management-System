@@ -5,11 +5,11 @@
 }
 
 .welcome .content {
-	background-color: darkgrey;
+	background-color: #566787;
 }
 
 .welcome p {
-	color: black;
+	color: white;
   font-weight: 500;
 }
 
@@ -18,7 +18,8 @@
 }
 
 .statistics .box {
-	background-color: darkgrey;
+	background-color: #566787;
+	color: white;
 }
 
 .statistics .box i {
@@ -28,7 +29,7 @@
 }
 
 .statistics .box p {
-	color: black;
+	color: white;
 }
 
 ::-webkit-scrollbar {
