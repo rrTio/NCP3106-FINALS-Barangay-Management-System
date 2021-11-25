@@ -20,3 +20,17 @@ section{
     margin-left: 260px;
     margin-top: -20px;
 }
+
+.welcome {
+	color: white;
+    margin-bottom: 25px;
+}
+
+.welcome .content {
+	background-color: #435d7d;
+}
+
+.welcome p {
+	color: white;
+  font-weight: 500;
+}
