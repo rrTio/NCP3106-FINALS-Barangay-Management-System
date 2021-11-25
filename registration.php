@@ -39,8 +39,8 @@
         <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Residents List</a></li>
         <li><i class="fa fa-user-plus sideIcons"></i><a href="registration.php"> Register Resident</a></li>
         <li><i class="fa fa-users sideIcons"></i><a href="view-user.php"> Accounts</a></li>
+        <li><i class="fa fa-plus sideIcons"></i><a href="register-official.php"> Add Personnel</a></li>
         <li><i class="fa fa-file sideIcons"></i><a href="#"> Documents</a></li>
-        <li><i class="fa fa-plus sideIcons"></i><a href="#"> Add Personnel</a></li>
         <li><i class="fa fa-power-off sideIcons"></i><a href="index.php <?php session_abort()?>"> Logout</a></li>
     </ul>
     </aside>

@@ -17,7 +17,7 @@
     <link rel='stylesheet' href='https://unicons.iconscout.com/release/v3.0.6/css/line.css'>
     <link rel="stylesheet" href="./assets/css/registration.css">
     <link rel="stylesheet" href="./assets/css/main.css">
-    <link rel="stylesheet" href="./assets/css/regOfficial.css">
+    <link rel="stylesheet" href="./assets/css/register-official.css">
 </head>
 <body>
     <aside class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
@@ -40,8 +40,8 @@
         <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Residents List</a></li>
         <li><i class="fa fa-user-plus sideIcons"></i><a href="registration.php"> Register Resident</a></li>
         <li><i class="fa fa-users sideIcons"></i><a href="view-user.php"> Accounts</a></li>
+        <li><i class="fa fa-plus sideIcons"></i><a href="register-official.php"> Add Personnel</a></li>
         <li><i class="fa fa-file sideIcons"></i><a href="#"> Documents</a></li>
-        <li><i class="fa fa-plus sideIcons"></i><a href="#"> Add Personnel</a></li>
         <li><i class="fa fa-power-off sideIcons"></i><a href="index.php <?php session_abort()?>"> Logout</a></li>
     </ul>
     </aside>
@@ -51,7 +51,7 @@
                 
                     <div class="row welcome">
                         <div class="content rounded-3 p-3 col-md-12">
-                            <h1>NEW OFFICIAL REGISTRATION FORM</h1>
+                            <h1>New Official Registraton Form</h1>
                         </div>
                     </div>
                     

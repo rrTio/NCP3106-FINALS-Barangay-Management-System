@@ -40,9 +40,9 @@ session_start();
         <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Residents List</a></li>
         <li><i class="fa fa-user-plus sideIcons"></i><a href="registration.php"> Register Resident</a></li>
         <li><i class="fa fa-users sideIcons"></i><a href="view-user.php"> Accounts</a></li>
-        <li><i class="fa fa-file sideIcons"></i><a onclick="alertTester()"> Documents</a></li>
-        <li><i class="fa fa-plus sideIcons"></i><a href="#"> Add Personnel</a></li>
-        <li><i class="fa fa-power-off sideIcons"></i><a href="index.php <?php session_abort()?>"> Logout</a></li>
+        <li><i class="fa fa-plus sideIcons"></i><a href="register-official.php"> Add Personnel</a></li>
+        <li><i class="fa fa-file sideIcons"></i><a href="#"> Documents</a></li>
+        <li><i class="fa fa-power-off sideIcons"></i><a href="index.php" onclick="<?php session_destroy()?>"> Logout</a></li>
     </ul>
     </aside>
     <section>
@@ -50,7 +50,7 @@ session_start();
         <div class="welcome">
           <div class="content rounded-3 p-3">
             <h1 class="fs-3">Welcome to Dashboard</h1>
-            <p class="mb-0">Hello [ADMIN NAME] of [PUROK HERE]</p>
+            <p class="mb-0">Hello <?php echo $_SESSION['name']?> of <?php echo $_SESSION['purok']?></p>
           </div>
         </div>
         <section class="statistics mt-4">
