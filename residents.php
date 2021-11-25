@@ -30,9 +30,9 @@
             alt="">
         <div class="ms-2">
             <h5 class="fs-6 mb-0">
-                <a class="text-decoration-none headName" href="#"> &nbsp; [ADMIN NAME]</a>
+                <a class="text-decoration-none headName" href="#"> &nbsp; <?php echo $_SESSION['name']?></a>
             </h5>
-            <p class="mt-1 mb-0 headPlace"> &nbsp; [PUROK HERE]</p>
+            <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $_SESSION['purok']?></p>
         </div>
     </div>
     <ul class="categories list-unstyled">
@@ -42,7 +42,7 @@
         <li><i class="fa fa-users sideIcons"></i><a href="view-user.php"> Accounts</a></li>
         <li><i class="fa fa-file sideIcons"></i><a href="#"> Documents</a></li>
         <li><i class="fa fa-plus sideIcons"></i><a href="#"> Add Personnel</a></li>
-        <li><i class="fa fa-power-off sideIcons"></i><a href="#"> Logout</a></li>
+        <li><i class="fa fa-power-off sideIcons"></i><a href="index.php <?php session_abort()?>"> Logout</a></li>
     </ul>
     </aside>
 

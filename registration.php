@@ -1,7 +1,5 @@
 <?php
-    include_once('./database/database.php');
-    session_start();
-    $purok = $_SESSION['sample'];
+    session_start(); 
 ?>
 
 <!DOCTYPE html>
@@ -31,9 +29,9 @@
             alt="">
         <div class="ms-2">
             <h5 class="fs-6 mb-0">
-                <a class="text-decoration-none headName" href="#"> &nbsp; [ADMIN NAME]</a>
+                <a class="text-decoration-none headName" href="#"> &nbsp; <?php echo $_SESSION['name']?></a>
             </h5>
-            <p class="mt-1 mb-0 headPlace"> &nbsp; [PUROK HERE]</p>
+            <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $_SESSION['purok']?></p>
         </div>
     </div>
     <ul class="categories list-unstyled">
@@ -43,7 +41,7 @@
         <li><i class="fa fa-users sideIcons"></i><a href="view-user.php"> Accounts</a></li>
         <li><i class="fa fa-file sideIcons"></i><a href="#"> Documents</a></li>
         <li><i class="fa fa-plus sideIcons"></i><a href="#"> Add Personnel</a></li>
-        <li><i class="fa fa-power-off sideIcons"></i><a href="#"> Logout</a></li>
+        <li><i class="fa fa-power-off sideIcons"></i><a href="index.php <?php session_abort()?>"> Logout</a></li>
     </ul>
     </aside>
     <section>
@@ -311,7 +309,7 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-floating">
-                                        <select class="form-control form-control-lg p-2 pt-3" id="cStatus" name="Civil Status" required>
+                                        <select class="form-control form-control-lg p-2 pt-3" id="cStatus" name="cStatus" required>
                                         <option value="Single">Single</option>
                                         <option value="Married">Married</option>
                                         <option value="Widowed">Widowed</option>
@@ -324,11 +322,11 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <select class="form-control form-control-lg p-2 pt-3" id="cStatus" name="Civil Status" required>
+                                        <select class="form-control form-control-lg p-2 pt-3" id="vStatus" name="vStatus" required>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
                                         </select>
-                                        <label class="form-label" for="cStatus">VOTER'S STATUS</label>    
+                                        <label class="form-label" for="vStatus">VOTER'S STATUS</label>    
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -360,8 +358,8 @@
                     <div class="row mb-5">
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="occup" name="occup" placeholder="occup" required>
-                                <label for="occup">OCCUPATION</label>
+                                <input class="form-control form-control-lg" type="text" id="occupation" name="occupation" placeholder="occup" required>
+                                <label for="occupation">OCCUPATION</label>
                             </div>    
                         </div>
                         <div class="col-md-6">
@@ -406,7 +404,7 @@
                     <div class="row mb-3">
                         <div class="col-md-2">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="purok" name="purok" placeholder="<?php echo $purok;?>" value="<?php echo $purok;?>" disabled>
+                                <input class="form-control form-control-lg" type="text" id="purok" name="purok" placeholder="Purok" value="<?php echo $_SESSION['purok']?>" disabled>
                                 <label class="form-label" for="purok">PUROK</label>    
                             </div>
                         </div>
@@ -451,7 +449,8 @@
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <select class="form-control form-control-lg p-2 pt-3" id="resType" name="resType" placeholder="resType" required>
+                                <select class="form-control form-control-lg p-2 pt-3" id="resType" name="resType" required>
+                                <option selected disabled>TYPE</option>
                                 <option value="native">Native</option>
                                 <option value="rentee">Rentee</option>
                                 </select>
@@ -460,7 +459,8 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <select class="form-control form-control-lg p-2 pt-3" id="resStat" name="resStat" placeholder="resStat" required>
+                                <select class="form-control form-control-lg p-2 pt-3" id="resStat" name="resStat" required>
+                                <option selected disabled>STATUS</option>
                                 <option value="active">ACTIVE</option>
                                 <option value="inactive">INACTIVE</option>
                                 <option value="deceased">DECEASED</option>
