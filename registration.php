@@ -471,8 +471,7 @@
                     </div>
                     <div class="row mb-5">
                         <div class="col-md-12">
-                            <button type="submit" name="btnNewResRegister" class="btn btn-primary btn-block btn-large">
-                            SAVE NEW RESIDENT</button>
+                            <button type="submit" name="btnRegisterResident" class="btn btn-primary btn-block btn-large">SAVE NEW RESIDENT</button>
                         </div>
                     </div>
                 </form>
