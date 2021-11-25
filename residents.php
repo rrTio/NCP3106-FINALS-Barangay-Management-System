@@ -52,7 +52,6 @@ session_start();
           <li><i class="fa fa-power-off sideIcons"></i><a href="index.php <?php session_abort()?>"> Logout</a></li>
       </ul>
     </aside>
-
     <section>
       <div class="container">
         <div class="table-wrapper">
@@ -135,14 +134,22 @@ session_start();
       <div id="editEmployeeModal" class="modal fade">
         <div class="modal-dialog">
           <div class="modal-content">
-            <form>
+            <form action="./database/database.php" method="POST">
               <div class="modal-header">
                 <h4 class="modal-title">Edit Resident Information</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
               </div>
               <div class="modal-body">
                 <div class="form-group">
-                  <label>Name</label>
+                  <label>First Name</label>
+                  <input type="text" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label>Middle Name</label>
+                  <input type="text" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label>Last Name</label>
                   <input type="text" class="form-control" required>
                 </div>
                 <div class="form-group">

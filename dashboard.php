@@ -17,6 +17,7 @@ session_start();
     <link rel='stylesheet' href='https://unicons.iconscout.com/release/v3.0.6/css/line.css'>
     <link rel="stylesheet" href="./assets/css/dashboard.css">
     <link rel="stylesheet" href="./assets/css/main.css">
+    <script type="text/javascript" src="./assets/js/dashboard.js"></script>
   </head>
   <body>
     <aside class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
@@ -39,7 +40,7 @@ session_start();
         <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Residents List</a></li>
         <li><i class="fa fa-user-plus sideIcons"></i><a href="registration.php"> Register Resident</a></li>
         <li><i class="fa fa-users sideIcons"></i><a href="view-user.php"> Accounts</a></li>
-        <li><i class="fa fa-file sideIcons"></i><a href="#"> Documents</a></li>
+        <li><i class="fa fa-file sideIcons"></i><a onclick="alertTester()"> Documents</a></li>
         <li><i class="fa fa-plus sideIcons"></i><a href="#"> Add Personnel</a></li>
         <li><i class="fa fa-power-off sideIcons"></i><a href="index.php <?php session_abort()?>"> Logout</a></li>
     </ul>
@@ -52,7 +53,6 @@ session_start();
             <p class="mb-0">Hello [ADMIN NAME] of [PUROK HERE]</p>
           </div>
         </div>
-
         <section class="statistics mt-4">
           <div class="row">
             <div class="col-lg-4">

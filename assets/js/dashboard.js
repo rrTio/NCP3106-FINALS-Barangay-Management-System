@@ -84,9 +84,6 @@ $(".sidebar .close-aside").addEventListener("click", function () {
   wrapper.classList.remove("margin");
 });
 
-<<<<<<< HEAD
-//window.addEventListener("wheel", (e) => e.preventDefault(), { passive: false });
-=======
 // Global defaults
 Chart.defaults.global.animation.duration = 2000; // Animation duration
 Chart.defaults.global.title.display = false; // Remove title
@@ -301,4 +298,8 @@ var myChart = new Chart(chart, {
     },
   },
 });
->>>>>>> f67b88812e254742db6c4a112dd60d768f51de5a
+
+var test = "<?php echo $_SESSION['purok']";
+function alertTester() { 
+  alert(test);
+}

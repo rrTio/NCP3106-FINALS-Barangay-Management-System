@@ -68,7 +68,7 @@
                                     <i class="fa fa-file sideIcon">&nbsp;BROWSE</i></button>
                                 </div>
                                 <div class="col-md-6 p-1">
-                                    <button name="btnCamera" class="btn btn-primary btn-block btn-medium">
+                                    <button name="btnCamera" type="file" class="btn btn-primary btn-block btn-medium">
                                     <i class="fa fa-camera sideIcon">&nbsp;CAMERA</i></button>
                                 </div>
                             </div>                     
