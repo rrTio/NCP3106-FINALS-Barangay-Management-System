@@ -6,13 +6,16 @@ $DB_PASSWORD = '';
 $DB_NAME = '';
 $conn = mysqli_connect($DB_SERVER, $DB_USERNAME, $DB_PASSWORD, $DB_NAME);
 
+//CREATION OF DATABASE
 $createDB = "CREATE DATABASE ncp3106finals";
 if(mysqli_query($conn, $createDB)){}
 else{}
 
+//CONNECTING TO CREATED DATABASE
 mysqli_select_db($conn, "ncp3106finals");
 if(!$conn){die("mysqli_connect_error()");}
 
+//QUERIES FOR CREATING TABLE AND COLUMNS
 $createResidentTable = "CREATE TABLE IF NOT EXISTS `residents`(
 	`residentID` VARCHAR(16),
 	`nameFirst` TEXT,
@@ -59,14 +62,11 @@ $createOfficialsTable = "CREATE TABLE IF NOT EXISTS `officials`(
 	`birthYear` VARCHAR(2),
 	`civilStatus` VARCHAR(2),
 	`gender` TEXT,
-	`religion` TEXT
+	`religion` TEXT,
 	`nationality` TEXT
 );";
 
-if(mysqli_query($conn, $createResidentTable)){echo "Table creation success <br>";}
+//EXECUTION FOR CREATING TABLE AND COLUMNS
+if(mysqli_query($conn, $createResidentTable) && mysqli_query($conn, $createOfficialsTable)){echo "Table creation success <br>";}
 else{echo "Error creating table: " . mysqli_error($conn). "<br>";}
-
-if(mysqli_query($conn, $createOfficialsTable)){echo "Table creation success <br>";}
-else{echo "Error creating table: " . mysqli_error($conn). "<br>";}
-
 ?>
