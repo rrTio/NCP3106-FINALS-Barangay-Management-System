@@ -1,9 +1,13 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en" >
 
   <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
+    <link rel="icon" href="./assets/images/logo.png">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"/>
@@ -25,9 +29,9 @@
             alt="">
         <div class="ms-2">
             <h5 class="fs-6 mb-0">
-                <a class="text-decoration-none headName" href="#"> &nbsp; [ADMIN NAME]</a>
+                <a class="text-decoration-none headName" href="#"> &nbsp; <?php echo $_SESSION['name']?></a>
             </h5>
-            <p class="mt-1 mb-0 headPlace"> &nbsp; [PUROK HERE]</p>
+            <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $_SESSION['purok']?></p>
         </div>
     </div>
     <ul class="categories list-unstyled">
@@ -37,7 +41,7 @@
         <li><i class="fa fa-users sideIcons"></i><a href="view-user.php"> Accounts</a></li>
         <li><i class="fa fa-file sideIcons"></i><a href="#"> Documents</a></li>
         <li><i class="fa fa-plus sideIcons"></i><a href="#"> Add Personnel</a></li>
-        <li><i class="fa fa-power-off sideIcons"></i><a href="#"> Logout</a></li>
+        <li><i class="fa fa-power-off sideIcons"></i><a href="index.php <?php session_abort()?>"> Logout</a></li>
     </ul>
     </aside>
     <section>
@@ -48,6 +52,7 @@
             <p class="mb-0">Hello [ADMIN NAME] of [PUROK HERE]</p>
           </div>
         </div>
+
         <section class="statistics mt-4">
           <div class="row">
             <div class="col-lg-4">
@@ -89,4 +94,3 @@
     </section>
   </body>
 </html>
-
