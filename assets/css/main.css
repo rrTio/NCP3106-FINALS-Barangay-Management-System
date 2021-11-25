@@ -43,6 +43,11 @@
   padding: 0.7rem 1.75rem;
 }
 
+.sidebar > ul > li:hover {
+  background-color: black;
+  padding: 0.7rem 1.75rem;
+}
+
 .sidebar ul > li > a {
   color: white;
   text-decoration: none;

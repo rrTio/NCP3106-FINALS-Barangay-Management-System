@@ -1,8 +1,15 @@
+<?php
+    include_once('./database/database.php');
+    session_start();
+    $purok = $_SESSION['sample'];
+?>
+
 <!DOCTYPE html>
 <html lang="en" >
 <head>
     <meta charset="UTF-8">
     <title>Register Resident</title>  
+    <link rel="icon" href="./assets/images/logo.png">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"/>
@@ -399,7 +406,7 @@
                     <div class="row mb-3">
                         <div class="col-md-2">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="purok" name="purok" placeholder="purok" required>
+                                <input class="form-control form-control-lg" type="text" id="purok" name="purok" placeholder="<?php echo $purok;?>" value="<?php echo $purok;?>" disabled>
                                 <label class="form-label" for="purok">PUROK</label>    
                             </div>
                         </div>
