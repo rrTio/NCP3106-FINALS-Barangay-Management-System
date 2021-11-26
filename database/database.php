@@ -43,6 +43,12 @@ if(isset($_POST['btnRegisterResident'])){
     $houseNumberA = $_POST['hNumOne'];
     $houseNumberB = $_POST['hNumTwo'];
     $residentType = $_POST['resType'];
-    $residetnStatus = $_POST['resStat'];
+    $residentStatus = $_POST['resStat'];
+    $residentID = 283982481278134;
+
+    $insertToResident = "INSTER INTO residents (residentID, nameFirst, nameMiddle, nameLast, nameAlias, birthMonth, birthDay, birthYear, placeOB, gender, civilStatus, voterStatus, ifActive, religion, nationality, occupation, sector, cityAddress, provAddress, purok, email, mobileNumberA, mobileNumberB, homeNumberA, homeNumberB, residentType, residentStatus)
+        VALUES ('$residentID','$firstName', '$middleName', '$lastName', '$alias', '$birthMonth', );";
+    mysqli_query($conn, $insertToResident);
+    header("Location: ../registration.php");
 }
 ?>

@@ -17,6 +17,7 @@
     <link rel='stylesheet' href='https://unicons.iconscout.com/release/v3.0.6/css/line.css'>
     <link rel="stylesheet" href="./assets/css/registration.css">
     <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/register-official.css">
 </head>
 <body>
     <aside class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
@@ -47,13 +48,13 @@
     <section>
             <div class="container mt-5">
                 <form name="residents" method="POST" action="./database/database.php">
-                    <div class="row welcome mb-2">
+                
+                    <div class="row welcome">
                         <div class="content rounded-3 p-3 col-md-12">
-                            <h1>
-                                New Resident Registration Form
-                            </h1>
+                            <h1>New Official Registraton Form</h1>
                         </div>
                     </div>
+                    
                     <div class="row mb-2">
                         <h4>
                             Basic Information
@@ -70,7 +71,7 @@
                                     <i class="fa fa-file sideIcon">&nbsp;BROWSE</i></button>
                                 </div>
                                 <div class="col-md-6 p-1">
-                                    <button name="btnCamera" type="file" class="btn btn-primary btn-block btn-medium">
+                                    <button name="btnCamera" class="btn btn-primary btn-block btn-medium">
                                     <i class="fa fa-camera sideIcon">&nbsp;CAMERA</i></button>
                                 </div>
                             </div>                     
@@ -322,68 +323,22 @@
                         </div>
                         <div class="col-md-6">
                             <div class="row">
-                                <div class="col-md-6">
+                                
+                                <div class="col-md-12">
                                     <div class="form-floating">
-                                        <select class="form-control form-control-lg p-2 pt-3" id="vStatus" name="vStatus" required>
-                                        <option value="Yes">Yes</option>
-                                        <option value="No">No</option>
+                                    <select class="form-control form-control-lg p-2 pt-3" id="brgyPosition" name="brgyPosition" required>  
+                                        <option value="Barangay Captain">Barangay Captain</option>
+                                        <option value="Kagawad">Kagawad</option>
                                         </select>
-                                        <label class="form-label" for="vStatus">VOTER'S STATUS</label>    
-                                    </div>
+                                        <label class="form-label" for="cStatus">POSITION</label>
+                                    </div>    
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <select class="form-control form-control-lg p-2 pt-3" id="voteActive" name="voteActive" required>
-                                        <option value="active">ACTIVE</option>
-                                        <option value="inactive">INACTIVE</option>
-                                        </select>
-                                        <label class="form-label" for="cStatus">IF YES:</label>    
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="religion" name="religion" placeholder="nationality" required>
-                                <label for="religion">RELIGION/BELIEF</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="nationality" name="nationality" placeholder="nationality" required>
-                                <label for="nationality">NATIONALITY</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mb-5">
-                        <div class="col-md-6">
-                            <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="occupation" name="occupation" placeholder="occup" required>
-                                <label for="occupation">OCCUPATION</label>
-                            </div>    
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-floating">
-                                <select class="form-control form-control-lg p-2 pt-3" id="sector" name="sector" required>
-                                <option value="Private">Private</option>
-                                <option value="Public">Public</option>
-                                <option value="Government">Government</option>
-                                <option value="Unemployed">Unemployed</option>
-                                <option value="OSY">Out of School Youth(OSY)</option>
-                                <option value="OSC">Out of Children(OSY)</option>
-                                <option value="PWD">Person with Disability(PWD)</option>
-                                <option value="SC">Senior Citizen(SC)</option>
-                                <option value="OFW">Overseas Filipino Worker(OFW)</option>
-                                <option value="SP">Solo Parent</option>
-                                <option value="Indigenous">Indigenous</option>
-                                <option value="Others">Others</option>
-                                </select>
-                                <label class="form-label" for="sector">SECTOR</label>    
-                            </div>
-                        </div>
-                    </div>
+                    
+                   
                     <div class="row mb-1">
                         <h4>
                             Contact Information
@@ -406,7 +361,7 @@
                     <div class="row mb-3">
                         <div class="col-md-2">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="purok" name="purok" placeholder="Purok" value="<?php echo $_SESSION['purok']?>" disabled>
+                                <input class="form-control form-control-lg" type="text" id="purok" name="purok" placeholder="Purok" >
                                 <label class="form-label" for="purok">PUROK</label>    
                             </div>
                         </div>
@@ -443,37 +398,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-3">
-                        <h4>
-                            Registration Details
-                        </h4>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <div class="form-floating">
-                                <select class="form-control form-control-lg p-2 pt-3" id="resType" name="resType" required>
-                                <option selected disabled>TYPE</option>
-                                <option value="native">Native</option>
-                                <option value="rentee">Rentee</option>
-                                </select>
-                                <label class="form-label" for="cStatus">RESIDENT TYPE</label>    
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-floating">
-                                <select class="form-control form-control-lg p-2 pt-3" id="resStat" name="resStat" required>
-                                <option selected disabled>STATUS</option>
-                                <option value="active">ACTIVE</option>
-                                <option value="inactive">INACTIVE</option>
-                                <option value="deceased">DECEASED</option>
-                                </select>
-                                <label class="form-label" for="cStatus">RESIDENT STATUS</label>    
-                            </div>
-                        </div>
-                    </div>
+                    
                     <div class="row mb-5">
                         <div class="col-md-12">
-                            <button type="submit" name="btnRegisterResident" class="btn btn-primary btn-block btn-large">SAVE NEW RESIDENT</button>
+                            <button type="submit" name="btnRegisterResident" class="btn btn-primary btn-block btn-large">ADD NEW OFFICIAL</button>
                         </div>
                     </div>
                 </form>

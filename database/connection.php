@@ -53,8 +53,7 @@ $createOfficialsTable = "CREATE TABLE IF NOT EXISTS `officials`(
 	`nameAlias` TEXT,
 	`email` TEXT,
 	`contactNumber` VARCHAR(11),
-	`cityAddress` TEXT,
-	`provAddress` TEXT,
+	`address` TEXT,
 	`purok` TEXT,
 	`position` TEXT,
 	`birthMonth` VARCHAR(2),
@@ -62,7 +61,6 @@ $createOfficialsTable = "CREATE TABLE IF NOT EXISTS `officials`(
 	`birthYear` VARCHAR(2),
 	`civilStatus` VARCHAR(2),
 	`gender` TEXT,
-	`religion` TEXT,
 	`nationality` TEXT
 );";
 
