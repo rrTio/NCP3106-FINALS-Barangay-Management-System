@@ -2,16 +2,13 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <title>Residents List</title>
-<<<<<<< HEAD
   <meta charset="utf-8" />
+  <link rel="icon" href="./assets/images/logo.png">
   <link rel="stylesheet" href="./assets/css/main.css">
   <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css'>
   <link rel='stylesheet' href='https://unicons.iconscout.com/release/v3.0.6/css/line.css'>
-=======
-  <link rel="icon" href="./assets/images/logo.png">
->>>>>>> 21454a779259148cd63c0b37b8b60365e7d7e8c1
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
   <link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" sizes="96x96" href="../../assets/img/favicon.png">
@@ -28,7 +25,6 @@
 
 <body>
   <aside class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
-<<<<<<< HEAD
     <i class="uil-bars close-aside d-md-none d-lg-none" data-close="show-side-navigation1"></i>
     <div class="sidebar-header d-flex justify-content-center align-items-center px-3 py-4">
       <img class="rounded-pill img-fluid" width="65" src="https://uniim1.shutterfly.com/ng/services/mediarender/THISLIFE/021036514417/media/23148907008/medium/1501685726/enhance" alt="">
@@ -47,31 +43,25 @@
       <li><i class="fa fa-file sideIcons"></i><a href="#"> Documents</a></li>
       <li><i class="fa fa-plus sideIcons"></i><a href="#"> Add Personnel</a></li>
       <li><i class="fa fa-power-off sideIcons"></i><a href="#"> Logout</a></li>
-=======
-        <i class="uil-bars close-aside d-md-none d-lg-none" data-close="show-side-navigation1"></i>
-        <div class="sidebar-header d-flex justify-content-center align-items-center px-3 py-4">
-        <img
-            class="rounded-pill img-fluid"
-            width="65"
-            src="https://uniim1.shutterfly.com/ng/services/mediarender/THISLIFE/021036514417/media/23148907008/medium/1501685726/enhance"
-            alt="">
+      <i class="uil-bars close-aside d-md-none d-lg-none" data-close="show-side-navigation1"></i>
+      <div class="sidebar-header d-flex justify-content-center align-items-center px-3 py-4">
+        <img class="rounded-pill img-fluid" width="65" src="https://uniim1.shutterfly.com/ng/services/mediarender/THISLIFE/021036514417/media/23148907008/medium/1501685726/enhance" alt="">
         <div class="ms-2">
-            <h5 class="fs-6 mb-0">
-                <a class="text-decoration-none headName" href="#"> &nbsp; <?php echo $_SESSION['name']?></a>
-            </h5>
-            <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $_SESSION['purok']?></p>
+          <h5 class="fs-6 mb-0">
+            <a class="text-decoration-none headName" href="#"> &nbsp; <?php echo $_SESSION['name'] ?></a>
+          </h5>
+          <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $_SESSION['purok'] ?></p>
         </div>
-    </div>
-    <ul class="categories list-unstyled">
+      </div>
+      <ul class="categories list-unstyled">
         <li><i class="fa fa-home sideIcons"></i><a href="dashboard.php"> Dashboard</a></li>
         <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Residents List</a></li>
         <li><i class="fa fa-user-plus sideIcons"></i><a href="registration.php"> Register Resident</a></li>
         <li><i class="fa fa-users sideIcons"></i><a href="view-user.php"> Accounts</a></li>
         <li><i class="fa fa-file sideIcons"></i><a href="#"> Documents</a></li>
         <li><i class="fa fa-plus sideIcons"></i><a href="#"> Add Personnel</a></li>
-        <li><i class="fa fa-power-off sideIcons"></i><a href="index.php <?php session_abort()?>"> Logout</a></li>
->>>>>>> 21454a779259148cd63c0b37b8b60365e7d7e8c1
-    </ul>
+        <li><i class="fa fa-power-off sideIcons"></i><a href="index.php <?php session_abort() ?>"> Logout</a></li>
+      </ul>
   </aside>
 
   <section>
