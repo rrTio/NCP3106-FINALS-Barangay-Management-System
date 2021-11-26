@@ -8,7 +8,6 @@
 <head>
   <meta charset="UTF-8" />
   <title>Residents List</title>
-  <meta charset="utf-8" />
   <link rel="icon" href="./assets/images/logo.png">
   <link rel="stylesheet" href="./assets/css/main.css">
   <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css'>

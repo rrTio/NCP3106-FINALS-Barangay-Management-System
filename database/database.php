@@ -16,7 +16,7 @@ if(isset($_POST['btnLogin'])){
         $_SESSION['name'] = $name;
         $_SESSION['purok'] = $purok;
         $_SESSION['position'] = $position;
-        header("Location: ../register-official.php");
+        header("Location: ../registerOfficial.php");
     }
 
     elseif(mysqli_num_rows($login) == 1){

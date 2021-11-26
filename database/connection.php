@@ -68,6 +68,6 @@ $createOfficialsTable = "CREATE TABLE IF NOT EXISTS `officials`(
 );";
 
 //EXECUTION FOR CREATING TABLE AND COLUMNS
-if(mysqli_query($conn, $createResidentTable) && mysqli_query($conn, $createOfficialsTable)){echo "Table creation success <br>";}
+if(mysqli_query($conn, $createResidentTable)){}
+if(mysqli_query($conn, $createOfficialsTable)){}
 else{echo "Error creating table: " . mysqli_error($conn). "<br>";}
-?>

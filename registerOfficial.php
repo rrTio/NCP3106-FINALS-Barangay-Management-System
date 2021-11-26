@@ -18,7 +18,7 @@
     <link rel='stylesheet' href='https://unicons.iconscout.com/release/v3.0.6/css/line.css'>
     <link rel="stylesheet" href="./assets/css/registration.css">
     <link rel="stylesheet" href="./assets/css/main.css">
-    <link rel="stylesheet" href="./assets/css/register-official.css">
+    <link rel="stylesheet" href="./assets/css/registerOfficial.css">
 </head>
 <body>
     <aside class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
