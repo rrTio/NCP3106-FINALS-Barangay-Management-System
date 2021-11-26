@@ -1,17 +1,18 @@
 <?php
-session_start();
+  session_start();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <title>Residents List</title>
+  <meta charset="utf-8" />
+  <link rel="icon" href="./assets/images/logo.png">
   <link rel="stylesheet" href="./assets/css/main.css">
   <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css'>
   <link rel='stylesheet' href='https://unicons.iconscout.com/release/v3.0.6/css/line.css'>
-  <link rel="icon" href="./assets/images/logo.png">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
   <link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" sizes="96x96" href="../../assets/img/favicon.png">
@@ -24,10 +25,11 @@ session_start();
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
   <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="./assets/css/residents.css" />
+  <script src="./assets/js/residents.js" type="text/javascript"></script>
 </head>
 
-  <body>
-    <aside class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
+<body>
+  <aside class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
         <i class="uil-bars close-aside d-md-none d-lg-none" data-close="show-side-navigation1"></i>
         <div class="sidebar-header d-flex justify-content-center align-items-center px-3 py-4">
         <img
@@ -39,18 +41,19 @@ session_start();
             <h5 class="fs-6 mb-0">
                 <a class="text-decoration-none headName" href="#"> &nbsp; <?php echo $_SESSION['name']?></a>
             </h5>
+            <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $_SESSION['position']?></p>
             <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $_SESSION['purok']?></p>
         </div>
-    </div>
-    <ul class="categories list-unstyled">
-        <li><i class="fa fa-home sideIcons"></i><a href="dashboard.php"> Dashboard</a></li>
-        <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Residents List</a></li>
-        <li><i class="fa fa-user-plus sideIcons"></i><a href="registration.php"> Register Resident</a></li>
-        <li><i class="fa fa-users sideIcons"></i><a href="view-user.php"> Accounts</a></li>
-        <li><i class="fa fa-plus sideIcons"></i><a href="register-official.php"> Add Personnel</a></li>
-        <li><i class="fa fa-file sideIcons"></i><a href="#"> Documents</a></li>
-        <li><i class="fa fa-power-off sideIcons"></i><a href="index.php"> Logout</a></li>
-    </ul>
+      </div>
+      <ul class="categories list-unstyled">
+          <li><i class="fa fa-home sideIcons"></i><a href="dashboard.php"> Dashboard</a></li>
+          <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Residents List</a></li>
+          <li><i class="fa fa-user-plus sideIcons"></i><a href="registration.php"> Register Resident</a></li>
+          <li><i class="fa fa-users sideIcons"></i><a href="viewUser.php"> Accounts</a></li>
+          <li><i class="fa fa-plus sideIcons"></i><a href="register-official.php"> Add Personnel</a></li>
+          <li><i class="fa fa-file sideIcons"></i><a href="#"> Documents</a></li>
+          <li><i class="fa fa-power-off sideIcons"></i><a href="index.php"> Logout</a></li>
+      </ul>
     </aside>
     <section>
       <div class="container">
@@ -69,6 +72,7 @@ session_start();
           <table class="table table-striped table-hover">
             <thead>
               <tr>
+                <th data-field="view"></th>
                 <th data-field="resID">Resident's ID</th>
                 <th data-field="lName" data-sortable="true">Last Name</th>
                 <th data-field="fName" data-sortable="true">First Name</th>
@@ -80,6 +84,7 @@ session_start();
             </thead>
             <tbody>
               <tr>
+                <td><button class="btn rounded-3 btn-primary border-3" onClick="return openResidents()">View</button></td>
                 <td>2018-0213</td>
                 <td>Jadoon</td>
                 <td>Naix</td>
