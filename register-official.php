@@ -1,5 +1,6 @@
 <?php
-    session_start(); 
+    include_once('./database/database.php');
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -21,36 +22,37 @@
 </head>
 <body>
     <aside class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
-        <i class="uil-bars close-aside d-md-none d-lg-none" data-close="show-side-navigation1"></i>
-        <div class="sidebar-header d-flex justify-content-center align-items-center px-3 py-4">
-        <img
-            class="rounded-pill img-fluid"
-            width="65"
-            src="https://uniim1.shutterfly.com/ng/services/mediarender/THISLIFE/021036514417/media/23148907008/medium/1501685726/enhance"
-            alt="">
-        <div class="ms-2">
+            <i class="uil-bars close-aside d-md-none d-lg-none" data-close="show-side-navigation1"></i>
+            <div class="sidebar-header d-flex justify-content-center align-items-center px-3 py-4">
+                <img
+                    class="rounded-pill img-fluid"
+                    width="65"
+                    src="https://uniim1.shutterfly.com/ng/services/mediarender/THISLIFE/021036514417/media/23148907008/medium/1501685726/enhance"
+                    alt="">
+                <div class="ms-2">
             <h5 class="fs-6 mb-0">
                 <a class="text-decoration-none headName" href="#"> &nbsp; <?php echo $_SESSION['name']?></a>
             </h5>
+            <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $_SESSION['position']?></p>
             <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $_SESSION['purok']?></p>
         </div>
-    </div>
-    <ul class="categories list-unstyled">
-        <li><i class="fa fa-home sideIcons"></i><a href="dashboard.php"> Dashboard</a></li>
-        <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Residents List</a></li>
-        <li><i class="fa fa-user-plus sideIcons"></i><a href="registration.php"> Register Resident</a></li>
-        <li><i class="fa fa-users sideIcons"></i><a href="view-user.php"> Accounts</a></li>
-        <li><i class="fa fa-plus sideIcons"></i><a href="register-official.php"> Add Personnel</a></li>
-        <li><i class="fa fa-file sideIcons"></i><a href="#"> Documents</a></li>
-        <li><i class="fa fa-power-off sideIcons"></i><a href="index.php <?php session_abort()?>"> Logout</a></li>
-    </ul>
+        </div>
+        <ul class="categories list-unstyled">
+            <li><i class="fa fa-home sideIcons"></i><a href="dashboard.php"> Dashboard</a></li>
+            <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Residents List</a></li>
+            <li><i class="fa fa-user-plus sideIcons"></i><a href="registration.php"> Register Resident</a></li>
+            <li><i class="fa fa-users sideIcons"></i><a href="view-user.php"> Accounts</a></li>
+            <li><i class="fa fa-plus sideIcons"></i><a href="register-official.php"> Add Personnel</a></li>
+            <li><i class="fa fa-file sideIcons"></i><a href="#"> Documents</a></li>
+            <li><i class="fa fa-power-off sideIcons"></i><a href="index.php"> Logout</a></li>
+        </ul>
     </aside>
     <section>
             <div class="container mt-5">
                 <form name="residents" method="POST" action="./database/database.php">
                 
                     <div class="row welcome">
-                        <div class="content rounded-3 p-3 col-md-12">
+                        <div class="content rounded-3 p-3">
                             <h1>New Official Registraton Form</h1>
                         </div>
                     </div>
@@ -333,12 +335,9 @@
                                         <label class="form-label" for="cStatus">POSITION</label>
                                     </div>    
                                 </div>
-
                             </div>
                         </div>
                     </div>
-                    
-                   
                     <div class="row mb-1">
                         <h4>
                             Contact Information

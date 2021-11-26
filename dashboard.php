@@ -1,5 +1,5 @@
 <?php
-session_start();
+  session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en" >
@@ -32,6 +32,7 @@ session_start();
             <h5 class="fs-6 mb-0">
                 <a class="text-decoration-none headName" href="#"> &nbsp; <?php echo $_SESSION['name']?></a>
             </h5>
+            <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $_SESSION['position']?></p>
             <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $_SESSION['purok']?></p>
         </div>
     </div>
@@ -42,7 +43,7 @@ session_start();
         <li><i class="fa fa-users sideIcons"></i><a href="view-user.php"> Accounts</a></li>
         <li><i class="fa fa-plus sideIcons"></i><a href="register-official.php"> Add Personnel</a></li>
         <li><i class="fa fa-file sideIcons"></i><a href="#"> Documents</a></li>
-        <li><i class="fa fa-power-off sideIcons"></i><a href="index.php" onclick="<?php session_destroy()?>"> Logout</a></li>
+        <li><i class="fa fa-power-off sideIcons"></i><a href="index.php"> Logout</a></li>
     </ul>
     </aside>
     <section>
@@ -50,7 +51,7 @@ session_start();
         <div class="welcome">
           <div class="content rounded-3 p-3">
             <h1 class="fs-3">Welcome to Dashboard</h1>
-            <p class="mb-0">Hello <?php echo $_SESSION['name']?> of <?php echo $_SESSION['purok']?></p>
+            <p class="mb-0">Hello <?php echo $_SESSION['position'] . " " . $_SESSION['name']?> of <?php echo $_SESSION['purok']?></p>
           </div>
         </div>
         <section class="statistics mt-4">

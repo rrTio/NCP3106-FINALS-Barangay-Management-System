@@ -1,10 +1,12 @@
 .welcome {
 	color: white;
     margin-bottom: 25px;
+	
 }
 
 .welcome .content {
 	background-color: #435d7d;
+	margin-top: -30px;
 }
 
 .welcome p {

@@ -49,7 +49,7 @@ session_start();
         <li><i class="fa fa-users sideIcons"></i><a href="view-user.php"> Accounts</a></li>
         <li><i class="fa fa-plus sideIcons"></i><a href="register-official.php"> Add Personnel</a></li>
         <li><i class="fa fa-file sideIcons"></i><a href="#"> Documents</a></li>
-        <li><i class="fa fa-power-off sideIcons"></i><a href="index.php <?php session_abort()?>"> Logout</a></li>
+        <li><i class="fa fa-power-off sideIcons"></i><a href="index.php"> Logout</a></li>
     </ul>
     </aside>
     <section>
@@ -166,7 +166,7 @@ session_start();
               </div>
               <div class="modal-footer">
                 <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                <input type="submit" class="btn btn-info" value="Save">
+                <input type="submit" name="editInfo" class="btn btn-info" value="Save">
               </div>
             </form>
           </div>
