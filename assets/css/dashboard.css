@@ -4,6 +4,19 @@
   margin-left: 250px;
 }
 
+.officials{
+	margin-top: 20px;
+	margin-left: 250px;
+}
+
+.header{
+	color: white;
+  background: #566787;
+  font-family: "Varela Round", sans-serif;
+  font-size: 15px;
+  padding: 15px;
+}
+
 .welcome .content {
 	background-color: #435d7d;
 }

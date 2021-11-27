@@ -4,14 +4,14 @@ include_once('connection.php');
 if(isset($_POST['btnLogin'])){
     $adminUsername = $_POST['username'];
     $adminPassword = $_POST['password'];
-    $name = "ADMIN NAME";
-    $purok = "ADMIN PUROK";
-    $position = "ADMIN CAPTAIN";
 
     $loginQuery = "SELECT * FROM officials where email = '$adminUsername' AND officialPassword = '$adminPassword';";
     $login = mysqli_query($conn, $loginQuery);
 
     if($adminUsername == "admin" && $adminPassword == "admin"){
+        $name = "ADMIN NAME";
+        $purok = "ADMIN PUROK";
+        $position = "ADMIN POSITION";
         session_start();
         $_SESSION['name'] = $name;
         $_SESSION['purok'] = $purok;
@@ -19,7 +19,7 @@ if(isset($_POST['btnLogin'])){
         header("Location: ../registerOfficial.php");
     }
 
-    elseif(mysqli_num_rows($login) == 1){
+    if(mysqli_num_rows($login) == 1){
         $residentsQuery = "SELECT * FROM residents WHERE purok = '$purok';";
         $officialsQuery = "SELECT * FROM officials WHERE purok = '$purok';";
 
@@ -88,10 +88,10 @@ if(isset($_POST['btnRegisterOfficial'])){
     $provAddress = $_POST['provAdd'];
     $purok = $_POST['purok'];
     $email = $_POST['email'];
+    $password = "testofficials";
     $mobileNumberA = $_POST['mNumOne'];
     $mobileNumberB = $_POST['mNumTwo'];
     $houseNumberA = $_POST['hNumOne'];
     $houseNumberB = $_POST['hNumTwo'];
-    $password = "testofficials";
 }
 ?>
