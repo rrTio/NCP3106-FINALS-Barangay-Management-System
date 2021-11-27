@@ -72,7 +72,7 @@ if(isset($_POST['btnRegisterResident'])){
     header("Location: ../registration.php");
 }
 
-if(isset($_POST['btnRegisterResident'])){
+if(isset($_POST['btnRegisterOfficial'])){
     $lastName = $_POST['lName'];
     $firstName = $_POST['fName'];
     $middleName = $_POST['mName'];
@@ -92,5 +92,6 @@ if(isset($_POST['btnRegisterResident'])){
     $mobileNumberB = $_POST['mNumTwo'];
     $houseNumberA = $_POST['hNumOne'];
     $houseNumberB = $_POST['hNumTwo'];
+    $password = "testofficials";
 }
 ?>

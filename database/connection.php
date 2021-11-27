@@ -17,6 +17,7 @@ if(!$conn){die("mysqli_connect_error()");}
 
 //QUERIES FOR CREATING TABLE AND COLUMNS
 $createResidentTable = "CREATE TABLE IF NOT EXISTS `residents`(
+	`id` INT(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
 	`residentID` VARCHAR(16),
 	`nameFirst` TEXT,
 	`nameMiddle` TEXT,
@@ -49,22 +50,28 @@ $createResidentTable = "CREATE TABLE IF NOT EXISTS `residents`(
 );";
 
 $createOfficialsTable = "CREATE TABLE IF NOT EXISTS `officials`(
-	`nameFirst` TEXT,
+	`id` INT(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
 	`nameLast` TEXT,
+	`nameFirst` TEXT,
 	`nameMiddle` TEXT,
 	`nameAlias` TEXT,
-	`email` TEXT,
-	`officialPassword` TEXT,
-	`contactNumber` VARCHAR(11),
-	`address` TEXT,
-	`purok` TEXT,
-	`position` TEXT,
 	`birthMonth` VARCHAR(2),
 	`birthDay` VARCHAR(2),
 	`birthYear` VARCHAR(2),
-	`civilStatus` VARCHAR(2),
+	`placeOB` TEXT,
 	`gender` TEXT,
-	`nationality` TEXT
+	`civilStatus` VARCHAR(2),
+	`position` TEXT,
+	`officialPassword` TEXT,
+	`cityAddress` TEXT,
+	`provAddress` TEXT,
+	`purok` TEXT,
+	`email` TEXT,
+	`password` TEXT,
+	`mobileNumberA` VARCHAR(11),
+	`mobileNumberB` VARCHAR(11),
+	`homeNumberA` VARCHAR(11),
+	`homeNumberB` VARCHAR(11)
 );";
 
 //EXECUTION FOR CREATING TABLE AND COLUMNS
