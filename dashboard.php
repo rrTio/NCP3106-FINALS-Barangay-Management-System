@@ -121,10 +121,10 @@
                 <tbody>
                   <tr>
                     <td><button class="btn rounded-3 btn-primary" onClick="return openResidents()">View</button></td>
-                    <td>Captain</td>
-                    <td>Jadoon</td>
-                    <td>Naix</td>
-                    <td>Garingan</td>
+                    <td><?php echo $_SESSION['position'];?></td>
+                    <td><?php echo $_SESSION['lastName'];?></td>
+                    <td><?php echo $_SESSION['firstName'];?></td>
+                    <td><?php echo $_SESSION['middleName'];?></td>
                     <td>
                       <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                       <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
@@ -233,7 +233,7 @@
             </div>
           </div>
         </section>
-        
+
       </div>
     </section>
   </body>

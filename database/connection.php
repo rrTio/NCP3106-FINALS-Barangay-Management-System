@@ -50,7 +50,6 @@ $createResidentTable = "CREATE TABLE IF NOT EXISTS `residents`(
 );";
 
 $createOfficialsTable = "CREATE TABLE IF NOT EXISTS `officials`(
-	`id` INT(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
 	`nameLast` TEXT,
 	`nameFirst` TEXT,
 	`nameMiddle` TEXT,
@@ -74,6 +73,5 @@ $createOfficialsTable = "CREATE TABLE IF NOT EXISTS `officials`(
 );";
 
 //EXECUTION FOR CREATING TABLE AND COLUMNS
-if(mysqli_query($conn, $createResidentTable)){}
-if(mysqli_query($conn, $createOfficialsTable)){}
-else{echo "Error creating table: " . mysqli_error($conn). "<br>";}
+mysqli_query($conn, $createResidentTable);
+mysqli_query($conn, $createOfficialsTable);
