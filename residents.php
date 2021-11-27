@@ -1,8 +1,8 @@
 <?php
-  session_start();
-  $name = $_SESSION['name'];
-  $purok = $_SESSION['purok'];
-  $position = $_SESSION['position'];
+session_start();
+$name = $_SESSION['name'];
+$purok = $_SESSION['purok'];
+$position = $_SESSION['position'];
 ?>
 
 <!DOCTYPE html>
@@ -32,174 +32,179 @@
 
 <body>
   <aside class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
-        <i class="uil-bars close-aside d-md-none d-lg-none" data-close="show-side-navigation1"></i>
-        <div class="sidebar-header d-flex justify-content-center align-items-center px-3 py-4">
-        <img
-            class="rounded-pill img-fluid"
-            width="65"
-            src="https://uniim1.shutterfly.com/ng/services/mediarender/THISLIFE/021036514417/media/23148907008/medium/1501685726/enhance"
-            alt="">
-        <div class="ms-2">
-            <h5 class="fs-6 mb-0">
-                <a class="text-decoration-none headName" href="#"> &nbsp; <?php echo $name;?></a>
-            </h5>
-            <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $position?></p>
-            <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $purok?></p>
-        </div>
+    <i class="uil-bars close-aside d-md-none d-lg-none" data-close="show-side-navigation1"></i>
+    <div class="sidebar-header d-flex justify-content-center align-items-center px-3 py-4">
+      <img class="rounded-pill img-fluid" width="65" src="https://uniim1.shutterfly.com/ng/services/mediarender/THISLIFE/021036514417/media/23148907008/medium/1501685726/enhance" alt="">
+      <div class="ms-2">
+        <h5 class="fs-6 mb-0">
+          <a class="text-decoration-none headName" href="#"> &nbsp; <?php echo $name; ?></a>
+        </h5>
+        <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $position ?></p>
+        <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $purok ?></p>
       </div>
-      <ul class="categories list-unstyled">
-          <li><i class="fa fa-home sideIcons"></i><a href="dashboard.php"> Dashboard</a></li>
-          <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Residents List</a></li>
-          <li><i class="fa fa-user-plus sideIcons"></i><a href="registration.php"> Register Resident</a></li>
-          <li><i class="fa fa-users sideIcons"></i><a href="viewUser.php"> Accounts</a></li>
-          <li><i class="fa fa-plus sideIcons"></i><a href="registerOfficial.php"> Add Personnel</a></li>
-          <li><i class="fa fa-file sideIcons"></i><a href="#"> Documents</a></li>
-          <li><i class="fa fa-power-off sideIcons"></i><a href="index.php"> Logout</a></li>
-      </ul>
-    </aside>
-    <section>
-      <div class="container">
-        <div class="table-wrapper">
-          <div class="table-title">
-            <div class="row">
-              <div class="col-sm-8">
-                <h2>Resident Information Management</h2>
-              </div>
-              <div class="col-sm-4">
-                <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Resident</span></a>
-                <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>
+    </div>
+    <ul class="categories list-unstyled">
+      <li><i class="fa fa-home sideIcons"></i><a href="dashboard.php"> Dashboard</a></li>
+      <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Residents List</a></li>
+      <li><i class="fa fa-user-plus sideIcons"></i><a href="registration.php"> Register Resident</a></li>
+      <li><i class="fa fa-users sideIcons"></i><a href="viewUser.php"> Accounts</a></li>
+      <li><i class="fa fa-plus sideIcons"></i><a href="registerOfficial.php"> Add Personnel</a></li>
+      <li><i class="fa fa-file sideIcons"></i><a href="#"> Documents</a></li>
+      <li><i class="fa fa-power-off sideIcons"></i><a href="index.php"> Logout</a></li>
+    </ul>
+  </aside>
+  <section>
+    <div class="container">
+      <div class="table-wrapper">
+        <div class="table-title">
+          <div class="row">
+            <div class="col-sm-5">
+              <h2>Resident Information</h2>
+            </div>
+            <div class="col-sm-4">
+              <div class="search">
+                <input type="text" class="searchTerm" placeholder="Resident Search">
+                <button type="submit" class="searchButton">
+                  <i class="fa fa-search"></i>
+                </button>
               </div>
             </div>
-          </div>
-          <table class="table table-striped table-hover">
-            <thead>
-              <tr>
-                <th data-field="view"></th>
-                <th data-field="resID">Resident's ID</th>
-                <th data-field="lName" data-sortable="true">Last Name</th>
-                <th data-field="fName" data-sortable="true">First Name</th>
-                <th data-field="mName" data-sortable="true">Middle Name</th>
-                <th data-field="vStatus" data-sortable="true">Voter Status</th>
-                <th data-field="occuptaion" data-sortable="true">Occupation</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><button class="btn rounded-3 btn-primary border-3" onClick="return openResidents()">View</button></td>
-                <td>2018-0213</td>
-                <td>Jadoon</td>
-                <td>Naix</td>
-                <td>Garingan</td>
-                <td>No</td>
-                <td>Developer</td>
-                <td>
-                  <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                  <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div id="addEmployeeModal" class="modal fade">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <form>
-              <div class="modal-header">
-                <h4 class="modal-title">Add Resident</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              </div>
-              <div class="modal-body">
-                <div class="form-group">
-                  <label>Name</label>
-                  <input type="text" class="form-control" required>
-                </div>
-                <div class="form-group">
-                  <label>Email</label>
-                  <input type="email" class="form-control" required>
-                </div>
-                <div class="form-group">
-                  <label>Address</label>
-                  <textarea class="form-control" required></textarea>
-                </div>
-                <div class="form-group">
-                  <label>Phone</label>
-                  <input type="text" class="form-control" required>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                <input type="submit" class="btn btn-success" value="Add">
-              </div>
-            </form>
+            <div class="col-sm-3">
+              <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"> <span>Add New Resident</span></a>
+              <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"> <span>Delete</span></a>
+            </div>
           </div>
         </div>
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th data-field="view"></th>
+              <th data-field="resID">Resident's ID</th>
+              <th data-field="lName" data-sortable="true">Last Name</th>
+              <th data-field="fName" data-sortable="true">First Name</th>
+              <th data-field="mName" data-sortable="true">Middle Name</th>
+              <th data-field="vStatus" data-sortable="true">Voter Status</th>
+              <th data-field="occuptaion" data-sortable="true">Occupation</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><button class="btn rounded-3 btn-primary border-3" onClick="return openResidents()">View</button></td>
+              <td>2018-0213</td>
+              <td>Jadoon</td>
+              <td>Naix</td>
+              <td>Garingan</td>
+              <td>No</td>
+              <td>Developer</td>
+              <td>
+                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <!-- Edit Modal HTML -->
-      <div id="editEmployeeModal" class="modal fade">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <form action="./database/database.php" method="POST">
-              <div class="modal-header">
-                <h4 class="modal-title">Edit Resident Information</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    </div>
+    <div id="addEmployeeModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form>
+            <div class="modal-header">
+              <h4 class="modal-title">Add Resident</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" required>
               </div>
-              <div class="modal-body">
-                <div class="form-group">
-                  <label>First Name</label>
-                  <input type="text" class="form-control" required>
-                </div>
-                <div class="form-group">
-                  <label>Middle Name</label>
-                  <input type="text" class="form-control" required>
-                </div>
-                <div class="form-group">
-                  <label>Last Name</label>
-                  <input type="text" class="form-control" required>
-                </div>
-                <div class="form-group">
-                  <label>Email</label>
-                  <input type="email" class="form-control" required>
-                </div>
-                <div class="form-group">
-                  <label>Address</label>
-                  <textarea class="form-control" required></textarea>
-                </div>
-                <div class="form-group">
-                  <label>Phone</label>
-                  <input type="text" class="form-control" required>
-                </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" required>
               </div>
-              <div class="modal-footer">
-                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                <input type="submit" name="editInfo" class="btn btn-info" value="Save">
+              <div class="form-group">
+                <label>Address</label>
+                <textarea class="form-control" required></textarea>
               </div>
-            </form>
-          </div>
+              <div class="form-group">
+                <label>Phone</label>
+                <input type="text" class="form-control" required>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+              <input type="submit" class="btn btn-success" value="Add">
+            </div>
+          </form>
         </div>
       </div>
-      <!-- Delete Modal HTML -->
-      <div id="deleteEmployeeModal" class="modal fade">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <form>
-              <div class="modal-header">
-                <h4 class="modal-title">Delete Resident</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    </div>
+    <!-- Edit Modal HTML -->
+    <div id="editEmployeeModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form action="./database/database.php" method="POST">
+            <div class="modal-header">
+              <h4 class="modal-title">Edit Resident Information</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" class="form-control" required>
               </div>
-              <div class="modal-body">
-                <p>Are you sure you want to delete these Records?</p>
-                <p class="text-warning"><small>This action cannot be undone.</small></p>
+              <div class="form-group">
+                <label>Middle Name</label>
+                <input type="text" class="form-control" required>
               </div>
-              <div class="modal-footer">
-                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                <input type="submit" class="btn btn-danger" value="Delete">
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" class="form-control" required>
               </div>
-            </form>
-          </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label>Address</label>
+                <textarea class="form-control" required></textarea>
+              </div>
+              <div class="form-group">
+                <label>Phone</label>
+                <input type="text" class="form-control" required>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+              <input type="submit" name="editInfo" class="btn btn-info" value="Save">
+            </div>
+          </form>
         </div>
       </div>
-    </section>
-  </body>
+    </div>
+    <!-- Delete Modal HTML -->
+    <div id="deleteEmployeeModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form>
+            <div class="modal-header">
+              <h4 class="modal-title">Delete Resident</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+              <p>Are you sure you want to delete these Records?</p>
+              <p class="text-warning"><small>This action cannot be undone.</small></p>
+            </div>
+            <div class="modal-footer">
+              <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+              <input type="submit" class="btn btn-danger" value="Delete">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
 </html>
