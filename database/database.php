@@ -9,37 +9,17 @@ if(isset($_POST['btnLogin'])){
     $login = mysqli_query($conn, $loginQuery);
 
     if(mysqli_num_rows($login) == 1){
-        $residentsQuery = "SELECT * FROM residents";
-        $officialsQuery = "SELECT * FROM officials";
-
-        $getResidents = mysqli_query($conn, $residentsQuery);
-        $getOfficials = mysqli_query($conn, $officialsQuery);
-        if(mysqli_num_rows($getResidents) > 0){
-            
+        while($dashboard = mysqli_fetch_assoc($login)){
+            $name = $dashboard['nameAlias'];
+            $position = $dashboard['position'];
+            $purok = $dashboard['purok'];
         }
-
-        if(mysqli_num_rows($getOfficials) != 0){
-            while($row = mysqli_fetch_assoc($getOfficials)){
-            $dashboardName = $row['nameAlias'];
-            $dashboardPosition = $row['position'];
-            $dashboardPurok = $row['purok'];
-            $showPosition = $row['position'];
-            $showLastName = $row['nameLast'];
-            $showFirstName = $row['nameFirst'];
-            $showMiddleName = $row['nameMiddle'];
-        }
-        }
-        
         session_start();
-        $_SESSION['name'] = $dashboardName;
-        $_SESSION['position'] = $dashboardPosition;
-        $_SESSION['purok'] = $dashboardPurok;
-        $_SESSION['position'] = $showPosition;
-        $_SESSION['lastName'] = $showLastName;
-        $_SESSION['firstName'] = $showFirstName;
-        $_SESSION['middleName'] = $showMiddleName;
+        $_SESSION['name'] = $name;
+        $_SESSION['position'] = $position;
+        $_SESSION['purok'] = $purok;
         header("Location: ../dashboard.php");
-    }
+        }        
 
     elseif($adminUsername == "admin" && $adminPassword == "admin"){
         $name = "ADMIN NAME";
@@ -52,7 +32,6 @@ if(isset($_POST['btnLogin'])){
         header("Location: ../registerOfficial.php");
     }
 }
-
 if(isset($_POST['btnRegisterResident'])){
     $lastName = $_POST['lastName'];
     $firstName = $_POST['firstName'];

@@ -1,9 +1,11 @@
 <?php
   session_start();
+  $name = $_SESSION['name'];
+  $purok = $_SESSION['purok'];
+  $position = $_SESSION['position'];
 ?>
 <!DOCTYPE html>
 <html lang="en" >
-
   <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
@@ -30,31 +32,31 @@
             alt="">
         <div class="ms-2">
             <h5 class="fs-6 mb-0">
-                <a class="text-decoration-none headName" href="#"> &nbsp; <?php echo $_SESSION['name']?></a>
+                <a class="text-decoration-none headName" href="#"> &nbsp; <?php echo $name;?></a>
             </h5>
-            <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $_SESSION['position']?></p>
-            <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $_SESSION['purok']?></p>
+            <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $position?></p>
+            <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $purok?></p>
         </div>
-    </div>
-    <ul class="categories list-unstyled">
-        <li><i class="fa fa-home sideIcons"></i><a href="dashboard.php"> Dashboard</a></li>
-        <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Residents List</a></li>
-        <li><i class="fa fa-user-plus sideIcons"></i><a href="registration.php"> Register Resident</a></li>
-        <li><i class="fa fa-users sideIcons"></i><a href="viewUser.php"> Accounts</a></li>
-        <li><i class="fa fa-plus sideIcons"></i><a href="registerOfficial.php"> Add Personnel</a></li>
-        <li><i class="fa fa-file sideIcons"></i><a href="#"> Documents</a></li>
-        <li><i class="fa fa-power-off sideIcons"></i><a href="index.php"> Logout</a></li>
-    </ul>
+      </div>
+      <ul class="categories list-unstyled">
+          <li><i class="fa fa-home sideIcons"></i><a href="dashboard.php"> Dashboard</a></li>
+          <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Residents List</a></li>
+          <li><i class="fa fa-user-plus sideIcons"></i><a href="registration.php"> Register Resident</a></li>
+          <li><i class="fa fa-users sideIcons"></i><a href="viewUser.php"> Accounts</a></li>
+          <li><i class="fa fa-plus sideIcons"></i><a href="registerOfficial.php"> Add Personnel</a></li>
+          <li><i class="fa fa-file sideIcons"></i><a href="#"> Documents</a></li>
+          <li><i class="fa fa-power-off sideIcons"></i><a href="index.php"> Logout</a></li>
+      </ul>
     </aside>
+
     <section>
       <div class="p-4">
         <div class="welcome">
           <div class="content rounded-3 p-3">
             <h1 class="fs-3">Welcome to Dashboard</h1>
-            <p class="mb-0">Hello <?php echo $_SESSION['position'] . " " . $_SESSION['name']?> of <?php echo $_SESSION['purok']?></p>
+            <p class="mb-0">Hello <?php echo $position . " " . $name . " of " . $purok;?></p>
           </div>
         </div>
-
         <section class="statistics mt-4">
           <div class="row">
             <div class="col-lg-4">
@@ -92,7 +94,6 @@
             </div>
           </div>
         </section>
-
         <section class="officials">
           <div class="container">
             <div class="table-wrapper">
@@ -102,73 +103,43 @@
                     <h2>Officials</h2>
                   </div>
                   <div class="col-sm-4">
-                    <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Official</span></a>
-                    <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>
+                    <a href="registerOfficial.php" class="btn btn-success"><i class="material-icons">&#xE147;</i> <span>Add New Official</span></a>
                   </div>
                 </div>
               </div>
               <table class="table table-striped table-hover">
                 <thead>
                   <tr>
-                    <th data-field="view"></th>
+                    <th data-field="view">View Official</th>
                     <th data-field="resID">Position</th>
                     <th data-field="lName" data-sortable="true">Last Name</th>
                     <th data-field="fName" data-sortable="true">First Name</th>
                     <th data-field="mName" data-sortable="true">Middle Name</th>
-                    <th>Action</th>
+                    <th data-field="purok" data-sortable="true">Purok</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td><button class="btn rounded-3 btn-primary" onClick="return openResidents()">View</button></td>
-                    <td><?php echo $_SESSION['position'];?></td>
-                    <td><?php echo $_SESSION['lastName'];?></td>
-                    <td><?php echo $_SESSION['firstName'];?></td>
-                    <td><?php echo $_SESSION['middleName'];?></td>
-                    <td>
-                      <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                      <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                  </tr>
-                </tbody>
+                <form method="GET" action="viewUser.php">
+                  <tbody>
+                    <?php
+                      include_once("./database/connection.php");
+                      $getOfficials = "SELECT * FROM officials";
+                      $result = mysqli_query($conn, $getOfficials);
+                      if(mysqli_num_rows($result) > 0){            
+                        while($officials = mysqli_fetch_assoc($result)){
+                          echo "<tr><td><button name='btnView' type='submit' value=".$officials['nameLast']." class='btn btn-success bg-gradient fa fa-eye'>&nbsp;View</button></td>"
+                              ."<td>" .$officials['position']
+                              ."</td><td>" . $officials['nameLast']
+                              ."</td><td>".$officials['nameFirst']
+                              ."</td><td>".$officials['nameMiddle']
+                              ."</td><td>".$officials['purok']."</td></tr>";
+                        }
+                      }
+                    ?>
+                  </tbody>
+                </form>
               </table>
             </div>
           </div>
-          <div id="addEmployeeModal" class="modal fade">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <form>
-                  <div class="modal-header">
-                    <h4 class="modal-title">Add Resident</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="form-group">
-                      <label>Name</label>
-                      <input type="text" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                      <label>Email</label>
-                      <input type="email" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                      <label>Address</label>
-                      <textarea class="form-control" required></textarea>
-                    </div>
-                    <div class="form-group">
-                      <label>Phone</label>
-                      <input type="text" class="form-control" required>
-                    </div>
-                  </div>
-                  <div class="modal-footer">
-                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                    <input type="submit" class="btn btn-success" value="Add">
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-          <!-- Edit Modal HTML -->
           <div id="editEmployeeModal" class="modal fade">
             <div class="modal-dialog">
               <div class="modal-content">

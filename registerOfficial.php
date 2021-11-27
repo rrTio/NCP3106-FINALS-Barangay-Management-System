@@ -1,5 +1,8 @@
 <?php
-    session_start();
+  session_start();
+  $name = $_SESSION['name'];
+  $purok = $_SESSION['purok'];
+  $position = $_SESSION['position'];
 ?>
 
 <!DOCTYPE html>
@@ -30,21 +33,21 @@
             alt="">
         <div class="ms-2">
             <h5 class="fs-6 mb-0">
-                <a class="text-decoration-none headName" href="#"> &nbsp; <?php echo $_SESSION['name']?></a>
+                <a class="text-decoration-none headName" href="#"> &nbsp; <?php echo $name;?></a>
             </h5>
-            <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $_SESSION['position']?></p>
-            <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $_SESSION['purok']?></p>
+            <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $position?></p>
+            <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $purok?></p>
         </div>
-    </div>
-    <ul class="categories list-unstyled">
-        <li><i class="fa fa-home sideIcons"></i><a href="dashboard.php"> Dashboard</a></li>
-        <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Residents List</a></li>
-        <li><i class="fa fa-user-plus sideIcons"></i><a href="registration.php"> Register Resident</a></li>
-        <li><i class="fa fa-users sideIcons"></i><a href="viewUser.php"> Accounts</a></li>
-        <li><i class="fa fa-plus sideIcons"></i><a href="registerOfficial.php"> Add Personnel</a></li>
-        <li><i class="fa fa-file sideIcons"></i><a href="#"> Documents</a></li>
-        <li><i class="fa fa-power-off sideIcons"></i><a href="index.php"> Logout</a></li>
-    </ul>
+      </div>
+      <ul class="categories list-unstyled">
+          <li><i class="fa fa-home sideIcons"></i><a href="dashboard.php"> Dashboard</a></li>
+          <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Residents List</a></li>
+          <li><i class="fa fa-user-plus sideIcons"></i><a href="registration.php"> Register Resident</a></li>
+          <li><i class="fa fa-users sideIcons"></i><a href="viewUser.php"> Accounts</a></li>
+          <li><i class="fa fa-plus sideIcons"></i><a href="registerOfficial.php"> Add Personnel</a></li>
+          <li><i class="fa fa-file sideIcons"></i><a href="#"> Documents</a></li>
+          <li><i class="fa fa-power-off sideIcons"></i><a href="index.php"> Logout</a></li>
+      </ul>
     </aside>
     <section>
             <div class="container mt-5">
