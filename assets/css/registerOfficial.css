@@ -1,3 +1,19 @@
+.sideIcon{
+    width: 90%;
+    height: 40%;
+    font-size: 100px;
+    text-align: center;
+}
+
+.saveresident{
+    width: 100%;
+    height: 50px;
+}
+
+.fa{
+    font-size: 10px;
+}
+
 .welcome {
 	color: white;
     margin-bottom: 25px;
@@ -5,10 +21,16 @@
 
 .welcome .content {
 	background-color: #435d7d;
+	margin-top: -20px;
+	margin-bottom: -17px;
 }
 
 .welcome p {
 	color: white;
   font-weight: 500;
+}
+
+section{
+	margin-left: 260px;
 }
 

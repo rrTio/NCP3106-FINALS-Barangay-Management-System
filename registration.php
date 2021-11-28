@@ -52,15 +52,11 @@
                 <form name="residents" method="POST" action="./database/database.php">
                     <div class="row welcome mb-2">
                         <div class="content rounded-3 p-3 col-md-12">
-                            <h1>
-                                New Resident Registration Form
-                            </h1>
+                            <h1>New Resident Registration Form</h1>
                         </div>
                     </div>
                     <div class="row mb-2">
-                        <h4>
-                            Basic Information
-                        </h4>
+                        <h4>Basic Information</h4>
                     </div>
                     <div class="row">
                         <div class="col-md-2">

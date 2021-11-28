@@ -18,9 +18,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css'>
     <link rel='stylesheet' href='https://unicons.iconscout.com/release/v3.0.6/css/line.css'>
-    <link rel="stylesheet" href="./assets/css/registration.css">
-    <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/css/registerOfficial.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
 </head>
 <body>
     <aside class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
@@ -60,9 +59,7 @@
                     </div>
                     
                     <div class="row mb-2">
-                        <h4>
-                            Basic Information
-                        </h4>
+                        <h4>Basic Information</h4>
                     </div>
                     <div class="row">
                         <div class="col-md-2">
