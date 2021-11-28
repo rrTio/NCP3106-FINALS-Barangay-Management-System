@@ -3,6 +3,8 @@
   $name = $_SESSION['name'];
   $purok = $_SESSION['purok'];
   $position = $_SESSION['position'];
+  $viewLastName = $_SESSION['viewLastName'];
+  $viewMiddleName = $_SESSION['viewMiddleName'];
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +22,6 @@
         <link rel='stylesheet' href="./assets/css/viewUser.css">
         <link rel="stylesheet" href="./assets/css/main.css">
     </head>
-
     <body>
         <aside class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
             <i class="uil-bars close-aside d-md-none d-lg-none" data-close="show-side-navigation1"></i>
@@ -48,7 +49,6 @@
                 <li><i class="fa fa-power-off sideIcons"></i><a href="index.php"> Logout</a></li>
             </ul>
         </aside>
-
         <section>
             <div class="container mt-5">
                 <form name="viewUser" method="POST" action="./database/database.php">
@@ -57,11 +57,8 @@
                             <h1>Officials Form</h1>
                         </div>
                     </div>
-                    
                     <div class="row mb-2">
-                        <h4>
-                            Basic Information
-                        </h4>
+                        <h4>Basic Information</h4>
                     </div>
                     <div class="row">
                         <div class="col-md-2">
@@ -83,7 +80,7 @@
                             <div class="row mb-4">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                    <input class="form-control form-control-lg" type="text" id="lName" name="lastName" placeholder="Last Name" required>
+                                    <input class="form-control form-control-lg" type="text" value='<?php echo $viewLastName?>' id="lName" name="lastName" placeholder="Last Name" required>
                                     <label class="form-label" for="lName">LAST NAME</label>
                                     </div>
                                 </div>
@@ -97,7 +94,7 @@
                             <div class="row mb-4">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                    <input class="form-control form-control-lg" type="text" id="mName" name="middleName" placeholder="Middle Name" required>
+                                    <input class="form-control form-control-lg" type="text" id="mName" value='<?php echo $viewMiddleName ?>' name="middleName" placeholder="Middle Name" required>
                                     <label class="form-label" for="mName">MIDDLE NAME</label>
                                     </div>
                                 </div>
@@ -295,7 +292,6 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        
                         <div class="col-md-12">
                             <div class="form-floating">
                                 <input class="form-control form-control-lg" rows="3" type="text" id="pob" name="pob" placeholder="pob" required>

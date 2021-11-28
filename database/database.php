@@ -96,4 +96,20 @@ if(isset($_POST['btnRegisterOfficial'])){
     mysqli_query($conn, $insertToOfficials);
     header("Location: ../dashboard.php");
 }
+
+if(isset($_POST['btnView'])){
+    $lastName = $_POST['lastName'];
+    $firstName = $_POST['firstName'];
+    $middleName = $_POST['middleName'];
+    $purok = $_POST['purok'];
+    $getQuery = "SELECT * FROM officials WHERE nameLast = '$lastName' AND nameFirst = '$firstName' AND nameMiddle = '$middleName' AND purok = '$purok';";
+    $getOfficial = mysqli_query($conn, $getQuery);
+    if(mysqli_num_rows($getOfficial) > 0){
+        while($view = mysqli_fetch_assoc($getOfficial)){
+            //get from database
+        }
+
+        //session results to viewUser.php
+    }
+}
 ?>

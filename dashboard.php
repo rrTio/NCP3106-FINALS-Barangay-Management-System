@@ -118,7 +118,7 @@
                     <th data-field="purok" data-sortable="true">Purok</th>
                   </tr>
                 </thead>
-                <form method="GET" action="viewUser.php">
+                <form method="POST" action="./database/database.php">
                   <tbody>
                     <?php
                       include_once("./database/connection.php");
@@ -126,12 +126,13 @@
                       $result = mysqli_query($conn, $getOfficials);
                       if(mysqli_num_rows($result) > 0){            
                         while($officials = mysqli_fetch_assoc($result)){
-                          echo "<tr><td><button name='btnView' type='submit' value=".$officials['nameLast']." class='btn btn-success bg-gradient fa fa-eye'>&nbsp;View</button></td>"
-                              ."<td>" .$officials['position']
-                              ."</td><td>" . $officials['nameLast']
-                              ."</td><td>".$officials['nameFirst']
-                              ."</td><td>".$officials['nameMiddle']
-                              ."</td><td>".$officials['purok']."</td></tr>";
+                          echo "<tr><td><button name='btnView' type='submit' class='btn btn-success bg-gradient fa fa-eye'>&nbsp;View</button></td>"
+                              ."<td>" . $officials['position']
+                              ."</td><td>" . $officials['nameLast'] . "<input type='hidden' name='lastName' value=" . $officials['nameLast'] . ">"
+                              ."</td><td>" . $officials['nameFirst'] . "<input type='hidden' name='firstName' value=" . $officials['nameFirst'] . ">"
+                              ."</td><td>" . $officials['nameMiddle'] . "<input type='hidden' name='middleName' value=" . $officials['nameMiddle'] . ">"
+                              ."</td><td>" . $officials['purok'] . "<input type='hidden' name='purok' value=" . $officials['purok'] . ">"
+                              . "</td></tr>";
                         }
                       }
                     ?>
