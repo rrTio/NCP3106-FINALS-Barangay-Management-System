@@ -17,7 +17,6 @@ if(!$conn){die("mysqli_connect_error()");}
 
 //QUERIES FOR CREATING TABLE AND COLUMNS
 $createResidentTable = "CREATE TABLE IF NOT EXISTS `residents`(
-	`id` INT(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
 	`residentID` VARCHAR(16),
 	`nameFirst` TEXT,
 	`nameMiddle` TEXT,
@@ -42,7 +41,7 @@ $createResidentTable = "CREATE TABLE IF NOT EXISTS `residents`(
 	`mobileNumberA` VARCHAR(11),
 	`mobileNumberB` VARCHAR(11),
 	`homeNumberA` VARCHAR(11),
-	`homNumberB` VARCHAR(11),
+	`homeNumberB` VARCHAR(11),
 	`residentType` TEXT,
 	`residentStatus` TEXT,
 	`encoder` TEXT,

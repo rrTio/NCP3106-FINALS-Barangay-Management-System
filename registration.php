@@ -80,13 +80,13 @@
                             <div class="row mb-4">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                    <input class="form-control form-control-lg" type="text" id="lName" name="lastName" placeholder="Last Name" required>
+                                    <input class="form-control form-control-lg" type="text" id="lName" name="lastName" placeholder="Last Name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                                     <label class="form-label" for="lName">LAST NAME</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                    <input class="form-control form-control-lg" type="text" id="fName" name="firstName" placeholder="First Name" required>
+                                    <input class="form-control form-control-lg" type="text" id="fName" name="firstName" placeholder="First Name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                                     <label class="form-label" for="fName">FIRST NAME</label>
                                     </div>
                                 </div>
@@ -94,13 +94,13 @@
                             <div class="row mb-4">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                    <input class="form-control form-control-lg" type="text" id="mName" name="middleName" placeholder="Middle Name" required>
+                                    <input class="form-control form-control-lg" type="text" id="mName" name="middleName" placeholder="Middle Name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                                     <label class="form-label" for="mName">MIDDLE NAME</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                    <input class="form-control form-control-lg" type="text" id="alias" name="alias" placeholder="alias" required>
+                                    <input class="form-control form-control-lg" type="text" id="alias" name="alias" placeholder="alias" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                                     <label class="form-label" for="alias">ALIAS</label>
                                     </div>
                                 </div>
@@ -123,25 +123,27 @@
                                 <div class="col-md-3">
                                     <div class="form-floating">
                                         <select class="form-control form-control-lg p-2 pt-3" id="bMonth" name="bMonth" required>
-                                        <option value="01">January</option>
-                                        <option value="02">February</option>
-                                        <option value="03">March</option>
-                                        <option value="04">April</option>
-                                        <option value="05">May</option>
-                                        <option value="06">June</option>
-                                        <option value="07">July</option>
-                                        <option value="08">August</option>
-                                        <option value="09">September</option>
-                                        <option value="10">October</option>
-                                        <option value="11">November</option>
-                                        <option value="12">December</option>
+                                            <option selected disabled>CHOOSE</option>
+                                            <option value="01">January</option>
+                                            <option value="02">February</option>
+                                            <option value="03">March</option>
+                                            <option value="04">April</option>
+                                            <option value="05">May</option>
+                                            <option value="06">June</option>
+                                            <option value="07">July</option>
+                                            <option value="08">August</option>
+                                            <option value="09">September</option>
+                                            <option value="10">October</option>
+                                            <option value="11">November</option>
+                                            <option value="12">December</option>
                                         </select>
-                                    <label class="form-label" for="bMonth">MONTH</label>    
+                                        <label class="form-label" for="bMonth">MONTH</label>    
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-floating">
                                         <select class="form-control form-control-lg p-2 pt-3" id="bDay" name="bDay" required>
+                                            <option selected disabled>CHOOSE</option>
                                             <option value="01">01</option>
                                             <option value="02">02</option>
                                             <option value="03">03</option>
@@ -174,13 +176,13 @@
                                             <option value="30">30</option>
                                             <option value="31">31</option>
                                         </select>
-                                    <label class="form-label" for="bDay">DAY</label>
+                                        <label class="form-label" for="bDay">DAY</label>
                                     </div> 
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-floating">
                                         <select class="form-control form-control-lg p-2 pt-3" id="bYear" name="bYear" required>
-                                        <option selected disabled>YEAR</option>
+                                        <option selected disabled>CHOOSE</option>
                                         <option value="1900">1900</option>
                                         <option value="1901">1901</option>
                                         <option value="1902">1902</option>
@@ -292,7 +294,6 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        
                         <div class="col-md-12">
                             <div class="form-floating">
                                 <input class="form-control form-control-lg" rows="3" type="text" id="pob" name="pob" placeholder="pob" required>
@@ -304,21 +305,23 @@
                         <div class="col-md-3">
                             <div class="form-floating">
                                 <select class="form-control form-control-lg p-2 pt-3" id="gender" name="gender" required>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
+                                    <option selected disabled>CHOOSE</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
                                 </select>
                                 <label class="form-label" for="gender">GENDER</label>    
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-floating">
-                                        <select class="form-control form-control-lg p-2 pt-3" id="cStatus" name="cStatus" required>
-                                        <option value="Single">Single</option>
-                                        <option value="Married">Married</option>
-                                        <option value="Widowed">Widowed</option>
-                                        <option value="Separated">Separated</option>
-                                        </select>
-                                        <label class="form-label" for="cStatus">CIVIL STATUS</label>    
+                                <select class="form-control form-control-lg p-2 pt-3" id="cStatus" name="cStatus" required>
+                                    <option selected disabled>CHOOSE</option>
+                                    <option value="Single">Single</option>
+                                    <option value="Married">Married</option>
+                                    <option value="Widowed">Widowed</option>
+                                    <option value="Separated">Separated</option>
+                                </select>
+                                <label class="form-label" for="cStatus">CIVIL STATUS</label>    
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -326,8 +329,9 @@
                                 <div class="col-md-6">
                                     <div class="form-floating">
                                         <select class="form-control form-control-lg p-2 pt-3" id="vStatus" name="vStatus" required>
-                                        <option value="Yes">Yes</option>
-                                        <option value="No">No</option>
+                                            <option selected disabled>CHOOSE</option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
                                         </select>
                                         <label class="form-label" for="vStatus">VOTER'S STATUS</label>    
                                     </div>
@@ -335,8 +339,9 @@
                                 <div class="col-md-6">
                                     <div class="form-floating">
                                         <select class="form-control form-control-lg p-2 pt-3" id="voteActive" name="voteActive" required>
-                                        <option value="active">ACTIVE</option>
-                                        <option value="inactive">INACTIVE</option>
+                                            <option selected disabled>CHOOSE</option>
+                                            <option value="active">ACTIVE</option>
+                                            <option value="inactive">INACTIVE</option>
                                         </select>
                                         <label class="form-label" for="cStatus">IF YES:</label>    
                                     </div>
@@ -347,13 +352,13 @@
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="religion" name="religion" placeholder="nationality" required>
+                                <input class="form-control form-control-lg" type="text" id="religion" name="religion" placeholder="religion" required>
                                 <label for="religion">RELIGION/BELIEF</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="nationality" name="nationality" placeholder="nationality" required>
+                                <input class="form-control form-control-lg" type="text" id="nationality" name="nationality" placeholder="nationality" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                                 <label for="nationality">NATIONALITY</label>
                             </div>
                         </div>
@@ -361,25 +366,26 @@
                     <div class="row mb-5">
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="occupation" name="occupation" placeholder="occup" required>
+                                <input class="form-control form-control-lg" type="text" id="occupation" name="occupation" placeholder="occup" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                                 <label for="occupation">OCCUPATION</label>
                             </div>    
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating">
                                 <select class="form-control form-control-lg p-2 pt-3" id="sector" name="sector" required>
-                                <option value="Private">Private</option>
-                                <option value="Public">Public</option>
-                                <option value="Government">Government</option>
-                                <option value="Unemployed">Unemployed</option>
-                                <option value="OSY">Out of School Youth(OSY)</option>
-                                <option value="OSC">Out of Children(OSY)</option>
-                                <option value="PWD">Person with Disability(PWD)</option>
-                                <option value="SC">Senior Citizen(SC)</option>
-                                <option value="OFW">Overseas Filipino Worker(OFW)</option>
-                                <option value="SP">Solo Parent</option>
-                                <option value="Indigenous">Indigenous</option>
-                                <option value="Others">Others</option>
+                                    <option selected disabled>CHOOSE</option>
+                                    <option value="Private">Private</option>
+                                    <option value="Public">Public</option>
+                                    <option value="Government">Government</option>
+                                    <option value="Unemployed">Unemployed</option>
+                                    <option value="OSY">Out of School Youth(OSY)</option>
+                                    <option value="OSC">Out of Children(OSY)</option>
+                                    <option value="PWD">Person with Disability(PWD)</option>
+                                    <option value="SC">Senior Citizen(SC)</option>
+                                    <option value="OFW">Overseas Filipino Worker(OFW)</option>
+                                    <option value="SP">Solo Parent</option>
+                                    <option value="Indigenous">Indigenous</option>
+                                    <option value="Others">Others</option>
                                 </select>
                                 <label class="form-label" for="sector">SECTOR</label>    
                             </div>
@@ -407,7 +413,9 @@
                     <div class="row mb-3">
                         <div class="col-md-2">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="purok" name="purok" placeholder="Purok" value="<?php echo $_SESSION['purok']?>" disabled>
+                                <input class="form-control form-control-lg" type="text" id="purok" name="purok" placeholder="Purok" value="<?php echo $_SESSION['purok']; ?>" readonly>
+                                <input type="hidden" name="encoder" value="<?php echo $name ?>" readonly>
+                                <input type="hidden" name="encoderPosition" value="<?php echo $position ?>" readonly>
                                 <label class="form-label" for="purok">PUROK</label>    
                             </div>
                         </div>
@@ -419,13 +427,13 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="mNumOne" name="mNumOne" placeholder="mNumOne" required>
+                                <input class="form-control form-control-lg" type="number" id="mNumOne" name="mNumOne" placeholder="mNumOne" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;" required>
                                 <label class="form-label" for="mNumOne">MOBILE NUMBER 1</label>    
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="mNumTwo" name="mNumTwo" placeholder="mNumTwo" required>
+                                <input class="form-control form-control-lg" type="number" id="mNumTwo" name="mNumTwo" placeholder="mNumTwo" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;" required>
                                 <label class="form-label" for="mNumTwo">MOBILE NUMBER 2</label>    
                             </div>
                         </div>
@@ -433,13 +441,13 @@
                     <div class="row mb-5">
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="hNumOne" name="hNumOne" placeholder="hNumOne" required>
+                                <input class="form-control form-control-lg" type="number" id="hNumOne" name="hNumOne" placeholder="hNumOne" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;" required>
                                 <label class="form-label" for="hNumOne">HOME NUMBER 1</label>    
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="hNumTwo" name="hNumTwo" placeholder="hNumTwo" required>
+                                <input class="form-control form-control-lg" type="number" id="hNumTwo" name="hNumTwo" placeholder="hNumTwo" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;" required>
                                 <label class="form-label" for="hNumTwo">HOME NUMBER 2</label>    
                             </div>
                         </div>
@@ -453,7 +461,7 @@
                         <div class="col-md-6">
                             <div class="form-floating">
                                 <select class="form-control form-control-lg p-2 pt-3" id="resType" name="resType" required>
-                                <option selected disabled>TYPE</option>
+                                <option selected disabled>CHOOSE</option>
                                 <option value="native">Native</option>
                                 <option value="rentee">Rentee</option>
                                 </select>
@@ -463,7 +471,7 @@
                         <div class="col-md-6">
                             <div class="form-floating">
                                 <select class="form-control form-control-lg p-2 pt-3" id="resStat" name="resStat" required>
-                                <option selected disabled>STATUS</option>
+                                <option selected disabled>CHOOSE</option>
                                 <option value="active">ACTIVE</option>
                                 <option value="inactive">INACTIVE</option>
                                 <option value="deceased">DECEASED</option>
@@ -474,7 +482,7 @@
                     </div>
                     <div class="row mb-5">
                         <div class="col-md-12">
-                            <button type="submit" name="btnRegisterResident" class="btn btn-primary btn-block btn-large">SAVE NEW RESIDENT</button>
+                            <button type="submit" name="btnRegisterResident" class="btn btn-primary btn-block btn-large">REGISTER NEW RESIDENT</button>
                         </div>
                     </div>
                 </form>

@@ -104,13 +104,13 @@
                             <div class="row mb-4">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                    <input class="form-control form-control-lg" type="text" value='<?php echo $viewLastName ?>' id="lName" name="lastName" placeholder="Last Name" required>
+                                    <input class="form-control form-control-lg" type="text" value='<?php echo $viewLastName ?>' id="lName" name="lastName" placeholder="Last Name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                                     <label class="form-label" for="lName">LAST NAME</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                    <input class="form-control form-control-lg" type="text" value='<?php echo $viewFirstName ?>' id="fName" name="firstName" placeholder="First Name" required>
+                                    <input class="form-control form-control-lg" type="text" value='<?php echo $viewFirstName ?>' id="fName" name="firstName" placeholder="First Name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                                     <label class="form-label" for="fName">FIRST NAME</label>
                                     </div>
                                 </div>
@@ -118,19 +118,18 @@
                             <div class="row mb-4">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                    <input class="form-control form-control-lg" type="text" id="mName" value='<?php echo $viewMiddleName ?>' name="middleName" placeholder="Middle Name" required>
+                                    <input class="form-control form-control-lg" type="text" id="mName" value='<?php echo $viewMiddleName ?>' name="middleName" placeholder="Middle Name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                                     <label class="form-label" for="mName">MIDDLE NAME</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                    <input class="form-control form-control-lg" type="text" id="alias" value='<?php echo $viewAlias ?>' name="alias" placeholder="alias" required>
+                                    <input class="form-control form-control-lg" type="text" id="alias" value='<?php echo $viewAlias ?>' name="alias" placeholder="alias" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                                     <label class="form-label" for="alias">ALIAS</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="row mb-4">
-                                
                                 <div class="col-md-3 pt-3">
                                     <div class="row mb-3">
                                         <div class="col-md-6">
@@ -138,9 +137,7 @@
                                             </p>
                                         </div>
                                         <div class="col-md-6">
-                                            <H6>BIRTHDATE:
-                                            </H6>
-                                            
+                                            <h6>BIRTHDATE: </h6>
                                         </div>
                                     </div>
                                 </div>
@@ -318,7 +315,7 @@
                     <div class="row mb-4">
                         <div class="col-md-12">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" rows="3" type="text" id="pob" value="<?php echo $viewPOB ?>" name="pob" placeholder="pob" required>
+                                <input class="form-control form-control-lg" rows="3" type="text" id="pob" value="<?php echo $viewPOB ?>" name="pob" placeholder="pob" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                                 <label for="pob">PLACE OF BIRTH</label>
                             </div>
                         </div>
@@ -387,13 +384,13 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="mNumOne" value="<?php echo $viewMobileNumberA ?>" name="mNumOne" placeholder="mNumOne" required>
+                                <input class="form-control form-control-lg" type="number" id="mNumOne" value="<?php echo $viewMobileNumberA ?>" name="mNumOne" placeholder="mNumOne" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;" required>
                                 <label class="form-label" for="mNumOne">MOBILE NUMBER 1</label>    
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="mNumTwo" value="<?php echo $viewMobileNumberB ?>" name="mNumTwo" placeholder="mNumTwo" required>
+                                <input class="form-control form-control-lg" type="number" id="mNumTwo" value="<?php echo $viewMobileNumberB ?>" name="mNumTwo" placeholder="mNumTwo" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;" required>
                                 <label class="form-label" for="mNumTwo">MOBILE NUMBER 2</label>    
                             </div>
                         </div>
@@ -401,13 +398,13 @@
                     <div class="row mb-4">
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="hNumOne" value="<?php echo $viewHomeNumberA ?>" name="hNumOne" placeholder="hNumOne" required>
+                                <input class="form-control form-control-lg" type="number" id="hNumOne" value="<?php echo $viewHomeNumberA ?>" name="hNumOne" placeholder="hNumOne" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;" required>
                                 <label class="form-label" for="hNumOne">HOME NUMBER 1</label>    
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="hNumTwo" value="<?php echo $viewHomeNumberB ?>" name="hNumTwo" placeholder="hNumTwo" required>
+                                <input class="form-control form-control-lg" type="number" id="hNumTwo" value="<?php echo $viewHomeNumberB ?>" name="hNumTwo" placeholder="hNumTwo" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;" required>
                                 <label class="form-label" for="hNumTwo">HOME NUMBER 2</label>    
                             </div>
                         </div>
@@ -425,13 +422,13 @@
                     <div class="row mb-4">
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="uName" value="<?php echo $viewUsername ?>" name="uName" placeholder="User Name" required>
+                                <input class="form-control form-control-lg" type="text" id="uName" value="<?php echo $viewUsername ?>" name="uName" placeholder="Username" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                                 <label class="form-label" for="uName">USERNAME</label>
                             </div>
                         </div>    
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="email" name="email" value="<?php echo $viewEmail ?>" placeholder="email" required>
+                                <input class="form-control form-control-lg" type="email" id="email" name="email" value="<?php echo $viewEmail ?>" placeholder="email" required>
                                 <label class="form-label" for="email">E-MAIL ADDRESS</label>    
                             </div>
                         </div>
@@ -439,13 +436,13 @@
                     <div class="row mb-4">   
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="psswrd" name="psswrd" placeholder="Password" required>
+                                <input class="form-control form-control-lg" type="password" id="psswrd" name="psswrd" placeholder="Password" required>
                                 <label class="form-label" for="psswrd">PASSWORD</label>
                             </div>
                         </div>  
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="cPsswrd" name="cPsswrd" placeholder="Confirm Pasword" required>
+                                <input class="form-control form-control-lg" type="password" id="cPsswrd" name="cPsswrd" placeholder="Confirm Pasword" required>
                                 <label class="form-label" for="cPsswrd">CONFIRM PASSWORD</label>
                             </div>
                         </div>

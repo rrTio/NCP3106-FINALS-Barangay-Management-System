@@ -33,6 +33,7 @@ if(isset($_POST['btnLogin'])){
     }
 }
 if(isset($_POST['btnRegisterResident'])){
+    $residentID = date("Y") . "-" . substr(hexdec(uniqid()), 12) . date("s");
     $lastName = $_POST['lastName'];
     $firstName = $_POST['firstName'];
     $middleName = $_POST['middleName'];
@@ -59,13 +60,12 @@ if(isset($_POST['btnRegisterResident'])){
     $houseNumberB = $_POST['hNumTwo'];
     $residentType = $_POST['resType'];
     $residentStatus = $_POST['resStat'];
-    $residentID = date("Y");
-    $encoder = $_SESSION['name'];
-    $encoderPostion = $_SESSION['position'];
-    $insertToResident = "INSTER INTO residents (residentID, nameFirst, nameMiddle, nameLast, nameAlias, birthMonth, birthDay, birthYear, placeOB, gender, civilStatus, voterStatus, ifActive, religion, nationality, occupation, sector, cityAddress, provAddress, purok, email, mobileNumberA, mobileNumberB, homeNumberA, homeNumberB, residentType, residentStatus, encoder, encoderPosition)
+    $encoder = $_POST['encoder'];
+    $encoderPosition = $_POST['encoderPosition'];
+    $insertToResident = "INSERT INTO residents (residentID, nameFirst, nameMiddle, nameLast, nameAlias, birthMonth, birthDay, birthYear, placeOB, gender, civilStatus, voterStatus, ifActive, religion, nationality, occupation, sector, cityAddress, provAddress, purok, email, mobileNumberA, mobileNumberB, homeNumberA, homeNumberB, residentType, residentStatus, encoder, encoderPosition)
         VALUES ('$residentID','$firstName', '$middleName', '$lastName', '$alias', '$birthMonth', '$birthDay', '$birthYear', '$placeOfBirth', '$gender', '$civilStatus', '$voterStatus', '$ifActive', '$religion', '$nationality', '$occupation', '$sector', '$cityAddress', '$provAddress', '$purok', '$email', '$mobileNumberA', '$mobileNumberB', '$houseNumberA', '$houseNumberB', '$residentType', '$residentStatus', '$encoder', '$encoderPosition');";
     mysqli_query($conn, $insertToResident);
-    header("Location: ../registration.php");
+    header("Location: ../residents.php");
 }
 
 if(isset($_POST['btnRegisterOfficial'])){

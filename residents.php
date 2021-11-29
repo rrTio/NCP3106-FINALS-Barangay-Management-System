@@ -79,31 +79,44 @@ $position = $_SESSION['position'];
         <table class="table table-striped table-hover">
           <thead>
             <tr>
-              <th data-field="view"></th>
-              <th data-field="resID">Resident's ID</th>
+              <th data-field="view">View Resident</th>
+              <th data-field="resID">Resident ID</th>
               <th data-field="lName" data-sortable="true">Last Name</th>
               <th data-field="fName" data-sortable="true">First Name</th>
               <th data-field="mName" data-sortable="true">Middle Name</th>
-              <th data-field="vStatus" data-sortable="true">Voter Status</th>
-              <th data-field="occuptaion" data-sortable="true">Occupation</th>
-              <th>Action</th>
+              <th data-field="vStatus" data-sortable="true">Gender</th>
+              <th data-field="occuptaion" data-sortable="true">Purok</th>
+              <th data-field="encoder" data-sortable="true">Encoder</th>
+              <th data-field="enPosition" data-sortable="true">Encoder Position</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td><button class="btn rounded-3 btn-primary border-3" onClick="return openResidents()">View</button></td>
-              <td>2018-0213</td>
-              <td>Jadoon</td>
-              <td>Naix</td>
-              <td>Garingan</td>
-              <td>No</td>
-              <td>Developer</td>
-              <td>
-                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-              </td>
-            </tr>
-          </tbody>
+          <form method="POST" action="./database/database.php">
+            <tbody>
+              <?php
+                include_once("./database/connection.php");
+                $getResidents = "SELECT * FROM residents";
+                $result = mysqli_query($conn, $getResidents);
+                if(mysqli_num_rows($result) > 0){   
+                  while($residents = mysqli_fetch_assoc($result)){
+                    $lastName = $residents['nameLast'];
+                    $firstName = $residents['nameFirst'];
+                    $middleName = $residents['nameMiddle'];
+                    $purok = $residents['purok'];
+                    echo "<tr><td><button name='btnViewResident' type='submit' value=".$residents['residentID']." class='btn btn-success bg-gradient fa fa-eye'>&nbsp;View</button></td>"
+                        . "<td>" . $residents['residentID']
+                        ."</td><td>" . $residents['nameLast']
+                        ."</td><td>" . $residents['nameFirst']
+                        ."</td><td>" . $residents['nameMiddle']
+                        ."</td><td>" . $residents['gender']
+                        ."</td><td>" . $residents['purok']
+                        ."</td><td>" . $residents['encoder']
+                        ."</td><td>" . $residents['encoderPosition']
+                        . "</td></tr>";
+                  }
+                }
+              ?>
+            </tbody>
+          </form>
         </table>
       </div>
     </div>
