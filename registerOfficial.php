@@ -20,6 +20,7 @@
     <link rel='stylesheet' href='https://unicons.iconscout.com/release/v3.0.6/css/line.css'>
     <link rel="stylesheet" href="./assets/css/registerOfficial.css">
     <link rel="stylesheet" href="./assets/css/main.css">
+    <script src="./assets/js/registerOfficial.js"></script>
 </head>
 <body>
     <aside class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
@@ -83,13 +84,13 @@
                             <div class="row mb-4">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                    <input class="form-control form-control-lg" type="text" id="lName" name="lastName" placeholder="Last Name" required>
+                                    <input class="form-control form-control-lg" type="text" id="lName" name="lastName" placeholder="Last Name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                                     <label class="form-label" for="lName">LAST NAME</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                    <input class="form-control form-control-lg" type="text" id="fName" name="firstName" placeholder="First Name" required>
+                                    <input class="form-control form-control-lg" type="text" id="fName" name="firstName" placeholder="First Name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                                     <label class="form-label" for="fName">FIRST NAME</label>
                                     </div>
                                 </div>
@@ -97,13 +98,13 @@
                             <div class="row mb-4">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                    <input class="form-control form-control-lg" type="text" id="mName" name="middleName" placeholder="Middle Name" required>
+                                    <input class="form-control form-control-lg" type="text" id="mName" name="middleName" placeholder="Middle Name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                                     <label class="form-label" for="mName">MIDDLE NAME</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                    <input class="form-control form-control-lg" type="text" id="alias" name="alias" placeholder="alias" required>
+                                    <input class="form-control form-control-lg" type="text" id="alias" name="alias" placeholder="alias" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                                     <label class="form-label" for="alias">ALIAS</label>
                                     </div>
                                 </div>
@@ -369,13 +370,13 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="mNumOne" name="mNumOne" placeholder="mNumOne" required>
+                                <input class="form-control form-control-lg" type="number" id="mNumOne" name="mNumOne" placeholder="mNumOne" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;" required>
                                 <label class="form-label" for="mNumOne">MOBILE NUMBER 1</label>    
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="mNumTwo" name="mNumTwo" placeholder="mNumTwo" required>
+                                <input class="form-control form-control-lg" type="number" id="mNumTwo" name="mNumTwo" placeholder="mNumTwo" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;" required>
                                 <label class="form-label" for="mNumTwo">MOBILE NUMBER 2</label>    
                             </div>
                         </div>
@@ -383,13 +384,13 @@
                     <div class="row mb-4">
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="hNumOne" name="hNumOne" placeholder="hNumOne" required>
+                                <input class="form-control form-control-lg" type="number" id="hNumOne" name="hNumOne" placeholder="hNumOne" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;" required>
                                 <label class="form-label" for="hNumOne">HOME NUMBER 1</label>    
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="hNumTwo" name="hNumTwo" placeholder="hNumTwo" required>
+                                <input class="form-control form-control-lg" type="number" id="hNumTwo" name="hNumTwo" placeholder="hNumTwo" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;" required>
                                 <label class="form-label" for="hNumTwo">HOME NUMBER 2</label>    
                             </div>
                         </div>
@@ -413,7 +414,7 @@
                         </div>    
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="email" name="email" placeholder="email" required>
+                                <input class="form-control form-control-lg" type="email" id="email" name="email" placeholder="email" required>
                                 <label class="form-label" for="email">E-MAIL ADDRESS</label>    
                             </div>
                         </div>
@@ -421,13 +422,13 @@
                     <div class="row mb-4">
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="psswrd" name="psswrd" placeholder="Password" required>
+                                <input class="form-control form-control-lg" type="password" id="psswrd" name="psswrd" placeholder="Password" required>
                                 <label class="form-label" for="psswrd">PASSWORD</label>
                             </div>
                         </div>  
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="cPsswrd" name="cPsswrd" placeholder="Confirm Pasword" required>
+                                <input class="form-control form-control-lg" type="password" id="cPsswrd" name="cPsswrd" placeholder="Confirm Pasword" required>
                                 <label class="form-label" for="cPsswrd">CONFIRM PASSWORD</label>
                             </div>
                         </div>
@@ -435,10 +436,9 @@
                     
                     <div class="row mb-5">
                         <div class="col-md-12">
-                            <button type="submit" name="btnRegisterOfficial" class="btn btn-primary btn-block btn-large">ADD NEW OFFICIAL</button>
+                            <button type="submit" name="btnRegisterOfficial" onClick="checkValidation()" class="btn btn-primary btn-block btn-large">ADD NEW OFFICIAL</button>
                         </div>
                     </div>
-                   
                 </form>
             </div>
         </section>

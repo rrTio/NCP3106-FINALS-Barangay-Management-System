@@ -13,7 +13,7 @@
   <div class="login">
     <h1>Login</h1>
     <form action="./database/database.php" method="post">
-        <input type="text" name="username" placeholder="Username" required="required" />
+        <input type="text" name="username" placeholder="Username or Email" required="required" />
         <input type="password" name="password" placeholder="Password" required="required" />
         <button type="submit" name="btnLogin" class="btn btn-primary btn-block btn-large">Enter</button>
     </form>
