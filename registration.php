@@ -51,8 +51,10 @@
             <div class="container mt-5">
                 <form name="residents" method="POST" action="./database/database.php">
                     <div class="row welcome mb-2">
-                        <div class="content rounded-3 p-3 col-md-12">
-                            <h1>New Resident Registration Form</h1>
+                        <div class="col-md-12">
+                            <div class="content rounded-3 p-3 col-md-12">
+                                <h1>New Resident Registration Form</h1>
+                            </div>
                         </div>
                     </div>
                     <div class="row mb-2">
