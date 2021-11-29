@@ -60,7 +60,7 @@ $createOfficialsTable = "CREATE TABLE IF NOT EXISTS `officials`(
 	`birthYear` VARCHAR(4),
 	`placeOB` TEXT,
 	`gender` TEXT,
-	`civilStatus` VARCHAR(2),
+	`civilStatus` TEXT,
 	`position` TEXT,
 	`cityAddress` TEXT,
 	`provAddress` TEXT,

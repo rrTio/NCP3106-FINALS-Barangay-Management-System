@@ -5,7 +5,7 @@ if(isset($_POST['btnLogin'])){
     $adminUsername = $_POST['username'];
     $adminPassword = $_POST['password'];
 
-    $loginQuery = "SELECT * FROM officials where email = '$adminUsername' AND officialPassword = '$adminPassword';";
+    $loginQuery = "SELECT * FROM officials where (email = '$adminUsername' OR username = '$adminUsername') AND officialPassword = '$adminPassword';";
     $login = mysqli_query($conn, $loginQuery);
 
     if(mysqli_num_rows($login) == 1){
