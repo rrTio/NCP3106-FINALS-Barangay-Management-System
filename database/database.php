@@ -69,6 +69,7 @@ if(isset($_POST['btnRegisterResident'])){
 }
 
 if(isset($_POST['btnRegisterOfficial'])){
+    $idNumber = date("Y") . "-" . substr(hexdec(uniqid()), 12) . date("s");
     $lastName = $_POST['lastName'];
     $firstName = $_POST['firstName'];
     $middleName = $_POST['middleName'];
@@ -83,39 +84,74 @@ if(isset($_POST['btnRegisterOfficial'])){
     $cityAddress = $_POST['cityAdd'];
     $provAddress = $_POST['provAdd'];
     $purok = $_POST['purok'];
-    $email = $_POST['email'];
-    $password = "testofficials";
     $mobileNumberA = $_POST['mNumOne'];
     $mobileNumberB = $_POST['mNumTwo'];
     $houseNumberA = $_POST['hNumOne'];
     $houseNumberB = $_POST['hNumTwo'];
+    $username = $_POST['uName'];
+    $email = $_POST['email'];
+    $password = $_POST['psswrd'];
 
-    $insertToOfficials = "INSERT INTO officials (nameLast, nameFirst, nameMiddle, nameAlias, birthMonth, birthDay, birthYear, placeOB, gender, civilStatus, position, cityAddress, provAddress, purok, email, officialPassword, mobileNumberA, mobileNumberB, homeNumberA, homeNumberB) 
-    VALUES ('$lastName','$firstName','$middleName','$alias','$birthMonth','$birthDay','$birthYear','$placeOfBirth','$gender','$civilStatus','$position','$cityAddress','$provAddress','$purok','$email','$password','$mobileNumberA','$mobileNumberB','$houseNumberA','$houseNumberB');";
-
+    $insertToOfficials = "INSERT INTO officials (idNumber, nameLast, nameFirst, nameMiddle, nameAlias, birthMonth, birthDay, birthYear, placeOB, gender, civilStatus, position, cityAddress, provAddress, purok, mobileNumberA, mobileNumberB, homeNumberA, homeNumberB, email, username, officialPassword)
+    VALUES ('$idNumber','$lastName','$firstName','$middleName','$alias','$birthMonth','$birthDay','$birthYear','$placeOfBirth','$gender','$civilStatus','$position','$cityAddress','$provAddress','$purok','$mobileNumberA','$mobileNumberB','$houseNumberA','$houseNumberB','$email','$username','$password');";
     mysqli_query($conn, $insertToOfficials);
     header("Location: ../dashboard.php");
 }
 
 if(isset($_POST['btnView'])){
-    $lastName = $_POST['lastName'];
-    $firstName = $_POST['firstName'];
-    $middleName = $_POST['middleName'];
-    $purok = $_POST['purok'];
-    $getQuery = "SELECT * FROM officials WHERE nameLast = '$lastName' AND nameFirst = '$firstName';";
+    $getID = $_POST['btnView'];
+
+    $getQuery = "SELECT * FROM officials WHERE idNumber = '$getID';";
     $getOfficial = mysqli_query($conn, $getQuery);
     if(mysqli_num_rows($getOfficial) > 0){
         while($view = mysqli_fetch_assoc($getOfficial)){
+            $viewIdNumber = $view['idNumber'];
             $viewLastName = $view['nameLast'];
             $viewFirstName = $view['nameFirst'];
             $viewMiddleName = $view['nameMiddle'];
+            $viewAlias = $view['nameAlias'];
+            $viewMonth = $view['birthMonth'];
+            $viewDay = $view['birthDay'];
+            $viewYear = $view['birthYear'];
+            $viewPOB = $view['placeOB'];
+            $viewGender = $view['gender'];
+            $viewCivilStatus = $view['civilStatus'];
+            $viewPosition = $view['position'];
+            $viewCityAddress = $view['cityAddress'];
+            $viewProvAddress = $view['provAddress'];
             $viewPurok = $view['purok'];
+            $viewMobileNumberA = $view['mobileNumberA'];
+            $viewMobileNumberB = $view['mobileNumberB'];
+            $viewHomeNumberA = $view['homeNumberA'];
+            $viewHomeNumberB = $view['homeNumberB'];
+            $viewEmail = $view['email'];
+            $viewUsername = $view['username'];
+            $viewPassword = $view['officialPassword'];
         }
+
         session_start();
+        $_SESSION['getID'] = $viewIdNumber;
         $_SESSION['getLastName'] = $viewLastName;
         $_SESSION['getFirstName'] = $viewFirstName;
         $_SESSION['getMiddleName'] = $viewMiddleName;
+        $_SESSION['getAlias'] = $viewAlias;
+        $_SESSION['getMonth'] = $viewMonth;
+        $_SESSION['getDay'] = $viewDay;
+        $_SESSION['getYear'] = $viewYear;
+        $_SESSION['getPOB'] = $viewPOB;
+        $_SESSION['getGender'] = $viewGender;
+        $_SESSION['getCivilStatus'] = $viewCivilStatus;
+        $_SESSION['getPosition'] = $viewPosition;
+        $_SESSION['getCity'] = $viewCityAddress;
+        $_SESSION['getProv'] = $viewProvAddress;
         $_SESSION['getPurok'] = $viewPurok;
+        $_SESSION['getMobileA'] = $viewMobileNumberA;
+        $_SESSION['getMobileB'] = $viewMobileNumberB;
+        $_SESSION['getHomeA'] = $viewHomeNumberA;
+        $_SESSION['getHomeB'] = $viewHomeNumberB;
+        $_SESSION['getEmail'] = $viewEmail;
+        $_SESSION['getUsername'] = $viewUsername;
+        $_SESSION['getPassword'] = $viewPassword;
         header("Location: ../viewUser.php");
         //session results to viewUser.php
     }

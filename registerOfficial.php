@@ -50,7 +50,7 @@
     </aside>
     <section>
             <div class="container mt-5">
-                <form name="residents" method="POST" action="./database/database.php">
+                <form name="officials" method="POST" action="./database/database.php">
                 
                     <div class="row welcome">
                         <div class="col-md-12">
@@ -66,7 +66,7 @@
                     <div class="row">
                         <div class="col-md-2">
                             <div class="row mb-2">
-                                <img src="E:\xammp\htdocs\NCP3106-FINALS\assets\images\blankpic.jpg" width="180" height="170">
+                                <input type='file' width="180" height="170">
                             </div>
                             <div class="row">
                                 <div class="col-md-6 p-1">
@@ -418,7 +418,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-4">   
+                    <div class="row mb-4">
                         <div class="col-md-6">
                             <div class="form-floating">
                                 <input class="form-control form-control-lg" type="text" id="psswrd" name="psswrd" placeholder="Password" required>

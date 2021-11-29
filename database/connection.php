@@ -50,13 +50,14 @@ $createResidentTable = "CREATE TABLE IF NOT EXISTS `residents`(
 );";
 
 $createOfficialsTable = "CREATE TABLE IF NOT EXISTS `officials`(
+	`idNumber` TEXT UNIQUE,
 	`nameLast` TEXT,
 	`nameFirst` TEXT,
 	`nameMiddle` TEXT,
 	`nameAlias` TEXT,
 	`birthMonth` VARCHAR(2),
 	`birthDay` VARCHAR(2),
-	`birthYear` VARCHAR(2),
+	`birthYear` VARCHAR(4),
 	`placeOB` TEXT,
 	`gender` TEXT,
 	`civilStatus` VARCHAR(2),
@@ -64,12 +65,13 @@ $createOfficialsTable = "CREATE TABLE IF NOT EXISTS `officials`(
 	`cityAddress` TEXT,
 	`provAddress` TEXT,
 	`purok` TEXT,
-	`email` TEXT,
-	`officialPassword` TEXT,
 	`mobileNumberA` VARCHAR(11),
 	`mobileNumberB` VARCHAR(11),
 	`homeNumberA` VARCHAR(11),
-	`homeNumberB` VARCHAR(11)
+	`homeNumberB` VARCHAR(11),
+	`email` TEXT,
+	`username` TEXT,
+	`officialPassword` TEXT
 );";
 
 //EXECUTION FOR CREATING TABLE AND COLUMNS

@@ -1,12 +1,31 @@
 <?php
-  session_start();
-  $name = $_SESSION['name'];
-  $purok = $_SESSION['purok'];
-  $position = $_SESSION['position'];
-  $viewLastName = $_SESSION['getLastName'];
-  $viewFirstName = $_SESSION['getFirstName'];
-  $viewMiddleName = $_SESSION['getMiddleName'];
-  $viewPurok = $_SESSION['getPurok'];
+    session_start();
+    $name = $_SESSION['name'];
+    $purok = $_SESSION['purok'];
+    $position = $_SESSION['position'];
+
+    $viewIdNumber = $_SESSION['getID'];
+    $viewLastName = $_SESSION['getLastName'];
+    $viewFirstName = $_SESSION['getFirstName'];
+    $viewMiddleName = $_SESSION['getMiddleName'];
+    $viewAlias = $_SESSION['getAlias'];
+    $viewMonth = $_SESSION['getMonth'];
+    $viewDay = $_SESSION['getDay'];
+    $viewYear = $_SESSION['getYear'];
+    $viewPOB = $_SESSION['getPOB'];
+    $viewGender = $_SESSION['getGender'];
+    $viewCivilStatus = $_SESSION['getCivilStatus'];
+    $viewPosition = $_SESSION['getPosition'];
+    $viewCityAddress = $_SESSION['getCity'];
+    $viewProvAddress = $_SESSION['getProv'];
+    $viewPurok = $_SESSION['getPurok'];
+    $viewMobileNumberA = $_SESSION['getMobileA'];
+    $viewMobileNumberB = $_SESSION['getMobileB'];
+    $viewHomeNumberA = $_SESSION['getHomeA'];
+    $viewHomeNumberB = $_SESSION['getHomeB'];
+    $viewEmail = $_SESSION['getEmail'];
+    $viewUsername = $_SESSION['getUsername'];
+    $viewPassword = $_SESSION['getPassword'];
 ?>
 
 <!DOCTYPE html>
@@ -58,6 +77,7 @@
                         <div class="col-md-12">
                             <div class="content rounded-3 p-3">
                                 <h1>Officials Form</h1>
+                                <p>Barangay Official ID No.: <?php echo $viewIdNumber ?> </p>
                             </div>
                         </div>
                     </div>
@@ -84,13 +104,13 @@
                             <div class="row mb-4">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                    <input class="form-control form-control-lg" type="text" value='<?php echo $viewLastName?>' id="lName" name="lastName" placeholder="Last Name" required>
+                                    <input class="form-control form-control-lg" type="text" value='<?php echo $viewLastName ?>' id="lName" name="lastName" placeholder="Last Name" required>
                                     <label class="form-label" for="lName">LAST NAME</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                    <input class="form-control form-control-lg" type="text" value='<?php echo $viewFirstName?>' id="fName" name="firstName" placeholder="First Name" required>
+                                    <input class="form-control form-control-lg" type="text" value='<?php echo $viewFirstName ?>' id="fName" name="firstName" placeholder="First Name" required>
                                     <label class="form-label" for="fName">FIRST NAME</label>
                                     </div>
                                 </div>
@@ -104,7 +124,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                    <input class="form-control form-control-lg" type="text" id="alias" name="alias" placeholder="alias" required>
+                                    <input class="form-control form-control-lg" type="text" id="alias" value='<?php echo $viewAlias ?>' name="alias" placeholder="alias" required>
                                     <label class="form-label" for="alias">ALIAS</label>
                                     </div>
                                 </div>
@@ -298,7 +318,7 @@
                     <div class="row mb-4">
                         <div class="col-md-12">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" rows="3" type="text" id="pob" name="pob" placeholder="pob" required>
+                                <input class="form-control form-control-lg" rows="3" type="text" id="pob" value="<?php echo $viewPOB ?>" name="pob" placeholder="pob" required>
                                 <label for="pob">PLACE OF BIRTH</label>
                             </div>
                         </div>
@@ -347,13 +367,13 @@
                     <div class="row mb-4">
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" rows="3" type="text" id="cityAdd" name="cityAdd" placeholder="cityAdd" required>
+                                <input class="form-control form-control-lg" rows="3" type="text" id="cityAdd" value="<?php echo $viewCityAddress ?>" name="cityAdd" placeholder="cityAdd" required>
                                 <label for="cityAdd">CITY ADDRESS</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" rows="3" type="text" id="provAdd" name="provAdd" placeholder="provAdd" required>
+                                <input class="form-control form-control-lg" rows="3" type="text" id="provAdd" value="<?php echo $viewProvAddress ?>" name="provAdd" placeholder="provAdd" required>
                                 <label for="provAdd">PROVINCIAL ADDRESS</label>
                             </div>
                         </div>
@@ -361,19 +381,19 @@
                     <div class="row mb-4">
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="purok" name="purok" placeholder="Purok" >
+                                <input class="form-control form-control-lg" type="text" id="purok" value="<?php echo $viewPurok ?>" name="purok" placeholder="Purok" >
                                 <label class="form-label" for="purok">PUROK</label>    
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="mNumOne" name="mNumOne" placeholder="mNumOne" required>
+                                <input class="form-control form-control-lg" type="text" id="mNumOne" value="<?php echo $viewMobileNumberA ?>" name="mNumOne" placeholder="mNumOne" required>
                                 <label class="form-label" for="mNumOne">MOBILE NUMBER 1</label>    
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="mNumTwo" name="mNumTwo" placeholder="mNumTwo" required>
+                                <input class="form-control form-control-lg" type="text" id="mNumTwo" value="<?php echo $viewMobileNumberB ?>" name="mNumTwo" placeholder="mNumTwo" required>
                                 <label class="form-label" for="mNumTwo">MOBILE NUMBER 2</label>    
                             </div>
                         </div>
@@ -381,13 +401,13 @@
                     <div class="row mb-4">
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="hNumOne" name="hNumOne" placeholder="hNumOne" required>
+                                <input class="form-control form-control-lg" type="text" id="hNumOne" value="<?php echo $viewHomeNumberA ?>" name="hNumOne" placeholder="hNumOne" required>
                                 <label class="form-label" for="hNumOne">HOME NUMBER 1</label>    
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="hNumTwo" name="hNumTwo" placeholder="hNumTwo" required>
+                                <input class="form-control form-control-lg" type="text" id="hNumTwo" value="<?php echo $viewHomeNumberB ?>" name="hNumTwo" placeholder="hNumTwo" required>
                                 <label class="form-label" for="hNumTwo">HOME NUMBER 2</label>    
                             </div>
                         </div>
@@ -405,13 +425,13 @@
                     <div class="row mb-4">
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="uName" name="uName" placeholder="User Name" required>
+                                <input class="form-control form-control-lg" type="text" id="uName" value="<?php echo $viewUsername ?>" name="uName" placeholder="User Name" required>
                                 <label class="form-label" for="uName">USERNAME</label>
                             </div>
                         </div>    
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="email" name="email" placeholder="email" required>
+                                <input class="form-control form-control-lg" type="text" id="email" name="email" value="<?php echo $viewEmail ?>" placeholder="email" required>
                                 <label class="form-label" for="email">E-MAIL ADDRESS</label>    
                             </div>
                         </div>

@@ -54,7 +54,7 @@
         <div class="welcome">
           <div class="content rounded-3 p-3">
             <h1 class="fs-3">Welcome to Dashboard</h1>
-            <p class="mb-0">Hello <?php echo $position . " " . $name . " of " . $purok . " " . date("Y") . "-" . substr(hexdec(uniqid()), 11) ;?></p>
+            <p class="mb-0">Hello <?php echo $position . " " . $name . " of " . $purok;?></p>
           </div>
         </div>
         <section class="statistics mt-4">
@@ -111,10 +111,12 @@
                 <thead>
                   <tr>
                     <th data-field="view">View Official</th>
-                    <th data-field="resID">Position</th>
+                    <th data-field="officialID">ID Number</th>
+                    <th data-field="position">Position</th>
                     <th data-field="lName" data-sortable="true">Last Name</th>
                     <th data-field="fName" data-sortable="true">First Name</th>
                     <th data-field="mName" data-sortable="true">Middle Name</th>
+                    <th data-field="alias" data-sortable="true">Alias</th>
                     <th data-field="purok" data-sortable="true">Purok</th>
                   </tr>
                 </thead>
@@ -124,14 +126,20 @@
                       include_once("./database/connection.php");
                       $getOfficials = "SELECT * FROM officials";
                       $result = mysqli_query($conn, $getOfficials);
-                      if(mysqli_num_rows($result) > 0){            
+                      if(mysqli_num_rows($result) > 0){   
                         while($officials = mysqli_fetch_assoc($result)){
-                          echo "<tr><td><button name='btnView' type='submit' class='btn btn-success bg-gradient fa fa-eye'>&nbsp;View</button></td>"
-                              ."<td>" . $officials['position']
-                              ."</td><td>" . $officials['nameLast'] . "<input type='hidden' name='lastName' value=" . $officials['nameLast'] . ">"
-                              ."</td><td>" . $officials['nameFirst'] . "<input type='hidden' name='firstName' value=" . $officials['nameFirst'] . ">"
-                              ."</td><td>" . $officials['nameMiddle'] . "<input type='hidden' name='middleName' value=" . $officials['nameMiddle'] . ">"
-                              ."</td><td>" . $officials['purok'] . "<input type='hidden' name='purok' value=" . $officials['purok'] . ">"
+                          $lastName = $officials['nameLast'];
+                          $firstName = $officials['nameFirst'];
+                          $middleName = $officials['nameMiddle'];
+                          $purok = $officials['purok'];
+                          echo "<tr><td><button name='btnView' type='submit' value=".$officials['idNumber']." class='btn btn-success bg-gradient fa fa-eye'>&nbsp;View</button></td>"
+                              . "<td>" . $officials['idNumber']
+                              ."</td><td>" . $officials['position']
+                              ."</td><td>" . $officials['nameLast']
+                              ."</td><td>" . $officials['nameFirst']
+                              ."</td><td>" . $officials['nameMiddle']
+                              ."</td><td>" . $officials['nameAlias']
+                              ."</td><td>" . $officials['purok']
                               . "</td></tr>";
                         }
                       }
