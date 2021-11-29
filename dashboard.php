@@ -54,7 +54,7 @@
         <div class="welcome">
           <div class="content rounded-3 p-3">
             <h1 class="fs-3">Welcome to Dashboard</h1>
-            <p class="mb-0">Hello <?php echo $position . " " . $name . " of " . $purok;?></p>
+            <p class="mb-0">Hello <?php echo $position . " " . $name . " of " . $purok . " " . date("Y") . "-" . substr(hexdec(uniqid()), 11) ;?></p>
           </div>
         </div>
         <section class="statistics mt-4">

@@ -102,13 +102,21 @@ if(isset($_POST['btnView'])){
     $firstName = $_POST['firstName'];
     $middleName = $_POST['middleName'];
     $purok = $_POST['purok'];
-    $getQuery = "SELECT * FROM officials WHERE nameLast = '$lastName' AND nameFirst = '$firstName' AND nameMiddle = '$middleName' AND purok = '$purok';";
+    $getQuery = "SELECT * FROM officials WHERE nameLast = '$lastName' AND nameFirst = '$firstName';";
     $getOfficial = mysqli_query($conn, $getQuery);
     if(mysqli_num_rows($getOfficial) > 0){
         while($view = mysqli_fetch_assoc($getOfficial)){
-            //get from database
+            $viewLastName = $view['nameLast'];
+            $viewFirstName = $view['nameFirst'];
+            $viewMiddleName = $view['nameMiddle'];
+            $viewPurok = $view['purok'];
         }
-
+        session_start();
+        $_SESSION['getLastName'] = $viewLastName;
+        $_SESSION['getFirstName'] = $viewFirstName;
+        $_SESSION['getMiddleName'] = $viewMiddleName;
+        $_SESSION['getPurok'] = $viewPurok;
+        header("Location: ../viewUser.php");
         //session results to viewUser.php
     }
 }

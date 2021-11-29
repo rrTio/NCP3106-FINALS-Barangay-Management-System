@@ -3,8 +3,10 @@
   $name = $_SESSION['name'];
   $purok = $_SESSION['purok'];
   $position = $_SESSION['position'];
-  $viewLastName = $_SESSION['viewLastName'];
-  $viewMiddleName = $_SESSION['viewMiddleName'];
+  $viewLastName = $_SESSION['getLastName'];
+  $viewFirstName = $_SESSION['getFirstName'];
+  $viewMiddleName = $_SESSION['getMiddleName'];
+  $viewPurok = $_SESSION['getPurok'];
 ?>
 
 <!DOCTYPE html>
@@ -86,7 +88,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                    <input class="form-control form-control-lg" type="text" id="fName" name="firstName" placeholder="First Name" required>
+                                    <input class="form-control form-control-lg" type="text" value='<?php echo $viewFirstName?>' id="fName" name="firstName" placeholder="First Name" required>
                                     <label class="form-label" for="fName">FIRST NAME</label>
                                     </div>
                                 </div>
