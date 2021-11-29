@@ -53,8 +53,10 @@
             <div class="container mt-5">
                 <form name="viewUser" method="POST" action="./database/database.php">
                     <div class="row welcome">
-                        <div class="content rounded-3 p-3">
-                            <h1>Officials Form</h1>
+                        <div class="col-md-12">
+                            <div class="content rounded-3 p-3">
+                                <h1>Officials Form</h1>
+                            </div>
                         </div>
                     </div>
                     <div class="row mb-2">
@@ -291,7 +293,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-3">
+                    <div class="row mb-4">
                         <div class="col-md-12">
                             <div class="form-floating">
                                 <input class="form-control form-control-lg" rows="3" type="text" id="pob" name="pob" placeholder="pob" required>
@@ -299,7 +301,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-3">
+                    <div class="row mb-4">
                         <div class="col-md-3">
                             <div class="form-floating">
                                 <select class="form-control form-control-lg p-2 pt-3" id="gender" name="gender" required>
@@ -335,12 +337,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-1">
+                    <div class="row mb-2">
                         <h4>
                             Contact Information
                         </h4>
                     </div>
-                    <div class="row mb-3">
+                    <div class="row mb-4">
                         <div class="col-md-6">
                             <div class="form-floating">
                                 <input class="form-control form-control-lg" rows="3" type="text" id="cityAdd" name="cityAdd" placeholder="cityAdd" required>
@@ -354,17 +356,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-3">
-                        <div class="col-md-2">
+                    <div class="row mb-4">
+                        <div class="col-md-6">
                             <div class="form-floating">
                                 <input class="form-control form-control-lg" type="text" id="purok" name="purok" placeholder="Purok" >
                                 <label class="form-label" for="purok">PUROK</label>    
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="email" name="email" placeholder="email" required>
-                                <label class="form-label" for="email">E-MAIL ADDRESS</label>    
                             </div>
                         </div>
                         <div class="col-md-3">
@@ -380,7 +376,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-5">
+                    <div class="row mb-4">
                         <div class="col-md-6">
                             <div class="form-floating">
                                 <input class="form-control form-control-lg" type="text" id="hNumOne" name="hNumOne" placeholder="hNumOne" required>
@@ -394,8 +390,46 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="row mb-2">
+                        <div class="col-md-12">
+                            <h4>
+                                Account Credentials
+                            </h4>
+                        </div>    
+                    </div>
                     
-                    <div class="row mb-5">
+                    
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input class="form-control form-control-lg" type="text" id="uName" name="uName" placeholder="User Name" required>
+                                <label class="form-label" for="uName">USERNAME</label>
+                            </div>
+                        </div>    
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input class="form-control form-control-lg" type="text" id="email" name="email" placeholder="email" required>
+                                <label class="form-label" for="email">E-MAIL ADDRESS</label>    
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-4">   
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input class="form-control form-control-lg" type="text" id="psswrd" name="psswrd" placeholder="Password" required>
+                                <label class="form-label" for="psswrd">PASSWORD</label>
+                            </div>
+                        </div>  
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input class="form-control form-control-lg" type="text" id="cPsswrd" name="cPsswrd" placeholder="Confirm Pasword" required>
+                                <label class="form-label" for="cPsswrd">CONFIRM PASSWORD</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-4">
                         <div class="col-md-12">
                             <button type="submit" name="btnSaveOfficial" class="btn btn-success bg-gradient btn-block btn-large">SAVE CHANGES</button>
                         </div>
