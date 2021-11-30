@@ -156,4 +156,45 @@ if(isset($_POST['btnView'])){
         //session results to viewUser.php
     }
 }
+
+if(isset($_POST['btnViewResident'])){
+    $getResidentID = $_POST['btnViewResident'];
+
+    $getQuery = "SELECT * FROM residents WHERE idNumber = '$getResidentID';";
+    $getResidents = mysqli_query($conn, $getQuery);
+
+    if(mysqli_num_rows($getResidents) > 0){
+        while($view = mysqli_fetch_assoc($getResidents)){
+            $viewIdNumber = $view['residentID'];
+            $viewLastName = $view['nameLast'];
+            $viewFirstName = $view['nameFirst'];
+            $viewMiddleName = $view['nameMiddle'];
+            $viewAlias = $view['nameAlias'];
+            $viewMonth = $view['birthMonth'];
+            $viewDay = $view['birthDay'];
+            $viewYear = $view['birthYear'];
+            $viewPOB = $view['placeOB'];
+            $viewGender = $view['gender'];
+            $viewCivilStatus = $view['civilStatus'];
+            $viewVoterStatus = $view['voterStatus'];
+            $viewIfActive = $view['ifActive'];
+            $viewReligion = $view['religion'];
+            $viewNationality = $view['nationality'];
+            $viewOccupation = $view['occupation'];
+            $viewSector = $view['sector'];
+            $viewCityAddress = $view['cityAddress'];
+            $viewProvAddress = $view['provAddress'];
+            $viewPurok = $view['purok'];
+            $viewEmail = $view['email'];
+            $viewMobileNumberA = $view['mobileNumberA'];
+            $viewMobileNumberB = $view['mobileNumberB'];
+            $viewHomeNumberA = $view['homeNumberA'];
+            $viewHomeNumberB = $view['homeNumberB'];
+            $viewResidentType = $view['residentType'];
+            $viewResidentStatus = $view['residentStatus'];
+            $viewEncoder = $view['encoder'];
+            $viewEncoderPosition = $view['encoderPosition'];
+        }
+    }
+}
 ?>

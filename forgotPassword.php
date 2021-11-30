@@ -12,15 +12,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.1-beta1/dist/css/bootstrap.min.css'>
     <link rel='stylesheet' href='https://unicons.iconscout.com/release/v3.0.6/css/line.css'>
-    <link rel="stylesheet" href="./assets/css/registerOfficial.css">
-    <link rel="stylesheet" href="./assets/css/index.css">
-    <script type="text/javascript" src="./assets/js/registerOfficial.js"></script>
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/forgotPass.css">
   </head>
   <body>
   <div class="login">
     <h1>Forgot Password</h1>
     <form action="./database/database.php" method="post">
-
         <div class="form-floating">
             <input class="form-control form-control-lg" type="text" id="uName" name="uName" placeholder="" required>
             <label class="form-label" for="cPsswrd">USERNAME</label>

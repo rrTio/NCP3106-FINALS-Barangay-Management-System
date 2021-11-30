@@ -102,16 +102,16 @@ $position = $_SESSION['position'];
                     $firstName = $residents['nameFirst'];
                     $middleName = $residents['nameMiddle'];
                     $purok = $residents['purok'];
-                    echo "<tr><td><button name='btnViewResident' type='submit' value=".$residents['residentID']." class='btn btn-success bg-gradient fa fa-eye'>&nbsp;View</button></td>"
-                        . "<td>" . $residents['residentID']
-                        ."</td><td>" . $residents['nameLast']
-                        ."</td><td>" . $residents['nameFirst']
-                        ."</td><td>" . $residents['nameMiddle']
-                        ."</td><td>" . $residents['gender']
-                        ."</td><td>" . $residents['purok']
-                        ."</td><td>" . $residents['encoder']
-                        ."</td><td>" . $residents['encoderPosition']
-                        . "</td></tr>";
+                    echo "<tr><td><button name='btnViewResident' type='submit' value=" . $residents['residentID'] . " class='btn btn-success bg-gradient fa fa-eye'>&nbsp;View</button></td>"
+                      ."<td>" . $residents['residentID']
+                      ."</td><td>" . $residents['nameLast']
+                      ."</td><td>" . $residents['nameFirst']
+                      ."</td><td>" . $residents['nameMiddle']
+                      ."</td><td>" . $residents['gender']
+                      ."</td><td>" . $residents['purok']
+                      ."</td><td>" . $residents['encoder']
+                      ."</td><td>" . $residents['encoderPosition']
+                      ."</td></tr>";
                   }
                 }
               ?>
