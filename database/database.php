@@ -160,9 +160,8 @@ if(isset($_POST['btnView'])){
 if(isset($_POST['btnViewResident'])){
     $getResidentID = $_POST['btnViewResident'];
 
-    $getQuery = "SELECT * FROM residents WHERE idNumber = '$getResidentID';";
+    $getQuery = "SELECT * FROM residents WHERE residentID = '$getResidentID';";
     $getResidents = mysqli_query($conn, $getQuery);
-
     if(mysqli_num_rows($getResidents) > 0){
         while($view = mysqli_fetch_assoc($getResidents)){
             $viewIdNumber = $view['residentID'];
@@ -195,6 +194,37 @@ if(isset($_POST['btnViewResident'])){
             $viewEncoder = $view['encoder'];
             $viewEncoderPosition = $view['encoderPosition'];
         }
+        session_start();
+        $_SESSION['viewIdNumber'] = $viewIdNumber;
+        $_SESSION['viewLastName'] = $viewLastName;
+        $_SESSION['viewFirstName'] = $viewFirstName;
+        $_SESSION['viewMiddleName'] = $viewMiddleName;
+        $_SESSION['viewAlias'] = $viewAlias;
+        $_SESSION['viewMonth'] = $viewMonth;
+        $_SESSION['viewDay'] = $viewDay;
+        $_SESSION['viewYear'] = $viewYear;
+        $_SESSION['viewPOB'] = $viewPOB;
+        $_SESSION['viewGender'] = $viewGender;
+        $_SESSION['viewCivilStatus'] = $viewCivilStatus;
+        $_SESSION['viewVoterStatus'] = $viewVoterStatus;
+        $_SESSION['viewIfActive'] = $viewIfActive;
+        $_SESSION['viewReligion'] = $viewReligion;
+        $_SESSION['viewNationality'] = $viewNationality;
+        $_SESSION['viewOccupation'] = $viewOccupation;
+        $_SESSION['viewSector'] = $viewSector;
+        $_SESSION['viewCityAddress'] = $viewCityAddress;
+        $_SESSION['viewProvAddress'] = $viewProvAddress;
+        $_SESSION['viewPurok'] = $viewPurok;
+        $_SESSION['viewEmail'] = $viewEmail;
+        $_SESSION['viewMobileNumberA'] = $viewMobileNumberA;
+        $_SESSION['viewMobileNumberB'] = $viewMobileNumberB;
+        $_SESSION['viewHomeNumberA']  = $viewHomeNumberA;
+        $_SESSION['viewHomeNumberB'] = $viewHomeNumberB;
+        $_SESSION['viewResidentType'] = $viewResidentType;
+        $_SESSION['viewResidentStatus'] = $viewResidentStatus;
+        $_SESSION['viewEncoder'] = $viewEncoder;
+        $_SESSION['viewEncoderPosition'] = $viewEncoderPosition;
+        header("Location: ../viewResident.php");
     }
 }
 ?>

@@ -1,5 +1,34 @@
 <?php
     session_start();
+    $viewIdNumber = $_SESSION['viewIdNumber'];
+    $viewLastName = $_SESSION['viewLastName'];
+    $viewFirstName = $_SESSION['viewFirstName'];
+    $viewMiddleName = $_SESSION['viewMiddleName'];
+    $viewAlias = $_SESSION['viewAlias'];
+    $viewMonth = $_SESSION['viewMonth'];
+    $viewDay = $_SESSION['viewDay'];
+    $viewYear = $_SESSION['viewYear'];
+    $viewPOB = $_SESSION['viewPOB'];
+    $viewGender = $_SESSION['viewGender'];
+    $viewCivilStatus = $_SESSION['viewCivilStatus'];
+    $viewVoterStatus = $_SESSION['viewVoterStatus'];
+    $viewIfActive = $_SESSION['viewIfActive'];
+    $viewReligion = $_SESSION['viewReligion'];
+    $viewNationality = $_SESSION['viewNationality'];
+    $viewOccupation = $_SESSION['viewOccupation'];
+    $viewSector = $_SESSION['viewSector'];
+    $viewCityAddress = $_SESSION['viewCityAddress'];
+    $viewProvAddress = $_SESSION['viewProvAddress'];
+    $viewPurok = $_SESSION['viewPurok'];
+    $viewEmail = $_SESSION['viewEmail'];
+    $viewMobileNumberA = $_SESSION['viewMobileNumberA'];
+    $viewMobileNumberB = $_SESSION['viewMobileNumberB'];
+    $viewHomeNumberA = $_SESSION['viewHomeNumberA'];
+    $viewHomeNumberB = $_SESSION['viewHomeNumberB'];
+    $viewResidentType = $_SESSION['viewResidentType'];
+    $viewResidentStatus = $_SESSION['viewResidentStatus'];
+    $viewEncoder = $_SESSION['viewEncoder'];
+    $viewEncoderPosition = $_SESSION['viewEncoderPosition'];
 ?>
 
 <!DOCTYPE html>
@@ -52,6 +81,7 @@
                     <div class="col-md-12">
                         <div class="content rounded-3 p-3 col-md-12">
                             <h1>Registered Resident Form</h1>
+                            <p>Resident ID No.: <?php echo $viewIdNumber; ?></p>
                         </div>
                     </div>
                 </div>
@@ -78,13 +108,13 @@
                         <div class="row mb-4">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="lName" name="lastName" placeholder="Last Name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
+                                <input class="form-control form-control-lg" type="text" id="lName" value="<?php echo $viewLastName ?>" name="lastName" placeholder="Last Name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                                 <label class="form-label" for="lName">LAST NAME</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="fName" name="firstName" placeholder="First Name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
+                                <input class="form-control form-control-lg" type="text" id="fName" value="<?php echo  $viewFirstName ?>" name="firstName" placeholder="First Name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                                 <label class="form-label" for="fName">FIRST NAME</label>
                                 </div>
                             </div>
@@ -92,13 +122,13 @@
                         <div class="row mb-4">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="mName" name="middleName" placeholder="Middle Name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
+                                <input class="form-control form-control-lg" type="text" id="mName" value="<?php echo  $viewMiddleName ?>" name="middleName" placeholder="Middle Name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                                 <label class="form-label" for="mName">MIDDLE NAME</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="alias" name="alias" placeholder="alias" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
+                                <input class="form-control form-control-lg" type="text" id="alias" value="<?php echo  $viewAlias ?>" name="alias" placeholder="alias" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                                 <label class="form-label" for="alias">ALIAS</label>
                                 </div>
                             </div>
@@ -296,7 +326,7 @@
                 <div class="row mb-4">
                     <div class="col-md-12">
                         <div class="form-floating">
-                            <input class="form-control form-control-lg" rows="3" type="text" id="pob" name="pob" placeholder="pob" required>
+                            <input class="form-control form-control-lg" rows="3" type="text" id="pob" value="<?php echo  $viewPOB?>" name="pob" placeholder="pob" required>
                             <label for="pob">PLACE OF BIRTH</label>
                         </div>
                     </div>
@@ -352,13 +382,13 @@
                 <div class="row mb-4">
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input class="form-control form-control-lg" type="text" id="religion" name="religion" placeholder="religion" required>
+                            <input class="form-control form-control-lg" type="text" id="religion" value="<?php echo  $viewReligion ?>" name="religion" placeholder="religion" required>
                             <label for="religion">RELIGION/BELIEF</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input class="form-control form-control-lg" type="text" id="nationality" name="nationality" placeholder="nationality" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
+                            <input class="form-control form-control-lg" type="text" id="nationality" value="<?php echo  $viewNationality ?>" name="nationality" placeholder="nationality" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                             <label for="nationality">NATIONALITY</label>
                         </div>
                     </div>
@@ -366,7 +396,7 @@
                 <div class="row mb-5">
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input class="form-control form-control-lg" type="text" id="occupation" name="occupation" placeholder="occup" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
+                            <input class="form-control form-control-lg" type="text" id="occupation" value="<?php echo  $viewOccupation ?>" name="occupation" placeholder="occup" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                             <label for="occupation">OCCUPATION</label>
                         </div>    
                     </div>
@@ -399,13 +429,13 @@
                 <div class="row mb-4">
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input class="form-control form-control-lg" rows="3" type="text" id="cityAdd" name="cityAdd" placeholder="cityAdd" required>
+                            <input class="form-control form-control-lg" rows="3" type="text" id="cityAdd" value="<?php echo  $viewCityAddress ?>" name="cityAdd" placeholder="cityAdd" required>
                             <label for="cityAdd">CITY ADDRESS</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input class="form-control form-control-lg" rows="3" type="text" id="provAdd" name="provAdd" placeholder="provAdd" required>
+                            <input class="form-control form-control-lg" rows="3" type="text" id="provAdd" value="<?php echo  $viewProvAddress ?>" name="provAdd" placeholder="provAdd" required>
                             <label for="provAdd">PROVINCIAL ADDRESS</label>
                         </div>
                     </div>
@@ -413,27 +443,25 @@
                 <div class="row mb-4">
                     <div class="col-md-2">
                         <div class="form-floating">
-                            <input class="form-control form-control-lg" type="text" id="purok" name="purok" placeholder="Purok" value="<?php echo $_SESSION['purok']; ?>" readonly>
-                            <input type="hidden" name="encoder" value="<?php echo $name ?>" readonly>
-                            <input type="hidden" name="encoderPosition" value="<?php echo $position ?>" readonly>
+                            <input class="form-control form-control-lg" type="text" id="purok" name="purok" placeholder="Purok" value="<?php echo $viewPurok ?>" readonly>
                             <label class="form-label" for="purok">PUROK</label>    
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-floating">
-                            <input class="form-control form-control-lg" type="text" id="email" name="email" placeholder="email" required>
+                            <input class="form-control form-control-lg" type="text" id="email" value="<?php echo  $viewEmail ?>" name="email" placeholder="email" required>
                             <label class="form-label" for="email">E-MAIL ADDRESS</label>    
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-floating">
-                            <input class="form-control form-control-lg" type="number" id="mNumOne" name="mNumOne" placeholder="mNumOne" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;" required>
+                            <input class="form-control form-control-lg" type="number" id="mNumOne" value="<?php echo  $viewMobileNumberA ?>" name="mNumOne" placeholder="mNumOne" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;" required>
                             <label class="form-label" for="mNumOne">MOBILE NUMBER 1</label>    
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-floating">
-                            <input class="form-control form-control-lg" type="number" id="mNumTwo" name="mNumTwo" placeholder="mNumTwo" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;" required>
+                            <input class="form-control form-control-lg" type="number" id="mNumTwo" name="mNumTwo" value="<?php echo  $viewMobileNumberB ?>" placeholder="mNumTwo" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;" required>
                             <label class="form-label" for="mNumTwo">MOBILE NUMBER 2</label>    
                         </div>
                     </div>
@@ -441,13 +469,13 @@
                 <div class="row mb-5">
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input class="form-control form-control-lg" type="number" id="hNumOne" name="hNumOne" placeholder="hNumOne" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;" required>
+                            <input class="form-control form-control-lg" type="number" id="hNumOne" value="<?php echo  $viewHomeNumberA ?>" name="hNumOne" placeholder="hNumOne" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;" required>
                             <label class="form-label" for="hNumOne">HOME NUMBER 1</label>    
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input class="form-control form-control-lg" type="number" id="hNumTwo" name="hNumTwo" placeholder="hNumTwo" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;" required>
+                            <input class="form-control form-control-lg" type="number" id="hNumTwo" value="<?php echo  $viewHomeNumberB ?>" name="hNumTwo" placeholder="hNumTwo" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;" required>
                             <label class="form-label" for="hNumTwo">HOME NUMBER 2</label>    
                         </div>
                     </div>
