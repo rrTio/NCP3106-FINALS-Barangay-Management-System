@@ -1,0 +1,11 @@
+#forgotPassword {
+    color: #eeeeee;
+    margin-top: 20px;
+  }
+  
+#forgotPassword:hover {
+    color: rgb(177, 177, 177);
+    text-decoration: underline;
+  }
+
+
