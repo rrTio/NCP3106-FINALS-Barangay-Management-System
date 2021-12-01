@@ -335,8 +335,8 @@
                         <div class="form-floating">
                             <select class="form-control form-control-lg p-2 pt-3" id="gender" name="gender" required>
                                 <option selected disabled>--SELECT--</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
+                                <option value="Male" <?php echo ($viewGender=='Male')?('selected'):(''); ?> >Male</option>
+                                <option value="Female" <?php echo ($viewGender=='Female')?('selected'):(''); ?> >Female</option>
                             </select>
                             <label class="form-label" for="gender">GENDER</label>    
                         </div>
