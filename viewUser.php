@@ -327,8 +327,9 @@
                         <div class="col-md-3">
                             <div class="form-floating">
                                 <select class="form-control form-control-lg p-2 pt-3" id="gender" name="gender" required>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
+                                    <option selected disabled>--SELECT--</option>
+                                    <option value="Male" <?php echo ($viewGender=='Male')?('selected'):(''); ?> >Male</option>
+                                    <option value="Female" <?php echo ($viewGender=='Female')?('selected'):(''); ?> >Female</option>
                                 </select>
                                 <label class="form-label" for="gender">GENDER</label>    
                             </div>
@@ -336,10 +337,11 @@
                         <div class="col-md-3">
                             <div class="form-floating">
                                         <select class="form-control form-control-lg p-2 pt-3" id="cStatus" name="cStatus" required>
-                                        <option value="Single">Single</option>
-                                        <option value="Married">Married</option>
-                                        <option value="Widowed">Widowed</option>
-                                        <option value="Separated">Separated</option>
+                                            <option selected disabled>--SELECT--</option>
+                                            <option value="Single" <?php echo ($viewCivilStatus=='Single')?('selected'):(''); ?> >Single</option>
+                                            <option value="Married" <?php echo ($viewCivilStatus=='Married')?('selected'):(''); ?> >Married</option>
+                                            <option value="Widowed" <?php echo ($viewCivilStatus=='Widowed')?('selected'):(''); ?> >Widowed</option>
+                                            <option value="Separated" <?php echo ($viewCivilStatus=='Separated')?('selected'):(''); ?> >Separated</option>
                                         </select>
                                         <label class="form-label" for="cStatus">CIVIL STATUS</label>    
                             </div>
@@ -350,8 +352,9 @@
                                 <div class="col-md-12">
                                     <div class="form-floating">
                                     <select class="form-control form-control-lg p-2 pt-3" id="brgyPosition" name="brgyPosition" required>  
-                                        <option value="Barangay Captain">Barangay Captain</option>
-                                        <option value="Kagawad">Kagawad</option>
+                                        <option selected disabled>--SELECT--</option>
+                                        <option value="Barangay Captain" <?php echo ($viewPosition=='Barangay Captain')?('selected'):(''); ?> >Barangay Captain</option>
+                                        <option value="Kagawad"  <?php echo ($viewPosition=='Kagawad')?('selected'):(''); ?> >Kagawad</option>
                                         </select>
                                         <label class="form-label" for="cStatus">POSITION</label>
                                     </div>    
