@@ -79,7 +79,6 @@ $position = $_SESSION['position'];
         <table class="table table-striped table-hover">
           <thead>
             <tr>
-              <th data-field="view">View Resident</th>
               <th data-field="resID">Resident ID</th>
               <th data-field="lName" data-sortable="true">Last Name</th>
               <th data-field="fName" data-sortable="true">First Name</th>
@@ -88,6 +87,7 @@ $position = $_SESSION['position'];
               <th data-field="occuptaion" data-sortable="true">Purok</th>
               <th data-field="encoder" data-sortable="true">Encoder</th>
               <th data-field="enPosition" data-sortable="true">Encoder Position</th>
+              <th data-field="view">View Resident</th>
             </tr>
           </thead>
           <form method="POST" action="./database/database.php">
@@ -102,8 +102,8 @@ $position = $_SESSION['position'];
                     $firstName = $residents['nameFirst'];
                     $middleName = $residents['nameMiddle'];
                     $purok = $residents['purok'];
-                    echo "<tr><td><button name='btnViewResident' target='_blank' type='submit' value=" . $residents['residentID'] . " class='btn btn-success bg-gradient fa fa-eye'>&nbsp;View</button></td>"
-                      ."<td>" . $residents['residentID']
+                    echo
+                      "<tr><td>" . $residents['residentID']
                       ."</td><td>" . $residents['nameLast']
                       ."</td><td>" . $residents['nameFirst']
                       ."</td><td>" . $residents['nameMiddle']
@@ -111,6 +111,7 @@ $position = $_SESSION['position'];
                       ."</td><td>" . $residents['purok']
                       ."</td><td>" . $residents['encoder']
                       ."</td><td>" . $residents['encoderPosition']
+                      . "<td><button name='btnViewResident' target='_blank' type='submit' value=" . $residents['residentID'] . " class='btn btn-success bg-gradient fa fa-eye'>&nbsp;View</button></td>"
                       ."</td></tr>";
                   }
                 }

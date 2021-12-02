@@ -443,7 +443,7 @@
                         <div class="col-md-6">
                             <div class="form-floating">
                                 <input class="form-control form-control-lg" type="password" id="psswrd" name="psswrd" placeholder="Password" required>
-                                <label class="form-label" for="psswrd">PASSWORD</label>
+                                <label class="form-label" for="psswrd">NEW PASSWORD</label>
                             </div>
                         </div>  
                         <div class="col-md-6">

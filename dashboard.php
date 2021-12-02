@@ -1,4 +1,5 @@
 <?php
+  include_once('./database/connection.php');
   session_start();
   $name = $_SESSION['name'];
   $purok = $_SESSION['purok'];
