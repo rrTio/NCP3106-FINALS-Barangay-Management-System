@@ -111,7 +111,6 @@
               <table class="table table-striped table-hover">
                 <thead>
                   <tr>
-                    <th data-field="view">View Official</th>
                     <th data-field="officialID">ID Number</th>
                     <th data-field="position">Position</th>
                     <th data-field="lName" data-sortable="true">Last Name</th>
@@ -119,6 +118,7 @@
                     <th data-field="mName" data-sortable="true">Middle Name</th>
                     <th data-field="alias" data-sortable="true">Alias</th>
                     <th data-field="purok" data-sortable="true">Purok</th>
+                    <th data-field="view">View Official</th>
                   </tr>
                 </thead>
                 <form method="POST" action="./database/database.php">
@@ -133,7 +133,7 @@
                           $firstName = $officials['nameFirst'];
                           $middleName = $officials['nameMiddle'];
                           $purok = $officials['purok'];
-                          echo "<tr><td><button name='btnView' type='submit' value=".$officials['idNumber']." class='btn btn-success bg-gradient fa fa-eye'>&nbsp;View</button></td>"
+                          echo "<tr>"
                               . "<td>" . $officials['idNumber']
                               ."</td><td>" . $officials['position']
                               ."</td><td>" . $officials['nameLast']
@@ -141,6 +141,7 @@
                               ."</td><td>" . $officials['nameMiddle']
                               ."</td><td>" . $officials['nameAlias']
                               ."</td><td>" . $officials['purok']
+                              . "</td><td><button name='btnView' type='submit' value=".$officials['idNumber']." class='btn btn-success bg-gradient fa fa-eye'>&nbsp;View</button>"
                               . "</td></tr>";
                         }
                       }
