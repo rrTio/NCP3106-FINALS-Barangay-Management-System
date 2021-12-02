@@ -67,7 +67,7 @@ $position = $_SESSION['position'];
           </div>
         </div>
         <div class="search-bar">
-          <div class="col-sm-3">
+          <div class="col-sm-12">
             <div class="search">
               <input type="text" class="searchTerm" placeholder="Resident Search">
               <button type="submit" class="searchButton">
@@ -93,28 +93,28 @@ $position = $_SESSION['position'];
           <form method="POST" action="./database/database.php">
             <tbody>
               <?php
-                include_once("./database/connection.php");
-                $getResidents = "SELECT * FROM residents";
-                $result = mysqli_query($conn, $getResidents);
-                if(mysqli_num_rows($result) > 0){   
-                  while($residents = mysqli_fetch_assoc($result)){
-                    $lastName = $residents['nameLast'];
-                    $firstName = $residents['nameFirst'];
-                    $middleName = $residents['nameMiddle'];
-                    $purok = $residents['purok'];
-                    echo
-                      "<tr><td>" . $residents['residentID']
-                      ."</td><td>" . $residents['nameLast']
-                      ."</td><td>" . $residents['nameFirst']
-                      ."</td><td>" . $residents['nameMiddle']
-                      ."</td><td>" . $residents['gender']
-                      ."</td><td>" . $residents['purok']
-                      ."</td><td>" . $residents['encoder']
-                      ."</td><td>" . $residents['encoderPosition']
-                      . "<td><button name='btnViewResident' target='_blank' type='submit' value=" . $residents['residentID'] . " class='btn btn-success bg-gradient fa fa-eye'>&nbsp;View</button></td>"
-                      ."</td></tr>";
-                  }
+              include_once("./database/connection.php");
+              $getResidents = "SELECT * FROM residents";
+              $result = mysqli_query($conn, $getResidents);
+              if (mysqli_num_rows($result) > 0) {
+                while ($residents = mysqli_fetch_assoc($result)) {
+                  $lastName = $residents['nameLast'];
+                  $firstName = $residents['nameFirst'];
+                  $middleName = $residents['nameMiddle'];
+                  $purok = $residents['purok'];
+                  echo
+                  "<tr><td>" . $residents['residentID']
+                    . "</td><td>" . $residents['nameLast']
+                    . "</td><td>" . $residents['nameFirst']
+                    . "</td><td>" . $residents['nameMiddle']
+                    . "</td><td>" . $residents['gender']
+                    . "</td><td>" . $residents['purok']
+                    . "</td><td>" . $residents['encoder']
+                    . "</td><td>" . $residents['encoderPosition']
+                    . "<td><button name='btnViewResident' target='_blank' type='submit' value=" . $residents['residentID'] . " class='btn btn-success bg-gradient fa fa-eye'>&nbsp;View</button></td>"
+                    . "</td></tr>";
                 }
+              }
               ?>
             </tbody>
           </form>

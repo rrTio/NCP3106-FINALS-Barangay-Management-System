@@ -11,6 +11,7 @@ section {
   display: flex;
 }
 .search-bar {
+  float: right;
   padding: 10px;
   margin-bottom: 5px;
 }
