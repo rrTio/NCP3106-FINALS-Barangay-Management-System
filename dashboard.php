@@ -118,7 +118,7 @@
                     <th data-field="mName" data-sortable="true">Middle Name</th>
                     <th data-field="alias" data-sortable="true">Alias</th>
                     <th data-field="purok" data-sortable="true">Purok</th>
-                    <th data-field="view">View Official</th>
+                    <th data-field="view">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;View Official</th>
                   </tr>
                 </thead>
                 <form method="POST" action="./database/database.php">
@@ -141,8 +141,10 @@
                               ."</td><td>" . $officials['nameMiddle']
                               ."</td><td>" . $officials['nameAlias']
                               ."</td><td>" . $officials['purok']
-                              . "</td><td><button name='btnView' type='submit' value=".$officials['idNumber']." class='btn btn-success bg-gradient fa fa-eye'>&nbsp;View</button>"
-                              . "</td></tr>";
+                              . "</td><td><button name='btnView' type='submit' value=".$officials['idNumber']." class='btn btn-success bg-gradient fa fa-eye'></button>
+                              <button name='btnEdit' type='submit' value=".$officials['idNumber']." class='btn btn-warning bg-gradient fa fa-edit'></button>
+                              <button name='btnDelete' type='submit' value=".$officials['idNumber']." class='btn btn-danger bg-gradient fa fa-trash'></button></td>"
+                              . "</tr>";
                         }
                       }
                     ?>

@@ -111,7 +111,9 @@ $position = $_SESSION['position'];
                     . "</td><td>" . $residents['purok']
                     . "</td><td>" . $residents['encoder']
                     . "</td><td>" . $residents['encoderPosition']
-                    . "<td><button name='btnViewResident' target='_blank' type='submit' value=" . $residents['residentID'] . " class='btn btn-success bg-gradient fa fa-eye'>&nbsp;View</button></td>"
+                    . "<td><button name='btnViewResident' target='_blank' type='submit' value=" . $residents['residentID'] . " class='btn btn-success bg-gradient fa fa-eye'></button>
+                            <button name='btnEditResident' target='_blank' type='submit' value=" . $residents['residentID'] . " class='btn btn-warning bg-gradient fa fa-edit'></button>
+                            <button name='btnDeleteResident' target='_blank' type='submit' value=" . $residents['residentID'] . " class='btn btn-danger bg-gradient fa fa-trash'></button></td>"
                     . "</td></tr>";
                 }
               }
