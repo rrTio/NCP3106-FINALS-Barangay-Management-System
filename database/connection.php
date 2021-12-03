@@ -45,7 +45,8 @@ $createResidentTable = "CREATE TABLE IF NOT EXISTS `residents`(
 	`residentType` TEXT,
 	`residentStatus` TEXT,
 	`encoder` TEXT,
-	`encoderPosition` TEXT
+	`encoderPosition` TEXT,
+	`imageLocation` TEXT
 );";
 
 $createOfficialsTable = "CREATE TABLE IF NOT EXISTS `officials`(
@@ -70,7 +71,8 @@ $createOfficialsTable = "CREATE TABLE IF NOT EXISTS `officials`(
 	`homeNumberB` VARCHAR(11),
 	`email` TEXT,
 	`username` TEXT,
-	`officialPassword` TEXT
+	`officialPassword` TEXT,
+	`imageLocation` TEXT
 );";
 
 //EXECUTION FOR CREATING TABLE AND COLUMNS
