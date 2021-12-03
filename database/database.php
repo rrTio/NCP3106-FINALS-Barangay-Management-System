@@ -32,6 +32,15 @@ if(isset($_POST['btnLogin'])){
         header("Location: ../registerOfficial.php");
     }
 }
+
+if(isset($_POST['btnChangePass'])){
+    $username = $_POST['uName'];
+    $password = $_POST['newPsswrd'];
+    $changePassword = "UPDATE officials SET (username = '$username' OR email = '$username') AND officialPassword = '$password';";
+    mysqli_query($conn, $changePassword);
+    header("Location: ../index.php");
+}
+
 if(isset($_POST['btnRegisterResident'])){
     $residentID = date("Y") . "-" . substr(hexdec(uniqid()), 12) . date("s");
     $lastName = $_POST['lastName'];
@@ -226,5 +235,29 @@ if(isset($_POST['btnViewResident'])){
         $_SESSION['viewEncoderPosition'] = $viewEncoderPosition;
         header("Location: ../viewResident.php");
     }
+}
+
+if(isset($_POST['btnEdit'])){
+    //CODES HERE
+}
+
+if(isset($_POST['btnDelete'])){
+    $getID = $_POST['btnDelete'];
+
+    $deleteOfficial = "DELETE FROM officials WHERE idNumber = '$getID';";
+    mysqli_query($conn, $delete);
+    header("Location: ../dashboard.php");
+}
+
+if(isset($_POST['btnEditResident'])){
+    //CODES HERE
+}
+
+if(isset($_POST['btnDeleteResident'])){
+    $getID = $_POST['btnDeleteResident'];
+
+    $deleteResident = "DELETE FROM residents WHERE residentID = '$getID';";
+    mysqli_query($conn, $deleteResident);
+    header("Location: ../residents.php");
 }
 ?>
