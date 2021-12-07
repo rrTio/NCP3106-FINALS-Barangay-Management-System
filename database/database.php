@@ -1,27 +1,14 @@
 <?php
 include_once('connection.php');
 
-if(isset($_POST['btnLogin'])){
+if (isset($_POST['btnLogin'])) {
     $adminUsername = $_POST['username'];
     $adminPassword = $_POST['password'];
 
     $loginQuery = "SELECT * FROM officials where (email = '$adminUsername' OR username = '$adminUsername') AND officialPassword = '$adminPassword';";
     $login = mysqli_query($conn, $loginQuery);
 
-    if(mysqli_num_rows($login) == 1){
-        while($dashboard = mysqli_fetch_assoc($login)){
-            $name = $dashboard['nameAlias'];
-            $position = $dashboard['position'];
-            $purok = $dashboard['purok'];
-        }
-        session_start();
-        $_SESSION['name'] = $name;
-        $_SESSION['position'] = $position;
-        $_SESSION['purok'] = $purok;
-        header("Location: ../dashboard.php");
-        }        
-
-    elseif($adminUsername == "admin" && $adminPassword == "admin"){
+    if ($adminUsername == "admin" && $adminPassword == "admin") {
         $name = "ADMIN NAME";
         $purok = "ADMIN PUROK";
         $position = "ADMIN POSITION";
@@ -31,9 +18,22 @@ if(isset($_POST['btnLogin'])){
         $_SESSION['position'] = $position;
         header("Location: ../registerOfficial.php");
     }
+
+    if (mysqli_num_rows($login) == 1) {
+        while ($dashboard = mysqli_fetch_assoc($login)) {
+            $name = $dashboard['nameAlias'];
+            $position = $dashboard['position'];
+            $purok = $dashboard['purok'];
+        }
+        session_start();
+        $_SESSION['name'] = $name;
+        $_SESSION['position'] = $position;
+        $_SESSION['purok'] = $purok;
+        header("Location: ../dashboard.php");
+    }
 }
 
-if(isset($_POST['btnChangePass'])){
+if (isset($_POST['btnChangePass'])) {
     $username = $_POST['uName'];
     $password = $_POST['newPsswrd'];
     $changePassword = "UPDATE officials SET (username = '$username' OR email = '$username') AND officialPassword = '$password';";
@@ -41,7 +41,7 @@ if(isset($_POST['btnChangePass'])){
     header("Location: ../index.php");
 }
 
-if(isset($_POST['btnRegisterResident'])){
+if (isset($_POST['btnRegisterResident'])) {
     $residentID = date("Y") . "-" . substr(hexdec(uniqid()), 12) . date("s");
     $lastName = $_POST['lastName'];
     $firstName = $_POST['firstName'];
@@ -77,7 +77,7 @@ if(isset($_POST['btnRegisterResident'])){
     header("Location: ../residents.php");
 }
 
-if(isset($_POST['btnRegisterOfficial'])){
+if (isset($_POST['btnRegisterOfficial'])) {
     $idNumber = date("Y") . "-" . substr(hexdec(uniqid()), 12) . date("s");
     $lastName = $_POST['lastName'];
     $firstName = $_POST['firstName'];
@@ -107,13 +107,13 @@ if(isset($_POST['btnRegisterOfficial'])){
     header("Location: ../dashboard.php");
 }
 
-if(isset($_POST['btnView'])){
+if (isset($_POST['btnView'])) {
     $getID = $_POST['btnView'];
 
     $getQuery = "SELECT * FROM officials WHERE idNumber = '$getID';";
     $getOfficial = mysqli_query($conn, $getQuery);
-    if(mysqli_num_rows($getOfficial) > 0){
-        while($view = mysqli_fetch_assoc($getOfficial)){
+    if (mysqli_num_rows($getOfficial) > 0) {
+        while ($view = mysqli_fetch_assoc($getOfficial)) {
             $viewIdNumber = $view['idNumber'];
             $viewLastName = $view['nameLast'];
             $viewFirstName = $view['nameFirst'];
@@ -166,13 +166,13 @@ if(isset($_POST['btnView'])){
     }
 }
 
-if(isset($_POST['btnViewResident'])){
+if (isset($_POST['btnViewResident'])) {
     $getResidentID = $_POST['btnViewResident'];
 
     $getQuery = "SELECT * FROM residents WHERE residentID = '$getResidentID';";
     $getResidents = mysqli_query($conn, $getQuery);
-    if(mysqli_num_rows($getResidents) > 0){
-        while($view = mysqli_fetch_assoc($getResidents)){
+    if (mysqli_num_rows($getResidents) > 0) {
+        while ($view = mysqli_fetch_assoc($getResidents)) {
             $viewIdNumber = $view['residentID'];
             $viewLastName = $view['nameLast'];
             $viewFirstName = $view['nameFirst'];
@@ -237,11 +237,11 @@ if(isset($_POST['btnViewResident'])){
     }
 }
 
-if(isset($_POST['btnEdit'])){
+if (isset($_POST['btnEdit'])) {
     //CODES HERE
 }
 
-if(isset($_POST['btnDelete'])){
+if (isset($_POST['btnDelete'])) {
     $getID = $_POST['btnDelete'];
 
     $deleteOfficial = "DELETE FROM officials WHERE idNumber = '$getID';";
@@ -249,15 +249,14 @@ if(isset($_POST['btnDelete'])){
     header("Location: ../dashboard.php");
 }
 
-if(isset($_POST['btnEditResident'])){
+if (isset($_POST['btnEditResident'])) {
     //CODES HERE
 }
 
-if(isset($_POST['btnDeleteResident'])){
+if (isset($_POST['btnDeleteResident'])) {
     $getID = $_POST['btnDeleteResident'];
 
     $deleteResident = "DELETE FROM residents WHERE residentID = '$getID';";
     mysqli_query($conn, $deleteResident);
     header("Location: ../residents.php");
 }
-?>
