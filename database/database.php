@@ -8,10 +8,27 @@ if (isset($_POST['btnLogin'])) {
     $loginQuery = "SELECT * FROM officials where (email = '$adminUsername' OR username = '$adminUsername') AND officialPassword = '$adminPassword';";
     $login = mysqli_query($conn, $loginQuery);
 
+    $countOfficials = "SELECT * FROM officials;";
+    $officialsQuery = mysqli_query($conn, $countOfficials);
+    $rowOfficials = mysqli_num_rows($officialsQuery);
+    
+    $countResidents = "SELECT * FROM residents;";
+    $residentsQuery = mysqli_query($conn, $countResidents);
+    $rowResidents = mysqli_num_rows($residentsQuery);
+    
+    $countVoters = "SELECT * FROM residents WHERE voterStatus = 'Yes';";
+    $VotersQuery = mysqli_query($conn, $countVoters);
+    $rowVoters = mysqli_num_rows($VotersQuery);
+    
+    session_start();
+    $_SESSION['officials'] = $rowOfficials;
+    $_SESSION['residents'] = $rowResidents;
+    $_SESSION['voters'] = $rowVoters;
+
     if ($adminUsername == "admin" && $adminPassword == "admin") {
         $name = "ADMIN NAME";
         $purok = "ADMIN PUROK";
-        $position = "ADMIN POSITION";
+        $position = "ADMIN POSITION";        
         session_start();
         $_SESSION['name'] = $name;
         $_SESSION['purok'] = $purok;
@@ -24,8 +41,11 @@ if (isset($_POST['btnLogin'])) {
             $name = $dashboard['nameAlias'];
             $position = $dashboard['position'];
             $purok = $dashboard['purok'];
+            $image = $dashboard['imageLocation'];
         }
+
         session_start();
+        $_SESSION['imageLocation'] = $image;
         $_SESSION['name'] = $name;
         $_SESSION['position'] = $position;
         $_SESSION['purok'] = $purok;
@@ -71,8 +91,21 @@ if (isset($_POST['btnRegisterResident'])) {
     $residentStatus = $_POST['resStat'];
     $encoder = $_POST['encoder'];
     $encoderPosition = $_POST['encoderPosition'];
-    $insertToResident = "INSERT INTO residents (residentID, nameFirst, nameMiddle, nameLast, nameAlias, birthMonth, birthDay, birthYear, placeOB, gender, civilStatus, voterStatus, ifActive, religion, nationality, occupation, sector, cityAddress, provAddress, purok, email, mobileNumberA, mobileNumberB, homeNumberA, homeNumberB, residentType, residentStatus, encoder, encoderPosition)
-        VALUES ('$residentID','$firstName', '$middleName', '$lastName', '$alias', '$birthMonth', '$birthDay', '$birthYear', '$placeOfBirth', '$gender', '$civilStatus', '$voterStatus', '$ifActive', '$religion', '$nationality', '$occupation', '$sector', '$cityAddress', '$provAddress', '$purok', '$email', '$mobileNumberA', '$mobileNumberB', '$houseNumberA', '$houseNumberB', '$residentType', '$residentStatus', '$encoder', '$encoderPosition');";
+
+    $file = $_FILES['residents'];
+    $fileName = $_FILES['residents']['name'];
+    $fileExt = explode('.', $fileName);
+    $fileExtension = strtolower(end($fileExt));
+    $allow = array('jpg', 'jpeg', 'png');
+
+    if(in_array($fileExtension, $allow)){
+        $fileNameNew = strtolower($lastName.$alias) . '.' . $fileExtension;
+        $filePath = '../assets/images/officials/'.$fileNameNew;
+        move_uploaded_file($fileTmpName, $filePath);
+    }
+
+    $insertToResident = "INSERT INTO residents (residentID, nameFirst, nameMiddle, nameLast, nameAlias, birthMonth, birthDay, birthYear, placeOB, gender, civilStatus, voterStatus, ifActive, religion, nationality, occupation, sector, cityAddress, provAddress, purok, email, mobileNumberA, mobileNumberB, homeNumberA, homeNumberB, residentType, residentStatus, encoder, encoderPosition, imageLocation)
+        VALUES ('$residentID','$firstName', '$middleName', '$lastName', '$alias', '$birthMonth', '$birthDay', '$birthYear', '$placeOfBirth', '$gender', '$civilStatus', '$voterStatus', '$ifActive', '$religion', '$nationality', '$occupation', '$sector', '$cityAddress', '$provAddress', '$purok', '$email', '$mobileNumberA', '$mobileNumberB', '$houseNumberA', '$houseNumberB', '$residentType', '$residentStatus', '$encoder', '$encoderPosition', '$filePath');";
     mysqli_query($conn, $insertToResident);
     header("Location: ../residents.php");
 }
@@ -103,18 +136,12 @@ if (isset($_POST['btnRegisterOfficial'])) {
 
     $file = $_FILES['official'];
     $fileName = $_FILES['official']['name'];
-    $fileSize = $_FILES['official']['size'];
-    $fileTmpName = $_FILES['official']['tmp_name'];
-    $fileError = $_FILES['official']['error'];
-    $fileType = $_FILES['official']['type'];
-
     $fileExt = explode('.', $fileName);
     $fileExtension = strtolower(end($fileExt));
-
     $allow = array('jpg', 'jpeg', 'png');
 
     if(in_array($fileExtension, $allow)){
-        $fileNameNew = strtolower($lastName.$firstName) . '.' . $fileExtension;
+        $fileNameNew = strtolower($lastName.$alias) . '.' . $fileExtension;
         $filePath = '../assets/images/officials/'.$fileNameNew;
         move_uploaded_file($fileTmpName, $filePath);
     }

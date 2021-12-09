@@ -4,6 +4,10 @@
   $name = $_SESSION['name'];
   $purok = $_SESSION['purok'];
   $position = $_SESSION['position'];
+  $totalResidents = $_SESSION['residents'];
+  $totalOfficials = $_SESSION['officials'];
+  $totalVoters = $_SESSION['voters'];
+  $image = $_SESSION['imageLocation'];
 ?>
 <!DOCTYPE html>
 <html lang="en" >
@@ -26,11 +30,9 @@
     <aside class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
         <i class="uil-bars close-aside d-md-none d-lg-none" data-close="show-side-navigation1"></i>
         <div class="sidebar-header d-flex justify-content-center align-items-center px-3 py-4">
-        <img
-            class="rounded-pill img-fluid"
-            width="65"
-            src="https://uniim1.shutterfly.com/ng/services/mediarender/THISLIFE/021036514417/media/23148907008/medium/1501685726/enhance"
-            alt="">
+        <?php 
+          echo "<img class='rounded-pill img-fluid border-2' width='25%' src=".  $image . " alt='Official's Image'>"
+        ?>
         <div class="ms-2">
             <h5 class="fs-6 mb-0">
                 <a class="text-decoration-none headName" href="#"> &nbsp; <?php echo $name;?></a>
@@ -56,6 +58,7 @@
           <div class="content rounded-3 p-3">
             <h1 class="fs-3">Welcome to Dashboard</h1>
             <p class="mb-0">Hello <?php echo $position . " " . $name . " of " . $purok;?></p>
+            <p class="mb-0">Image Location <?php echo $image?></p>
           </div>
         </div>
         <section class="statistics mt-4">
@@ -65,7 +68,7 @@
                 <i class="uil-user-square fs-2 text-center bg-primary rounded-circle"></i>
                 <div class="ms-3">
                   <div class="d-flex align-items-center">
-                    <h3 class="mb-0">[COUNT]</h3> <span class="d-block ms-2">Voters</span>
+                    <h3 class="mb-0"><?php echo $totalVoters ?></h3> <span class="d-block ms-2">Voters</span>
                   </div>
                   <p class="fs-normal mb-0">Lorem ipsum dolor sit amet</p>
                 </div>
@@ -76,7 +79,7 @@
                 <i class="uil-user fs-2 text-center bg-danger rounded-circle"></i>
                 <div class="ms-3">
                   <div class="d-flex align-items-center">
-                    <h3 class="mb-0">[COUNT]</h3> <span class="d-block ms-2">Admins</span>
+                    <h3 class="mb-0"><?php echo $totalOfficials ?></h3> <span class="d-block ms-2">Admins</span>
                   </div>
                   <p class="fs-normal mb-0">Lorem ipsum dolor sit amet</p>
                 </div>
@@ -87,7 +90,7 @@
                 <i class="uil-users-alt fs-2 text-center bg-success rounded-circle"></i>
                 <div class="ms-3">
                   <div class="d-flex align-items-center">
-                    <h3 class="mb-0">[COUNT]</h3> <span class="d-block ms-2">Residents</span>
+                    <h3 class="mb-0"><?php echo $totalResidents?></h3> <span class="d-block ms-2">Residents</span>
                   </div>
                   <p class="fs-normal mb-0">Lorem ipsum dolor sit amet</p>
                 </div>

@@ -50,7 +50,7 @@
     
     <section>
         <div class="container mt-5">
-            <form name="residents" method="POST" action="./database/database.php">
+            <form name="residents" method="POST" action="./database/database.php" enctype="multipart/form-data">
                 <div class="row welcome mb-2">
                     <div class="col-md-12">
                         <div class="content rounded-3 p-3 col-md-12">
@@ -62,20 +62,8 @@
                     <h4>Basic Information</h4>
                 </div>
                 <div class="row">
-                    <div class="col-md-2">
-                        <div class="row mb-2">
-                            <img src="E:\xammp\htdocs\NCP3106-FINALS\assets\images\blankpic.jpg" width="180" height="170">
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 p-1">
-                                <button name="btnBrowse" class="btn btn-primary btn-block btn-medium">
-                                <i class="fa fa-file sideIcon">&nbsp;BROWSE</i></button>
-                            </div>
-                            <div class="col-md-6 p-1">
-                                <button name="btnCamera" type="file" class="btn btn-primary btn-block btn-medium">
-                                <i class="fa fa-camera sideIcon">&nbsp;CAMERA</i></button>
-                            </div>
-                        </div>                     
+                    <div class="col-md-2" id="imager">
+                            <input type="file" name="residents" accept="image/*" capture="camera">
                     </div>
                     <div class="col-md-10">
                         <div class="row mb-4">
