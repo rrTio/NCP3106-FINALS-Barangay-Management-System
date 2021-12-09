@@ -8,8 +8,8 @@
 <!DOCTYPE html>
 <html lang="en" >
 <head>
-    <meta charset="UTF-8">
-    <title>Register Resident</title>  
+    <meta charset="UTF-8" http-equiv="Content-Type">
+    <title>Register Official</title>  
     <link rel="icon" href="./assets/images/logo.png">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -21,6 +21,31 @@
     <link rel="stylesheet" href="./assets/css/registerOfficial.css">
     <link rel="stylesheet" href="./assets/css/main.css">
     <script type="text/javascript" src="./assets/js/registerOfficial.js"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/webcam.js"></script>
+    <script>
+        $(function(){
+            //give the php file path
+            webcam.set_api_url( 'saveimage.php' );
+            webcam.set_swf_url( 'scripts/webcam.swf' );
+            webcam.set_quality( 100 ); // Image quality (1 - 100)
+            webcam.set_shutter_sound( true ); // play shutter click sound
+            var camera = $('#camera');
+            camera.html(webcam.get_html(600, 460));
+            $('#capture_btn').click(function(){
+                //take snap
+                webcam.snap();
+            });
+            webcam.set_hook( 'onComplete', function(img){
+                $('#show_saved_img').html('<img src="' + img + '">');
+                //reset camera for next shot
+                webcam.reset();
+            });
+        });
+    </script>
+
+
 </head>
 <body>
     <aside class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
@@ -51,7 +76,7 @@
     </aside>
     <section>
             <div class="container mt-5">
-                <form name="officials" method="POST" action="./database/database.php">
+                <form name="officials" method="POST" action="./database/database.php" enctype="multipart/form-data">
                     <div class="row welcome">
                         <div class="col-md-12">
                             <div class="content rounded-3 p-3">
@@ -65,8 +90,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2">
-                            
+                        <div class="col-md-2" id="imager">
+                            <input type="file" name="official" accept="image/*" capture="camera">
                         </div>
                         <div class="col-md-10">
                             <div class="row mb-4">
@@ -105,9 +130,8 @@
                                             </p>
                                         </div>
                                         <div class="col-md-6">
-                                            <H6>BIRTHDATE:
-                                            </H6>
-                                            
+                                            <h6>BIRTHDATE:
+                                            </h6>
                                         </div>
                                     </div>
                                 </div>

@@ -101,8 +101,26 @@ if(isset($_POST['btnRegisterOfficial'])){
     $email = $_POST['email'];
     $password = $_POST['psswrd'];
 
-    $insertToOfficials = "INSERT INTO officials (idNumber, nameLast, nameFirst, nameMiddle, nameAlias, birthMonth, birthDay, birthYear, placeOB, gender, civilStatus, position, cityAddress, provAddress, purok, mobileNumberA, mobileNumberB, homeNumberA, homeNumberB, email, username, officialPassword)
-    VALUES ('$idNumber','$lastName','$firstName','$middleName','$alias','$birthMonth','$birthDay','$birthYear','$placeOfBirth','$gender','$civilStatus','$position','$cityAddress','$provAddress','$purok','$mobileNumberA','$mobileNumberB','$houseNumberA','$houseNumberB','$email','$username','$password');";
+    $file = $_FILES['official'];
+    $fileName = $_FILES['official']['name'];
+    $fileSize = $_FILES['official']['size'];
+    $fileTmpName = $_FILES['official']['tmp_name'];
+    $fileError = $_FILES['official']['error'];
+    $fileType = $_FILES['official']['type'];
+
+    $fileExt = explode('.', $fileName);
+    $fileExtension = strtolower(end($fileExt));
+
+    $allow = array('jpg', 'jpeg', 'png');
+
+    if(in_array($fileExtension, $allow)){
+        $fileNameNew = strtolower($lastName.$firstName) . '.' . $fileExtension;
+        $filePath = '../assets/images/officials/'.$fileNameNew;
+        move_uploaded_file($fileTmpName, $filePath);
+    }
+
+    $insertToOfficials = "INSERT INTO officials (idNumber, nameLast, nameFirst, nameMiddle, nameAlias, birthMonth, birthDay, birthYear, placeOB, gender, civilStatus, position, cityAddress, provAddress, purok, mobileNumberA, mobileNumberB, homeNumberA, homeNumberB, email, username, officialPassword, imageLocation)
+    VALUES ('$idNumber','$lastName','$firstName','$middleName','$alias','$birthMonth','$birthDay','$birthYear','$placeOfBirth','$gender','$civilStatus','$position','$cityAddress','$provAddress','$purok','$mobileNumberA','$mobileNumberB','$houseNumberA','$houseNumberB','$email','$username','$password', '$filePath');";
     mysqli_query($conn, $insertToOfficials);
     header("Location: ../dashboard.php");
 }
