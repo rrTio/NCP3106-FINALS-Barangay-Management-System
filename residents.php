@@ -1,10 +1,10 @@
 <?php
+include_once('./database/connection.php');
 session_start();
 $name = $_SESSION['name'];
 $purok = $_SESSION['purok'];
 $position = $_SESSION['position'];
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,24 +58,24 @@ $position = $_SESSION['position'];
       <div class="table-wrapper">
         <div class="table-title">
           <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-6">
               <h2>Resident Information Management</h2>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-3">
+              <div class="search">
+                <input type="text" class="searchTerm" placeholder="Resident Search">
+                <button type="submit" class="searchButton">
+                  <i class="fa fa-search"></i>
+                </button>
+              </div>
+            </div>
+            <div class="col-sm-3">
               <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"> <span>Add New Resident</span></a>
             </div>
           </div>
+
         </div>
-        <div class="search-bar">
-          <div class="col-sm-12">
-            <div class="search">
-              <input type="text" class="searchTerm" placeholder="Resident Search">
-              <button type="submit" class="searchButton">
-                <i class="fa fa-search"></i>
-              </button>
-            </div>
-          </div>
-        </div>
+
         <table class="table table-striped table-hover">
           <thead>
             <tr>
