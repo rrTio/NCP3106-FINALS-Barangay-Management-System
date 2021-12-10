@@ -73,9 +73,7 @@ $position = $_SESSION['position'];
               <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"> <span>Add New Resident</span></a>
             </div>
           </div>
-
         </div>
-
         <table class="table table-striped table-hover">
           <thead>
             <tr>

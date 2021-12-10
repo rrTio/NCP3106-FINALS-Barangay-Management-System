@@ -108,7 +108,7 @@ $image = $_SESSION['imageLocation'];
         <div class="table-title">
           <div class="row">
             <div class="col-sm-8">
-              <h2>Officials</h2>
+              <h2>&nbsp;Officials</h2>
             </div>
             <div class="col-sm-4">
               <a href="registerOfficial.php" class="btn btn-success"><i class="material-icons">&#xE147;</i> <span>Add New Official</span></a>
