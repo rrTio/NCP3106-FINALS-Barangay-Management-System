@@ -50,7 +50,7 @@ $image = $_SESSION['imageLocation'];
       <li><i class="fa fa-user-plus sideIcons"></i><a href="registration.php"> Register Resident</a></li>
       <li><i class="fa fa-users sideIcons"></i><a href="viewUser.php"> Accounts</a></li>
       <li><i class="fa fa-plus sideIcons"></i><a href="registerOfficial.php"> Add Personnel</a></li>
-      <li><i class="fa fa-file sideIcons"></i><a href="#"> Documents</a></li>
+      <li><i class="fa fa-file sideIcons"></i><a href="certification.php"> Documents</a></li>
       <li><i class="fa fa-power-off sideIcons"></i><a href="index.php"> Logout</a></li>
     </ul>
   </aside>
