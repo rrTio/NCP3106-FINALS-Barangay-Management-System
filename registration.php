@@ -404,7 +404,7 @@
                 <div class="row mb-4">
                     <div class="col-md-2">
                         <div class="form-floating">
-                            <input class="form-control form-control-lg" type="text" id="purok" name="purok" placeholder="Purok" value="<?php echo $_SESSION['purok']; ?>" readonly>
+                            <input class="form-control form-control-lg" type="text" id="purok" name="purok" placeholder="Purok">
                             <input type="hidden" name="encoder" value="<?php echo $name ?>" readonly>
                             <input type="hidden" name="encoderPosition" value="<?php echo $position ?>" readonly>
                             <label class="form-label" for="purok">PUROK</label>    
