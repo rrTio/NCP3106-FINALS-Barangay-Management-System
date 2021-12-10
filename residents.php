@@ -87,7 +87,7 @@ $position = $_SESSION['position'];
               <th data-field="occuptaion" data-sortable="true">Purok</th>
               <th data-field="encoder" data-sortable="true">Encoder</th>
               <th data-field="enPosition" data-sortable="true">Encoder Position</th>
-              <th data-field="view">View Resident</th>
+              <th data-field="view">Action</th>
             </tr>
           </thead>
           <form method="POST" action="./database/database.php">

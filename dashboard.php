@@ -75,7 +75,6 @@ $image = $_SESSION['imageLocation'];
                 </div>
                 <p class="fs-normal mb-0">Lorem ipsum dolor sit amet</p>
               </div>
-              <p class="fs-normal mb-0">Lorem ipsum dolor sit amet</p>
             </div>
           </div>
           <div class="col-lg-4">
@@ -87,7 +86,6 @@ $image = $_SESSION['imageLocation'];
                 </div>
                 <p class="fs-normal mb-0">Lorem ipsum dolor sit amet</p>
               </div>
-              <p class="fs-normal mb-0">Lorem ipsum dolor sit amet</p>
             </div>
           </div>
           <div class="col-lg-4">
@@ -99,7 +97,6 @@ $image = $_SESSION['imageLocation'];
                 </div>
                 <p class="fs-normal mb-0">Lorem ipsum dolor sit amet</p>
               </div>
-              <p class="fs-normal mb-0">Lorem ipsum dolor sit amet</p>
             </div>
           </div>
         </div>
