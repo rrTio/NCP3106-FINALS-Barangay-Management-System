@@ -100,7 +100,7 @@ if (isset($_POST['btnRegisterResident'])) {
 
     if(in_array($fileExtension, $allow)){
         $fileNameNew = strtolower($lastName.$alias) . '.' . $fileExtension;
-        $filePath = '../assets/images/officials/'.$fileNameNew;
+        $filePath = './assets/images/officials/'.$fileNameNew;
         move_uploaded_file($fileTmpName, $filePath);
     }
 
@@ -142,7 +142,7 @@ if (isset($_POST['btnRegisterOfficial'])) {
 
     if(in_array($fileExtension, $allow)){
         $fileNameNew = strtolower($lastName.$alias) . '.' . $fileExtension;
-        $filePath = '../assets/images/officials/'.$fileNameNew;
+        $filePath = './assets/images/officials/'.$fileNameNew;
         move_uploaded_file($fileTmpName, $filePath);
     }
 
