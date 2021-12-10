@@ -1,38 +1,39 @@
 <?php
 include_once('connection.php');
 
+$countOfficials = "SELECT * FROM officials;";
+$officialsQuery = mysqli_query($conn, $countOfficials);
+$rowOfficials = mysqli_num_rows($officialsQuery);
+
+$countResidents = "SELECT * FROM residents;";
+$residentsQuery = mysqli_query($conn, $countResidents);
+$rowResidents = mysqli_num_rows($residentsQuery);
+
+$countVoters = "SELECT * FROM residents WHERE voterStatus = 'Yes';";
+$VotersQuery = mysqli_query($conn, $countVoters);
+$rowVoters = mysqli_num_rows($VotersQuery);
+
+session_start();
+$_SESSION['officials'] = $rowOfficials;
+$_SESSION['residents'] = $rowResidents;
+$_SESSION['voters'] = $rowVoters;
+
 if (isset($_POST['btnLogin'])) {
     $adminUsername = $_POST['username'];
     $adminPassword = $_POST['password'];
-
     $loginQuery = "SELECT * FROM officials where (email = '$adminUsername' OR username = '$adminUsername') AND officialPassword = '$adminPassword';";
     $login = mysqli_query($conn, $loginQuery);
-
-    $countOfficials = "SELECT * FROM officials;";
-    $officialsQuery = mysqli_query($conn, $countOfficials);
-    $rowOfficials = mysqli_num_rows($officialsQuery);
     
-    $countResidents = "SELECT * FROM residents;";
-    $residentsQuery = mysqli_query($conn, $countResidents);
-    $rowResidents = mysqli_num_rows($residentsQuery);
-    
-    $countVoters = "SELECT * FROM residents WHERE voterStatus = 'Yes';";
-    $VotersQuery = mysqli_query($conn, $countVoters);
-    $rowVoters = mysqli_num_rows($VotersQuery);
-    
-    session_start();
-    $_SESSION['officials'] = $rowOfficials;
-    $_SESSION['residents'] = $rowResidents;
-    $_SESSION['voters'] = $rowVoters;
-
     if ($adminUsername == "admin" && $adminPassword == "admin") {
         $name = "ADMIN NAME";
         $purok = "ADMIN PUROK";
         $position = "ADMIN POSITION";        
+        $imageLocation = "../assets/images/sample.jpg";
         session_start();
         $_SESSION['name'] = $name;
         $_SESSION['purok'] = $purok;
         $_SESSION['position'] = $position;
+        $_SESSION['imageLocation'] = $imageLocation;
         header("Location: ../registerOfficial.php");
     }
 
@@ -43,7 +44,6 @@ if (isset($_POST['btnLogin'])) {
             $purok = $dashboard['purok'];
             $image = $dashboard['imageLocation'];
         }
-
         session_start();
         $_SESSION['imageLocation'] = $image;
         $_SESSION['name'] = $name;
