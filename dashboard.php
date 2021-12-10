@@ -149,8 +149,8 @@ $image = $_SESSION['imageLocation'];
                     . "</td><td>" . $officials['nameAlias']
                     . "</td><td>" . $officials['purok']
                     . "</td><td><button name='btnView' type='submit' value=" . $officials['idNumber'] . " class='btn btn-success bg-gradient fa fa-eye'></button>
-                              <button name='btnEdit' type='submit' value=" . $officials['idNumber'] . " class='btn btn-warning bg-gradient fa fa-edit'></button>
-                              <button name='btnDelete' type='submit' value=" . $officials['idNumber'] . " class='btn btn-danger bg-gradient fa fa-trash'></button></td>"
+                        <button name='btnEdit' type='submit' value=" . $officials['idNumber'] . " class='btn btn-warning bg-gradient fa fa-edit'></button>
+                        <button name='btnDelete' type='submit' value=" . $officials['idNumber'] . " class='btn btn-danger bg-gradient fa fa-trash'></button></td>"
                     . "</tr>";
                 }
               }

@@ -91,30 +91,31 @@ $position = $_SESSION['position'];
           <form method="POST" action="./database/database.php">
             <tbody>
               <?php
-              include_once("./database/connection.php");
-              $getResidents = "SELECT * FROM residents";
-              $result = mysqli_query($conn, $getResidents);
-              if (mysqli_num_rows($result) > 0) {
-                while ($residents = mysqli_fetch_assoc($result)) {
-                  $lastName = $residents['nameLast'];
-                  $firstName = $residents['nameFirst'];
-                  $middleName = $residents['nameMiddle'];
-                  $purok = $residents['purok'];
-                  echo
-                  "<tr><td>" . $residents['residentID']
-                    . "</td><td>" . $residents['nameLast']
-                    . "</td><td>" . $residents['nameFirst']
-                    . "</td><td>" . $residents['nameMiddle']
-                    . "</td><td>" . $residents['gender']
-                    . "</td><td>" . $residents['purok']
-                    . "</td><td>" . $residents['encoder']
-                    . "</td><td>" . $residents['encoderPosition']
-                    . "<td><button name='btnViewResident' target='_blank' type='submit' value=" . $residents['residentID'] . " class='btn btn-success bg-gradient text-dark fa fa-eye'></button>
-                              <button name='btnEditResident' target='_blank' type='submit' value=" . $residents['residentID'] . " class='btn btn-warning bg-gradient text-dark fa fa-edit'></button>
-                              <button name='btnDeleteResident' target='_blank' type='submit' value=" . $residents['residentID'] . " class='btn btn-danger bg-gradient text-dark fa fa-trash'></button></td>"
-                    . "</td></tr>";
+                include_once("./database/connection.php");
+                $getResidents = "SELECT * FROM residents";
+                $result = mysqli_query($conn, $getResidents);
+                if (mysqli_num_rows($result) > 0) {
+                  while ($residents = mysqli_fetch_assoc($result)) {
+                    $lastName = $residents['nameLast'];
+                    $firstName = $residents['nameFirst'];
+                    $middleName = $residents['nameMiddle'];
+                    $purok = $residents['purok'];
+                    echo
+                    "<tr><td>" . $residents['residentID']
+                      . "</td><td>" . $residents['nameLast']
+                      . "</td><td>" . $residents['nameFirst']
+                      . "</td><td>" . $residents['nameMiddle']
+                      . "</td><td>" . $residents['gender']
+                      . "</td><td>" . $residents['purok']
+                      . "</td><td>" . $residents['encoder']
+                      . "</td><td>" . $residents['encoderPosition']
+                      . "<td><button name='btnViewResident' target='_blank' type='submit' value=" . $residents['residentID'] . " class='btn btn-success bg-gradient text-dark fa fa-eye'></button>
+                                <button name='btnEditResident' target='_blank' type='submit' value=" . $residents['residentID'] . " class='btn btn-warning bg-gradient text-dark fa fa-edit'></button>
+                                <button name='btnDeleteResident' target='_blank' type='submit' value=" . $residents['residentID'] . " class='btn btn-danger bg-gradient text-dark fa fa-trash'></button>
+                                <button name='btnDownloadCert' target='_blank' type='submit' value=" . $residents['residentID'] . " class='btn btn-info bg-gradient text-dark fa fa-download'></button></td>"
+                      . "</td></tr>";
+                  }
                 }
-              }
               ?>
             </tbody>
           </form>

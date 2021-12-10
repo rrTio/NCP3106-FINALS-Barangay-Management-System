@@ -305,3 +305,73 @@ if (isset($_POST['btnDeleteResident'])) {
     mysqli_query($conn, $deleteResident);
     header("Location: ../residents.php");
 }
+
+if(isset($_POST['btnDownloadCert'])){
+    $getId = $_POST['btnDownloadCert'];
+    $getQuery = "SELECT * FROM residents WHERE residentID = '$getId';";
+    $getResidents = mysqli_query($conn, $getQuery);
+    if (mysqli_num_rows($getResidents) > 0) {
+        while ($view = mysqli_fetch_assoc($getResidents)) {
+            $viewIdNumber = $view['residentID'];
+            $viewLastName = $view['nameLast'];
+            $viewFirstName = $view['nameFirst'];
+            $viewMiddleName = $view['nameMiddle'];
+            $viewAlias = $view['nameAlias'];
+            $viewMonth = $view['birthMonth'];
+            $viewDay = $view['birthDay'];
+            $viewYear = $view['birthYear'];
+            $viewPOB = $view['placeOB'];
+            $viewGender = $view['gender'];
+            $viewCivilStatus = $view['civilStatus'];
+            $viewVoterStatus = $view['voterStatus'];
+            $viewIfActive = $view['ifActive'];
+            $viewReligion = $view['religion'];
+            $viewNationality = $view['nationality'];
+            $viewOccupation = $view['occupation'];
+            $viewSector = $view['sector'];
+            $viewCityAddress = $view['cityAddress'];
+            $viewProvAddress = $view['provAddress'];
+            $viewPurok = $view['purok'];
+            $viewEmail = $view['email'];
+            $viewMobileNumberA = $view['mobileNumberA'];
+            $viewMobileNumberB = $view['mobileNumberB'];
+            $viewHomeNumberA = $view['homeNumberA'];
+            $viewHomeNumberB = $view['homeNumberB'];
+            $viewResidentType = $view['residentType'];
+            $viewResidentStatus = $view['residentStatus'];
+            $viewEncoder = $view['encoder'];
+            $viewEncoderPosition = $view['encoderPosition'];
+        }
+        session_start();
+        $_SESSION['PDFIdNumber'] = $viewIdNumber;
+        $_SESSION['PDFLastName'] = $viewLastName;
+        $_SESSION['PDFFirstName'] = $viewFirstName;
+        $_SESSION['PDFMiddleName'] = $viewMiddleName;
+        $_SESSION['PDFAlias'] = $viewAlias;
+        $_SESSION['PDFMonth'] = $viewMonth;
+        $_SESSION['PDFDay'] = $viewDay;
+        $_SESSION['PDFYear'] = $viewYear;
+        $_SESSION['PDFPOB'] = $viewPOB;
+        $_SESSION['PDFGender'] = $viewGender;
+        $_SESSION['PDFCivilStatus'] = $viewCivilStatus;
+        $_SESSION['PDFVoterStatus'] = $viewVoterStatus;
+        $_SESSION['PDFIfActive'] = $viewIfActive;
+        $_SESSION['PDFReligion'] = $viewReligion;
+        $_SESSION['PDFNationality'] = $viewNationality;
+        $_SESSION['PDFOccupation'] = $viewOccupation;
+        $_SESSION['PDFSector'] = $viewSector;
+        $_SESSION['PDFCityAddress'] = $viewCityAddress;
+        $_SESSION['PDFProvAddress'] = $viewProvAddress;
+        $_SESSION['PDFPurok'] = $viewPurok;
+        $_SESSION['PDFEmail'] = $viewEmail;
+        $_SESSION['PDFMobileNumberA'] = $viewMobileNumberA;
+        $_SESSION['PDFMobileNumberB'] = $viewMobileNumberB;
+        $_SESSION['PDFHomeNumberA']  = $viewHomeNumberA;
+        $_SESSION['PDFHomeNumberB'] = $viewHomeNumberB;
+        $_SESSION['PDFResidentType'] = $viewResidentType;
+        $_SESSION['PDFResidentStatus'] = $viewResidentStatus;
+        $_SESSION['PDFEncoder'] = $viewEncoder;
+        $_SESSION['PDFEncoderPosition'] = $viewEncoderPosition;
+        header("Location: ../certification.php");
+    }
+}
