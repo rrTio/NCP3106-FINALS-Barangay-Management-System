@@ -83,8 +83,6 @@ $position = $_SESSION['position'];
               <th data-field="mName" data-sortable="true">Middle Name</th>
               <th data-field="vStatus" data-sortable="true">Gender</th>
               <th data-field="occuptaion" data-sortable="true">Purok</th>
-              <th data-field="encoder" data-sortable="true">Encoder</th>
-              <th data-field="enPosition" data-sortable="true">Encoder Position</th>
               <th data-field="view">Action</th>
             </tr>
           </thead>
@@ -107,12 +105,12 @@ $position = $_SESSION['position'];
                       . "</td><td>" . $residents['nameMiddle']
                       . "</td><td>" . $residents['gender']
                       . "</td><td>" . $residents['purok']
-                      . "</td><td>" . $residents['encoder']
-                      . "</td><td>" . $residents['encoderPosition']
-                      . "<td><button name='btnViewResident' target='_blank' type='submit' value=" . $residents['residentID'] . " class='btn btn-success bg-gradient text-dark fa fa-eye'></button>
-                                <button name='btnEditResident' target='_blank' type='submit' value=" . $residents['residentID'] . " class='btn btn-warning bg-gradient text-dark fa fa-edit'></button>
-                                <button name='btnDeleteResident' target='_blank' type='submit' value=" . $residents['residentID'] . " class='btn btn-danger bg-gradient text-dark fa fa-trash'></button>
-                                <button name='btnDownloadCert' target='_blank' type='submit' value=" . $residents['residentID'] . " class='btn btn-info bg-gradient text-dark fa fa-download'></button></td>"
+                      . "<td>
+                              <a href='viewResident.php' class='edit' data-toggle='modal'><i class='btn btn-success bg-gradient text-dark fa fa-eye' data-toggle='tooltip' title='Edit'></i></a>
+                              <a href='#editEmployeeModal' class='edit' data-toggle='modal'><i class='btn btn-warning bg-gradient text-dark fa fa-edit' data-toggle='tooltip' title='Edit'></i></a>
+                              <a href='#deleteEmployeeModal' class='delete' data-toggle='modal'><i class='btn btn-danger bg-gradient text-dark fa fa-trash' data-toggle='tooltip' title='Delete'></i></a>
+                              <a href='certification.php' class='edit' data-toggle='modal'><i class='btn btn-info bg-gradient text-dark fa fa-download' data-toggle='tooltip' title='Edit'></i></a>
+                              </td>"
                       . "</td></tr>";
                   }
                 }
