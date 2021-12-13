@@ -1,3 +1,3 @@
-function openResidents() { 
-    window.location.href = './viewResident.php';
+function registerResident() { 
+    window.location.href = './registration.php';
 }

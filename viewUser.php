@@ -26,6 +26,7 @@
     $viewEmail = $_SESSION['getEmail'];
     $viewUsername = $_SESSION['getUsername'];
     $viewPassword = $_SESSION['getPassword'];
+    $viewImage = $_SESSION['viewImage'];
 ?>
 
 <!DOCTYPE html>
@@ -78,6 +79,7 @@
                             <div class="content rounded-3 p-3">
                                 <h1>Officials Form</h1>
                                 <p>Barangay Official ID No.: <?php echo $viewIdNumber ?> </p>
+                                <p>IMAGE LOCATION: <?php echo $viewImage ?></p>
                             </div>
                         </div>
                     </div>
@@ -87,7 +89,7 @@
                     <div class="row">
                         <div class="col-md-2">
                             <div class="row mb-2">
-                                <img src="E:\xammp\htdocs\NCP3106-FINALS\assets\images\blankpic.jpg" width="180" height="170">
+                                <?php echo "<img src=".$viewImage." width='180' height='170'>"?>
                             </div>
                             <div class="row">
                                 <div class="col-md-6 p-1">

@@ -92,16 +92,21 @@ if (isset($_POST['btnRegisterResident'])) {
     $encoder = $_POST['encoder'];
     $encoderPosition = $_POST['encoderPosition'];
 
-    $file = $_FILES['residents'];
-    $fileName = $_FILES['residents']['name'];
+    $file = $_FILES['imageResident'];
+    $fileName = $_FILES['imageResident']['name'];
+    $fileTmpName = $_FILES['imageResident']['tmp_name'];
+    $fileError = $_FILES['imageResident']['error'];
+    $fileType = $_FILES['imageResident']['type'];
+
     $fileExt = explode('.', $fileName);
     $fileExtension = strtolower(end($fileExt));
     $allow = array('jpg', 'jpeg', 'png');
 
     if(in_array($fileExtension, $allow)){
-        $fileNameNew = strtolower($lastName.$alias) . '.' . $fileExtension;
-        $filePath = './assets/images/officials/'.$fileNameNew;
-        move_uploaded_file($fileTmpName, $filePath);
+        $fileNameNew = strtolower($residentID.$lastName) . '.' . $fileExtension;
+        $filePath = './assets/images/residents/'.$fileNameNew;
+        $sendToDirectory = '../assets/images/residents/'.$fileNameNew;
+        move_uploaded_file($fileTmpName, $sendToDirectory);
     }
 
     $insertToResident = "INSERT INTO residents (residentID, nameFirst, nameMiddle, nameLast, nameAlias, birthMonth, birthDay, birthYear, placeOB, gender, civilStatus, voterStatus, ifActive, religion, nationality, occupation, sector, cityAddress, provAddress, purok, email, mobileNumberA, mobileNumberB, homeNumberA, homeNumberB, residentType, residentStatus, encoder, encoderPosition, imageLocation)
@@ -136,14 +141,19 @@ if (isset($_POST['btnRegisterOfficial'])) {
 
     $file = $_FILES['official'];
     $fileName = $_FILES['official']['name'];
+    $fileTmpName = $_FILES['official']['tmp_name'];
+    $fileError = $_FILES['official']['error'];
+    $fileType = $_FILES['official']['type'];
+
     $fileExt = explode('.', $fileName);
     $fileExtension = strtolower(end($fileExt));
     $allow = array('jpg', 'jpeg', 'png');
 
     if(in_array($fileExtension, $allow)){
-        $fileNameNew = strtolower($lastName.$alias) . '.' . $fileExtension;
+        $fileNameNew = strtolower($idNumber.$lastName) . '.' . $fileExtension;
         $filePath = './assets/images/officials/'.$fileNameNew;
-        move_uploaded_file($fileTmpName, $filePath);
+        $sendToDirectory = '../assets/images/officials/'.$fileNameNew;
+        move_uploaded_file($fileTmpName, $sendToDirectory);
     }
 
     $insertToOfficials = "INSERT INTO officials (idNumber, nameLast, nameFirst, nameMiddle, nameAlias, birthMonth, birthDay, birthYear, placeOB, gender, civilStatus, position, cityAddress, provAddress, purok, mobileNumberA, mobileNumberB, homeNumberA, homeNumberB, email, username, officialPassword, imageLocation)
@@ -181,6 +191,7 @@ if (isset($_POST['btnView'])) {
             $viewEmail = $view['email'];
             $viewUsername = $view['username'];
             $viewPassword = $view['officialPassword'];
+            $viewImage = $view['imageLocation'];
         }
 
         session_start();
@@ -206,6 +217,7 @@ if (isset($_POST['btnView'])) {
         $_SESSION['getEmail'] = $viewEmail;
         $_SESSION['getUsername'] = $viewUsername;
         $_SESSION['getPassword'] = $viewPassword;
+        $_SESSION['viewImage'] = $viewImage;
         header("Location: ../viewUser.php");
         //session results to viewUser.php
     }
@@ -247,6 +259,7 @@ if (isset($_POST['btnViewResident'])) {
             $viewResidentStatus = $view['residentStatus'];
             $viewEncoder = $view['encoder'];
             $viewEncoderPosition = $view['encoderPosition'];
+            $viewImage = $view['imageLocation'];
         }
         session_start();
         $_SESSION['viewIdNumber'] = $viewIdNumber;
@@ -278,6 +291,7 @@ if (isset($_POST['btnViewResident'])) {
         $_SESSION['viewResidentStatus'] = $viewResidentStatus;
         $_SESSION['viewEncoder'] = $viewEncoder;
         $_SESSION['viewEncoderPosition'] = $viewEncoderPosition;
+        $_SESSION['viewImageLocation'] = $viewImage;
         header("Location: ../viewResident.php");
     }
 }
@@ -290,12 +304,54 @@ if (isset($_POST['btnDelete'])) {
     $getID = $_POST['btnDelete'];
 
     $deleteOfficial = "DELETE FROM officials WHERE idNumber = '$getID';";
-    mysqli_query($conn, $delete);
+    mysqli_query($conn, $deleteOfficial);
     header("Location: ../dashboard.php");
 }
 
-if (isset($_POST['btnEditResident'])) {
-    //CODES HERE
+if (isset($_POST['btnSaveEdit'])) {
+    $idNumber = $_POST['resID'];
+    $lastName = $_POST['lastName'];
+    $civilStatus = $_POST['cStatus'];
+    $voterStatus = $_POST['vStatus'];
+    $voteActive = $_POST['voteActive'];
+    $religion = $_POST['religion'];
+    $nationality = $_POST['nationality'];
+    $occupation = $_POST['occupation'];
+    $sector = $_POST['sector'];
+    $cityAddress = $_POST['cityAdd'];
+    $provAddress = $_POST['provAdd'];
+    $purok = $_POST['purok'];
+    $email = $_POST['email'];
+    $mobileNumberA = $_POST['mNumOne'];
+    $mobileNumberB = $_POST['mNumTwo'];
+    $homeNumberA = $_POST['hNumOne'];
+    $homeNumberB = $_POST['hNumTwo'];
+    $residentType = $_POST['resType'];
+    $residentStatus = $_POST['resStat'];
+
+    $file = $_FILES['viewResident'];
+    $fileName = $_FILES['viewResident']['name'];
+    $fileTmpName = $_FILES['viewResident']['tmp_name'];
+    $fileError = $_FILES['viewResident']['error'];
+    $fileType = $_FILES['viewResident']['type'];
+
+    $fileExt = explode('.', $fileName);
+    $fileExtension = strtolower(end($fileExt));
+    $allow = array('jpg', 'jpeg', 'png');
+
+    if(in_array($fileExtension, $allow)){
+        $fileNameNew = strtolower($idNumber.$lastName) . '.' . $fileExtension;
+        $filePath = './assets/images/residents/'.$fileNameNew;
+        $saveToDirectory = '../assets/images/residents/'.$fileNameNew;
+        move_uploaded_file($fileTmpName, $saveToDirectory);
+    }
+
+    $editQuery = "UPDATE residents SET civilStatus = '$civilStatus', voterStatus = '$voterStatus', ifActive = '$voteActive', religion = '$religion', 
+    nationality = '$nationality', occupation = '$occupation', sector = '$sector', cityAddress = '$cityAddress', provAddress = '$provAddress', purok = '$purok', 
+    email = '$email', mobileNumberA = '$mobileNumberA', mobileNumberB = '$mobileNumberB', homeNumberA = '$homeNumberA', residentType = '$residentType', residentStatus = '$residentStatus', imageLocation = '$filePath'
+    WHERE residentID = '$idNumber';";
+    mysqli_query($conn, $editQuery);
+    header("Location: ../residents.php");
 }
 
 if (isset($_POST['btnDeleteResident'])) {

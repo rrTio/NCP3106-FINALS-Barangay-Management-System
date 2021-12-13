@@ -63,7 +63,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-2" id="imager">
-                            <input type="file" name="residents" accept="image/*" capture="camera">
+                            <input type="file" name="imageResident" accept="image/*" capture="camera">
                     </div>
                     <div class="col-md-10">
                         <div class="row mb-4">

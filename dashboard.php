@@ -50,7 +50,6 @@ $image = $_SESSION['imageLocation'];
       <li><i class="fa fa-user-plus sideIcons"></i><a href="registration.php"> Register Resident</a></li>
       <li><i class="fa fa-users sideIcons"></i><a href="viewUser.php"> Accounts</a></li>
       <li><i class="fa fa-plus sideIcons"></i><a href="registerOfficial.php"> Add Personnel</a></li>
-      <li><i class="fa fa-file sideIcons"></i><a href="certification.php"> Documents</a></li>
       <li><i class="fa fa-power-off sideIcons"></i><a href="index.php"> Logout</a></li>
     </ul>
   </aside>
@@ -111,7 +110,7 @@ $image = $_SESSION['imageLocation'];
               <h2>&nbsp;Officials</h2>
             </div>
             <div class="col-sm-4">
-              <a href="registerOfficial.php" class="btn btn-success"><i class="material-icons">&#xE147;</i> <span>Add New Official</span></a>
+              <a href="registerOfficial.php" class=" text-dark btn btn-success"><i class="material-icons">&#xE147;</i> <span>Add New Official</span></a>
             </div>
           </div>
         </div>
@@ -148,9 +147,9 @@ $image = $_SESSION['imageLocation'];
                     . "</td><td>" . $officials['nameMiddle']
                     . "</td><td>" . $officials['nameAlias']
                     . "</td><td>" . $officials['purok']
-                    . "</td><td><button name='btnView' type='submit' value=" . $officials['idNumber'] . " class='btn btn-success bg-gradient fa fa-eye'></button>
-                        <button name='btnEdit' type='submit' value=" . $officials['idNumber'] . " class='btn btn-warning bg-gradient fa fa-edit'></button>
-                        <button name='btnDelete' type='submit' value=" . $officials['idNumber'] . " class='btn btn-danger bg-gradient fa fa-trash'></button></td>"
+                    . "</td><td><button name='btnView' type='submit' value=" . $officials['idNumber'] . " class='btn btn-success text-dark bg-gradient fa fa-eye'></button>
+                        <button name='btnEdit' type='submit' value=" . $officials['idNumber'] . " class='btn btn-warning text-dark bg-gradient fa fa-edit'></button>
+                        <button name='btnDelete' type='submit' value=" . $officials['idNumber'] . " class='btn btn-danger text-dark bg-gradient fa fa-trash'>".$officials['idNumber']."</button></td>"
                     . "</tr>";
                 }
               }
@@ -158,48 +157,6 @@ $image = $_SESSION['imageLocation'];
             </tbody>
           </form>
         </table>
-      </div>
-    </div>
-    <div id="editEmployeeModal" class="modal fade">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <form action="./database/database.php" method="POST">
-            <div class="modal-header">
-              <h4 class="modal-title">Edit Resident Information</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            </div>
-            <div class="modal-body">
-              <div class="form-group">
-                <label>First Name</label>
-                <input type="text" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label>Middle Name</label>
-                <input type="text" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label>Last Name</label>
-                <input type="text" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label>Email</label>
-                <input type="email" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label>Address</label>
-                <textarea class="form-control" required></textarea>
-              </div>
-              <div class="form-group">
-                <label>Phone</label>
-                <input type="text" class="form-control" required>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-              <input type="submit" name="editInfo" class="btn btn-info" value="Save">
-            </div>
-          </form>
-        </div>
       </div>
     </div>
     <!-- Delete Modal HTML -->

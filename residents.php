@@ -70,7 +70,7 @@ $position = $_SESSION['position'];
               </div>
             </div>
             <div class="col-sm-3">
-              <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"> <span>Add New Resident</span></a>
+              <button class="btn btn-success" onclick="return registerResident()"><span>Add New Resident</span></button>
             </div>
           </div>
         </div>
@@ -83,7 +83,7 @@ $position = $_SESSION['position'];
               <th data-field="mName" data-sortable="true">Middle Name</th>
               <th data-field="vStatus" data-sortable="true">Gender</th>
               <th data-field="occuptaion" data-sortable="true">Purok</th>
-              <th data-field="view">Action</th>
+              <th data-field="view">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Action</th>
             </tr>
           </thead>
           <form method="POST" action="./database/database.php">
@@ -106,11 +106,9 @@ $position = $_SESSION['position'];
                       . "</td><td>" . $residents['gender']
                       . "</td><td>" . $residents['purok']
                       . "<td>
-                              <a href='viewResident.php' class='edit' data-toggle='modal'><i class='btn btn-success bg-gradient text-dark fa fa-eye' data-toggle='tooltip' title='Edit'></i></a>
-                              <a href='#editEmployeeModal' class='edit' data-toggle='modal'><i class='btn btn-warning bg-gradient text-dark fa fa-edit' data-toggle='tooltip' title='Edit'></i></a>
-                              <a href='#deleteEmployeeModal' class='delete' data-toggle='modal'><i class='btn btn-danger bg-gradient text-dark fa fa-trash' data-toggle='tooltip' title='Delete'></i></a>
-                              <a href='certification.php' class='edit' data-toggle='modal'><i class='btn btn-info bg-gradient text-dark fa fa-download' data-toggle='tooltip' title='Edit'></i></a>
-                              </td>"
+                              <button name='btnViewResident' target='_blank' title='View' type='submit' value=" . $residents['residentID'] . " class='btn btn-success bg-gradient text-dark fa fa-eye'></button>
+                              <button name='btnDeleteResident' target='_blank' type='submit' value=" . $residents['residentID'] . " class='btn btn-danger bg-gradient text-dark fa fa-trash'></button>
+                              <button name='btnDownloadCert' target='_blank' type='submit' value=" . $residents['residentID'] . " class='btn btn-info bg-gradient text-dark fa fa-download'></button></td>"
                       . "</td></tr>";
                   }
                 }
@@ -118,68 +116,6 @@ $position = $_SESSION['position'];
             </tbody>
           </form>
         </table>
-      </div>
-    </div>
-    <div id="editEmployeeModal" class="modal fade">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <form action="./database/database.php" method="POST">
-            <div class="modal-header">
-              <h4 class="modal-title">Edit Resident Information</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            </div>
-            <div class="modal-body">
-              <div class="form-group">
-                <label>First Name</label>
-                <input type="text" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label>Middle Name</label>
-                <input type="text" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label>Last Name</label>
-                <input type="text" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label>Email</label>
-                <input type="email" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label>Address</label>
-                <textarea class="form-control" required></textarea>
-              </div>
-              <div class="form-group">
-                <label>Phone</label>
-                <input type="text" class="form-control" required>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-              <input type="submit" name="editInfo" class="btn btn-info" value="Save">
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    <div id="deleteEmployeeModal" class="modal fade">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <form>
-            <div class="modal-header">
-              <h4 class="modal-title">Delete Resident</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            </div>
-            <div class="modal-body">
-              <p>Are you sure you want to delete these Records?</p>
-              <p class="text-warning"><small>This action cannot be undone.</small></p>
-            </div>
-            <div class="modal-footer">
-              <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-              <input type="submit" class="btn btn-danger" value="Delete">
-            </div>
-          </form>
-        </div>
       </div>
     </div>
   </section>

@@ -29,6 +29,7 @@
     $viewResidentStatus = $_SESSION['viewResidentStatus'];
     $viewEncoder = $_SESSION['viewEncoder'];
     $viewEncoderPosition = $_SESSION['viewEncoderPosition'];
+    $viewImage = $_SESSION['viewImageLocation'];
 ?>
 
 <!DOCTYPE html>
@@ -76,12 +77,13 @@
 
     <section>
         <div class="container mt-5">
-            <form name="residents" method="POST" action="./database/database.php">
+            <form name="residents" method="POST" action="./database/database.php" enctype="multipart/form-data">
                 <div class="row welcome mb-2">
                     <div class="col-md-12">
                         <div class="content rounded-3 p-3 col-md-12">
                             <h1>Registered Resident Form</h1>
-                            <p>Resident ID No.: <?php echo $viewIdNumber; ?></p>
+                            <p>Resident ID No.: <?php echo $viewIdNumber; ?> <input type='hidden' name='resID' value='<?php echo $viewIdNumber?>'></p>
+                            <p>Image Location: <?php echo $viewImage; ?></p>
                         </div>
                     </div>
                 </div>
@@ -90,17 +92,12 @@
                 </div>
                 <div class="row">
                     <div class="col-md-2">
-                        <div class="row mb-2">
-                            <img src="E:\xammp\htdocs\NCP3106-FINALS\assets\images\blankpic.jpg" width="180" height="170">
-                        </div>
                         <div class="row">
-                            <div class="col-md-6 p-1">
-                                <button name="btnBrowse" class="btn btn-primary btn-block btn-medium">
-                                <i class="fa fa-file sideIcon">&nbsp;BROWSE</i></button>
+                            <div class="row mb-2">
+                                <?php echo '<img src='. $viewImage . ' alt="Resident Image">'?>
                             </div>
-                            <div class="col-md-6 p-1">
-                                <button name="btnCamera" type="file" class="btn btn-primary btn-block btn-medium">
-                                <i class="fa fa-camera sideIcon">&nbsp;CAMERA</i></button>
+                            <div class="col-md-6 p-1">                                
+                                <input type="file" name="viewResident" accept="image/*" capture="camera">
                             </div>
                         </div>                     
                     </div>
@@ -108,13 +105,13 @@
                         <div class="row mb-4">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="lName" value="<?php echo $viewLastName ?>" name="lastName" placeholder="Last Name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
+                                <input class="form-control form-control-lg" type="text" id="lName" value="<?php echo $viewLastName ?>" name="lastName" placeholder="Last Name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" readonly>
                                 <label class="form-label" for="lName">LAST NAME</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="fName" value="<?php echo  $viewFirstName ?>" name="firstName" placeholder="First Name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
+                                <input class="form-control form-control-lg" type="text" id="fName" value="<?php echo  $viewFirstName ?>" name="firstName" placeholder="First Name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" readonly>
                                 <label class="form-label" for="fName">FIRST NAME</label>
                                 </div>
                             </div>
@@ -122,13 +119,13 @@
                         <div class="row mb-4">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="mName" value="<?php echo  $viewMiddleName ?>" name="middleName" placeholder="Middle Name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
+                                <input class="form-control form-control-lg" type="text" id="mName" value="<?php echo  $viewMiddleName ?>" name="middleName" placeholder="Middle Name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" readonly>
                                 <label class="form-label" for="mName">MIDDLE NAME</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                <input class="form-control form-control-lg" type="text" id="alias" value="<?php echo  $viewAlias ?>" name="alias" placeholder="alias" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
+                                <input class="form-control form-control-lg" type="text" id="alias" value="<?php echo  $viewAlias ?>" name="alias" placeholder="alias" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" readonly>
                                 <label class="form-label" for="alias">ALIAS</label>
                                 </div>
                             </div>
@@ -150,7 +147,7 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-floating">
-                                    <select class="form-control form-control-lg p-2 pt-3" id="bMonth" name="bMonth" required>
+                                    <select class="form-control form-control-lg p-2 pt-3" id="bMonth" name="bMonth" readonly> 
                                         <option selected disabled>--SELECT--</option>
                                         <option value="01"  <?php echo ($viewMonth=='01')?('selected'):(''); ?> >January</option>
                                         <option value="02" <?php echo ($viewMonth=='02')?('selected'):(''); ?> >February</option>
@@ -170,7 +167,7 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-floating">
-                                    <select class="form-control form-control-lg p-2 pt-3" id="bDay" name="bDay" required>
+                                    <select class="form-control form-control-lg p-2 pt-3" id="bDay" name="bDay" readonly>
                                         <option selected disabled>--SELECT--</option>
                                         <option value="01" <?php echo ($viewDay=='01')?('selected'):(''); ?> >01</option>
                                         <option value="02" <?php echo ($viewDay=='02')?('selected'):(''); ?> >02</option>
@@ -209,7 +206,7 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-floating">
-                                    <select class="form-control form-control-lg p-2 pt-3" id="bYear" name="bYear" required>
+                                    <select class="form-control form-control-lg p-2 pt-3" id="bYear" name="bYear" readonly>
                                         <option selected disabled>--SELECT--</option>
                                         <option value="2003" <?php echo ($viewYear=='2003')?('selected'):(''); ?> >2003</option>
                                         <option value="2002" <?php echo ($viewYear=='2002')?('selected'):(''); ?> >2002</option>
@@ -325,7 +322,7 @@
                 <div class="row mb-4">
                     <div class="col-md-12">
                         <div class="form-floating">
-                            <input class="form-control form-control-lg" rows="3" type="text" id="pob" value="<?php echo  $viewPOB?>" name="pob" placeholder="pob" required>
+                            <input class="form-control form-control-lg" rows="3" type="text" id="pob" value="<?php echo  $viewPOB?>" name="pob" placeholder="pob" readonly>
                             <label for="pob">PLACE OF BIRTH</label>
                         </div>
                     </div>
@@ -333,7 +330,7 @@
                 <div class="row mb-4">
                     <div class="col-md-3">
                         <div class="form-floating">
-                            <select class="form-control form-control-lg p-2 pt-3" id="gender" name="gender" required>
+                            <select class="form-control form-control-lg p-2 pt-3" id="gender" name="gender" readonly>
                                 <option selected disabled>--SELECT--</option>
                                 <option value="Male" <?php echo ($viewGender=='Male')?('selected'):(''); ?> >Male</option>
                                 <option value="Female" <?php echo ($viewGender=='Female')?('selected'):(''); ?> >Female</option>
@@ -442,7 +439,7 @@
                 <div class="row mb-4">
                     <div class="col-md-2">
                         <div class="form-floating">
-                            <input class="form-control form-control-lg" type="text" id="purok" name="purok" placeholder="Purok" value="<?php echo $viewPurok ?>" readonly>
+                            <input class="form-control form-control-lg" type="text" id="purok" name="purok" placeholder="Purok" value="<?php echo $viewPurok ?>">
                             <label class="form-label" for="purok">PUROK</label>    
                         </div>
                     </div>
@@ -509,7 +506,7 @@
                 </div>
                 <div class="row mb-4">
                     <div class="col-md-12">
-                        <button type="submit" name="btnRegisterResident" class="btn btn-primary btn-block btn-large">REGISTER NEW RESIDENT</button>
+                        <button type="submit" name="btnSaveEdit" class="btn bg-gradient btn-success border-1 border-dark btn-block btn-large">SAVE CHANGES</button>
                     </div>
                 </div>
             </form>
