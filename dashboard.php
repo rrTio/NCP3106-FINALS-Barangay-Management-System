@@ -124,7 +124,7 @@ $image = $_SESSION['imageLocation'];
               <th data-field="mName" data-sortable="true">Middle Name</th>
               <th data-field="alias" data-sortable="true">Alias</th>
               <th data-field="purok" data-sortable="true">Purok</th>
-              <th data-field="view">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;View Official</th>
+              <th data-field="view">Action</th>
             </tr>
           </thead>
           <form method="POST" action="./database/database.php">
@@ -148,8 +148,7 @@ $image = $_SESSION['imageLocation'];
                     . "</td><td>" . $officials['nameAlias']
                     . "</td><td>" . $officials['purok']
                     . "</td><td><button name='btnView' type='submit' value=" . $officials['idNumber'] . " class='btn btn-success text-dark bg-gradient fa fa-eye'></button>
-                        <button name='btnEdit' type='submit' value=" . $officials['idNumber'] . " class='btn btn-warning text-dark bg-gradient fa fa-edit'></button>
-                        <button name='btnDelete' type='submit' value=" . $officials['idNumber'] . " class='btn btn-danger text-dark bg-gradient fa fa-trash'>".$officials['idNumber']."</button></td>"
+                        <button name='btnDelete' type='submit' value=" . $officials['idNumber'] . " class='btn btn-danger text-dark bg-gradient fa fa-trash'></button></td>"
                     . "</tr>";
                 }
               }

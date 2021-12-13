@@ -44,8 +44,10 @@
         <link rel='stylesheet' href='https://unicons.iconscout.com/release/v3.0.6/css/line.css'>
         <link rel='stylesheet' href="./assets/css/viewUser.css">
         <link rel="stylesheet" href="./assets/css/main.css">
+        <script src='./assets/js/viewUser.js'></script>
+
     </head>
-    <body>
+    <body onload="checkPosition();">
         <aside class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
         <i class="uil-bars close-aside d-md-none d-lg-none" data-close="show-side-navigation1"></i>
         <div class="sidebar-header d-flex justify-content-center align-items-center px-3 py-4">
@@ -72,6 +74,7 @@
         <section>
             <div class="container mt-5">
                 <form name="viewUser" method="POST" action="./database/database.php" enctype="multipart/form-data">
+                    <input type="text" value='<?php echo $position?>' name='getPosition'>
                     <input type='hidden' value = <?php echo $viewIdNumber ?> name = 'idNumber'>
                     <div class="row welcome">
                         <div class="col-md-12">
@@ -100,13 +103,13 @@
                             <div class="row mb-4">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                    <input class="form-control form-control-lg" type="text" value='<?php echo $viewLastName ?>' id="lName" name="lastName" placeholder="Last Name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
+                                    <input class="form-control form-control-lg" type="text" value='<?php echo $viewLastName ?>' id="lName" name="lastName" placeholder="Last Name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" readonly>
                                     <label class="form-label" for="lName">LAST NAME</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                    <input class="form-control form-control-lg" type="text" value='<?php echo $viewFirstName ?>' id="fName" name="firstName" placeholder="First Name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
+                                    <input class="form-control form-control-lg" type="text" value='<?php echo $viewFirstName ?>' id="fName" name="firstName" placeholder="First Name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" readonly>
                                     <label class="form-label" for="fName">FIRST NAME</label>
                                     </div>
                                 </div>
@@ -114,13 +117,13 @@
                             <div class="row mb-4">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                    <input class="form-control form-control-lg" type="text" id="mName" value='<?php echo $viewMiddleName ?>' name="middleName" placeholder="Middle Name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
+                                    <input class="form-control form-control-lg" type="text" id="mName" value='<?php echo $viewMiddleName ?>' name="middleName" placeholder="Middle Name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" readonly>
                                     <label class="form-label" for="mName">MIDDLE NAME</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                    <input class="form-control form-control-lg" type="text" id="alias" value='<?php echo $viewAlias ?>' name="alias" placeholder="alias" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
+                                    <input class="form-control form-control-lg" type="text" id="alias" value='<?php echo $viewAlias ?>' name="alias" placeholder="alias" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" readonly>
                                     <label class="form-label" for="alias">ALIAS</label>
                                     </div>
                                 </div>
@@ -139,7 +142,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-floating">
-                                        <select class="form-control form-control-lg p-2 pt-3" id="bMonth" name="bMonth" required>
+                                        <select class="form-control form-control-lg p-2 pt-3" id="bMonth" name="bMonth" readonly>
                                         <option selected disabled>--SELECT--</option>
                                         <option value="01"  <?php echo ($viewMonth=='01')?('selected'):(''); ?> >January</option>
                                         <option value="02" <?php echo ($viewMonth=='02')?('selected'):(''); ?> >February</option>
@@ -159,7 +162,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-floating">
-                                        <select class="form-control form-control-lg p-2 pt-3" id="bDay" name="bDay" required>
+                                        <select class="form-control form-control-lg p-2 pt-3" id="bDay" name="bDay" readonly>
                                             <option selected disabled>--SELECT--</option>
                                             <option value="01" <?php echo ($viewDay=='01')?('selected'):(''); ?> >01</option>
                                             <option value="02" <?php echo ($viewDay=='02')?('selected'):(''); ?> >02</option>
@@ -198,7 +201,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-floating">
-                                        <select class="form-control form-control-lg p-2 pt-3" id="bYear" name="bYear" required>
+                                        <select class="form-control form-control-lg p-2 pt-3" id="bYear" name="bYear" readonly>
                                         <option selected disabled>--SELECT--</option>
                                         <option value="2003" <?php echo ($viewYear=='2003')?('selected'):(''); ?> >2003</option>
                                         <option value="2002" <?php echo ($viewYear=='2002')?('selected'):(''); ?> >2002</option>
@@ -314,7 +317,7 @@
                     <div class="row mb-4">
                         <div class="col-md-12">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" rows="3" type="text" id="pob" value="<?php echo $viewPOB ?>" name="pob" placeholder="pob" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
+                                <input class="form-control form-control-lg" rows="3" type="text" id="pob" value="<?php echo $viewPOB ?>" name="pob" placeholder="pob" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" readonly>
                                 <label for="pob">PLACE OF BIRTH</label>
                             </div>
                         </div>
@@ -322,7 +325,7 @@
                     <div class="row mb-4">
                         <div class="col-md-3">
                             <div class="form-floating">
-                                <select class="form-control form-control-lg p-2 pt-3" id="gender" name="gender" required>
+                                <select class="form-control form-control-lg p-2 pt-3" id="gender" name="gender" readonly>
                                     <option selected disabled>--SELECT--</option>
                                     <option value="Male" <?php echo ($viewGender=='Male')?('selected'):(''); ?> >Male</option>
                                     <option value="Female" <?php echo ($viewGender=='Female')?('selected'):(''); ?> >Female</option>
@@ -457,6 +460,7 @@
                     </div>
                 </form>
             </div>
+            <script src='./assets/js/viewUser.js'></script>
         </section>
     </body>
 </html>

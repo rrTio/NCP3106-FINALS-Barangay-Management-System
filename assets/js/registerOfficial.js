@@ -12,3 +12,8 @@ function checkValidation() {
     return false;
   }
 }
+
+var getPosition = document.forms['officials']['getPosition'];
+if (getPosition == 'Kagawad') { 
+  
+}
