@@ -4,6 +4,7 @@ session_start();
 $name = $_SESSION['name'];
 $purok = $_SESSION['purok'];
 $position = $_SESSION['position'];
+
 $totalResidents = $_SESSION['residents'];
 $totalOfficials = $_SESSION['officials'];
 $totalVoters = $_SESSION['voters'];
@@ -42,7 +43,6 @@ $image = $_SESSION['imageLocation'];
         <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $position ?></p>
         <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $purok ?></p>
       </div>
-    </div>
     </div>
     <ul class="categories list-unstyled">
       <li><i class="fa fa-home sideIcons"></i><a href="dashboard.php"> Dashboard</a></li>

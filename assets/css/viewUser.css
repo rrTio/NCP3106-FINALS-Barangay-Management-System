@@ -32,3 +32,7 @@ section{
 .fa{
     font-size: 10px;
 }
+
+#lName, #fName, #mName, #alias, #bMonth, #bDay, #bYear, #pob, #gender{
+    pointer-events: none;
+}

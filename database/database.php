@@ -296,8 +296,56 @@ if (isset($_POST['btnViewResident'])) {
     }
 }
 
-if (isset($_POST['btnEdit'])) {
-    //CODES HERE
+if (isset($_POST['btnEditOfficial'])) {
+    $idNumber = $_POST['idNumber'];
+    $civilStatus = $_POST['cStatus'];
+    $position = $_POST['brgyPosition'];
+    $cityAddress = $_POST['cityAdd'];
+    $provAddress = $_POST['provAdd'];
+    $purok = $_POST['purok'];
+    $mobileNumberA = $_POST['mNumOne'];
+    $mobileNumberB = $_POST['mNumTwo'];
+    $homeNumberA = $_POST['hNumOne'];
+    $homeNumberB = $_POST['hNumTwo'];
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['psswrd'];
+
+    $file = $_FILES['viewOfficial'];
+    $fileName = $_FILES['viewOfficial']['name'];
+    $fileTmpName = $_FILES['viewOfficial']['tmp_name'];
+    $fileError = $_FILES['viewOfficial']['error'];
+    $fileType = $_FILES['viewOfficial']['type'];
+
+    $fileExt = explode('.', $fileName);
+    $fileExtension = strtolower(end($fileExt));
+    $allow = array('jpg', 'jpeg', 'png');
+
+    if(in_array($fileExtension, $allow)){
+        $fileNameNew = strtolower($idNumber.$lastName) . '.' . $fileExtension;
+        $filePath = './assets/images/officials/'.$fileNameNew;
+        $sendToDirectory = '../assets/images/officials/'.$fileNameNew;
+        move_uploaded_file($fileTmpName, $sendToDirectory);
+    }
+
+    $editQuery = "UPDATE officials 
+    SET civilStatus = '$civilStatus', 
+    position = '$position',
+    cityAddress = '$cityAddress',
+    provAddress = '$provAddress',
+    purok = '$purok',
+    mobileNumberA = '$mobileNumberA',
+    mobileNumberB = '$mobileNumberB',
+    homeNumberA = '$homeNumberA',
+    homeNumberB = '$homeNumberB',
+    username = '$username',
+    officialPassword = '$password'
+    imageLocation = '$filePath'
+    WHERE idNumber = '$idNumber';";
+
+    mysqli_query($conn, $editQuery);
+    header("Location: ../dashboard.php");
+
 }
 
 if (isset($_POST['btnDelete'])) {
@@ -346,10 +394,26 @@ if (isset($_POST['btnSaveEdit'])) {
         move_uploaded_file($fileTmpName, $saveToDirectory);
     }
 
-    $editQuery = "UPDATE residents SET civilStatus = '$civilStatus', voterStatus = '$voterStatus', ifActive = '$voteActive', religion = '$religion', 
-    nationality = '$nationality', occupation = '$occupation', sector = '$sector', cityAddress = '$cityAddress', provAddress = '$provAddress', purok = '$purok', 
-    email = '$email', mobileNumberA = '$mobileNumberA', mobileNumberB = '$mobileNumberB', homeNumberA = '$homeNumberA', residentType = '$residentType', residentStatus = '$residentStatus', imageLocation = '$filePath'
+    $editQuery = "UPDATE residents 
+    SET civilStatus = '$civilStatus', 
+    voterStatus = '$voterStatus', 
+    ifActive = '$voteActive', 
+    religion = '$religion', 
+    nationality = '$nationality', 
+    occupation = '$occupation', 
+    sector = '$sector', 
+    cityAddress = '$cityAddress', 
+    provAddress = '$provAddress', 
+    purok = '$purok', 
+    email = '$email', 
+    mobileNumberA = '$mobileNumberA', 
+    mobileNumberB = '$mobileNumberB', 
+    homeNumberA = '$homeNumberA', 
+    residentType = '$residentType', 
+    residentStatus = '$residentStatus', 
+    imageLocation = '$filePath'
     WHERE residentID = '$idNumber';";
+
     mysqli_query($conn, $editQuery);
     header("Location: ../residents.php");
 }
