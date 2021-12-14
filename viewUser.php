@@ -74,7 +74,7 @@
         <section>
             <div class="container mt-5">
                 <form name="viewUser" method="POST" action="./database/database.php" enctype="multipart/form-data">
-                    <input type="text" value='<?php echo $position?>' name='getPosition'>
+                    <input type="hidden" value='<?php echo $position?>' name='getPosition'>
                     <input type='hidden' value = <?php echo $viewIdNumber ?> name = 'idNumber'>
                     <div class="row welcome">
                         <div class="col-md-12">

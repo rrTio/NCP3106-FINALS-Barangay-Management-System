@@ -65,10 +65,7 @@ $image = $_SESSION['imageLocation'];
             </div>
             <div class="col-sm-3">
               <div class="search">
-                <input type="text" class="searchTerm" placeholder="Resident Search">
-                <button type="submit" class="searchButton">
-                  <i class="fa fa-search"></i>
-                </button>
+                <input onkeyup="searchElement()" type="text" class="searchTerm" name="searchResident" id="searchResident" placeholder="Resident Search">
               </div>
             </div>
             <div class="col-sm-3">
@@ -76,7 +73,7 @@ $image = $_SESSION['imageLocation'];
             </div>
           </div>
         </div>
-        <table class="table table-striped table-hover">
+        <table class="table table-striped table-hover" id="residentsTable">
           <thead>
             <tr>
               <th data-field="resID">Resident ID</th>
@@ -101,16 +98,15 @@ $image = $_SESSION['imageLocation'];
                     $middleName = $residents['nameMiddle'];
                     $purok = $residents['purok'];
                     echo
-                    "<tr><td>" . $residents['residentID']
+                    "<tr id='residentRow'><td>" . $residents['residentID']
                       . "</td><td>" . $residents['nameLast']
                       . "</td><td>" . $residents['nameFirst']
                       . "</td><td>" . $residents['nameMiddle']
                       . "</td><td>" . $residents['gender']
                       . "</td><td>" . $residents['purok']
-                      . "<td>
-                              <button name='btnViewResident' target='_blank' title='View' type='submit' value=" . $residents['residentID'] . " class='btn btn-success bg-gradient text-dark fa fa-eye'></button>
-                              <button name='btnDeleteResident' target='_blank' type='submit' value=" . $residents['residentID'] . " class='btn btn-danger bg-gradient text-dark fa fa-trash'></button>
-                              <button name='btnDownloadCert' target='_blank' type='submit' value=" . $residents['residentID'] . " class='btn btn-info bg-gradient text-dark fa fa-download'></button></td>"
+                      . "<td> <button name='btnViewResident' target='_blank' title='View' type='submit' value=" . $residents['residentID'] . " class='btn btn-success bg-gradient text-dark fa fa-eye'></button>
+                              <button name='btnDeleteResident' target='_blank' title='Delete' type='submit' value=" . $residents['residentID'] . " class='btn btn-danger bg-gradient text-dark fa fa-trash'></button>
+                              <button name='btnDownloadCert' target='_blank' title='Download Certificate' type='submit' value=" . $residents['residentID'] . " class='btn btn-info bg-gradient text-dark fa fa-download'></button></td>"
                       . "</td></tr>";
                   }
                 }
