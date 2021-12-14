@@ -1,3 +1,4 @@
+mysqli_close($conn);
 function checkPosition() { 
     var getPosition = document.forms["viewUser"]["getPosition"];
     var civilStatus = document.getElementById("cStatus");
@@ -13,7 +14,7 @@ function checkPosition() {
     var email = document.getElementById("email");
     var password = document.getElementById("psswrd");
     var cPassword = document.getElementById("cPsswrd");
-    var button = document.getElementById("btnEditOfficial");
+    var button = document.getElementById("saveEdit");
 
     if (getPosition.value == "Kagawad") {
         civilStatus.disabled = true;
@@ -29,6 +30,6 @@ function checkPosition() {
         email.disabled = true;
         password.disabled = true;
         cPassword.disabled = true;
-        button.style.visibility = "hidden";
+        button.style.display = "none";
     }
 }

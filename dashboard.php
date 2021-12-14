@@ -5,9 +5,18 @@ $name = $_SESSION['name'];
 $purok = $_SESSION['purok'];
 $position = $_SESSION['position'];
 
-$totalResidents = $_SESSION['residents'];
-$totalOfficials = $_SESSION['officials'];
-$totalVoters = $_SESSION['voters'];
+$countOfficials = "SELECT * FROM officials;";
+$officialsQuery = mysqli_query($conn, $countOfficials);
+$totalOfficials = mysqli_num_rows($officialsQuery);
+
+$countResidents = "SELECT * FROM residents;";
+$residentsQuery = mysqli_query($conn, $countResidents);
+$totalResidents = mysqli_num_rows($residentsQuery);
+
+$countVoters = "SELECT * FROM residents WHERE voterStatus = 'Yes';";
+$VotersQuery = mysqli_query($conn, $countVoters);
+$totalVoters = mysqli_num_rows($VotersQuery);
+
 $image = $_SESSION['imageLocation'];
 ?>
 <!DOCTYPE html>
@@ -29,16 +38,15 @@ $image = $_SESSION['imageLocation'];
   <script type="text/javascript" src="./assets/js/dashboard.js"></script>
 </head>
 
-<body>
+<body onload="getPosition();">
   <aside class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
-    <i class="uil-bars close-aside d-md-none d-lg-none" data-close="show-side-navigation1"></i>
-    <div class="sidebar-header d-flex justify-content-center align-items-center px-3 py-4">
+    <div class="sidebar-header d-flex align-items-center px-3 py-4">
       <?php
       echo "<img class='rounded-pill img-fluid border-2' width='25%' src=" .  $image . " alt='Official's Image'>"
       ?>
       <div class="ms-2">
         <h5 class="fs-6 mb-0">
-          <a class="text-decoration-none headName" href="#"> &nbsp; <?php echo $name; ?></a>
+          <a class="text-decoration-none headName" href="viewUser.php"> &nbsp; <?php echo $name; ?></a>
         </h5>
         <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $position ?></p>
         <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $purok ?></p>
@@ -46,21 +54,23 @@ $image = $_SESSION['imageLocation'];
     </div>
     <ul class="categories list-unstyled">
       <li><i class="fa fa-home sideIcons"></i><a href="dashboard.php"> Dashboard</a></li>
+      <li><i class="fa fa-user sideIcons"></i><a href="viewUser.php"> My Profile</a></li>
       <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Residents List</a></li>
       <li><i class="fa fa-user-plus sideIcons"></i><a href="registration.php"> Register Resident</a></li>
-      <li><i class="fa fa-users sideIcons"></i><a href="viewUser.php"> Accounts</a></li>
-      <li><i class="fa fa-plus sideIcons"></i><a href="registerOfficial.php"> Add Personnel</a></li>
+      <li><i class="fa fa-plus sideIcons"></i><a href="registerOfficial.php"> Register Official</a></li>
       <li><i class="fa fa-power-off sideIcons"></i><a href="index.php"> Logout</a></li>
     </ul>
   </aside>
 
   <section>
+    <form name="position">
+      <input type="hidden" name="getPosition" value="<?php echo $position?>">
+    </form>
     <div class="p-4">
       <div class="welcome">
         <div class="content rounded-3 p-3">
           <h1 class="fs-3">Welcome to Dashboard</h1>
           <p class="mb-0">Hello <?php echo $position . " " . $name . " of " . $purok; ?></p>
-          <p class="mb-0">Image Location <?php echo $image ?></p>
         </div>
       </div>
       <section class="statistics mt-4">
@@ -72,7 +82,6 @@ $image = $_SESSION['imageLocation'];
                 <div class="d-flex align-items-center">
                   <h3 class="mb-0"><?php echo $totalVoters ?></h3> <span class="d-block ms-2">Voters</span>
                 </div>
-                <p class="fs-normal mb-0">Lorem ipsum dolor sit amet</p>
               </div>
             </div>
           </div>
@@ -83,7 +92,6 @@ $image = $_SESSION['imageLocation'];
                 <div class="d-flex align-items-center">
                   <h3 class="mb-0"><?php echo $totalOfficials ?></h3> <span class="d-block ms-2">Admins</span>
                 </div>
-                <p class="fs-normal mb-0">Lorem ipsum dolor sit amet</p>
               </div>
             </div>
           </div>
@@ -94,7 +102,6 @@ $image = $_SESSION['imageLocation'];
                 <div class="d-flex align-items-center">
                   <h3 class="mb-0"><?php echo $totalResidents ?></h3> <span class="d-block ms-2">Residents</span>
                 </div>
-                <p class="fs-normal mb-0">Lorem ipsum dolor sit amet</p>
               </div>
             </div>
           </div>
@@ -110,7 +117,7 @@ $image = $_SESSION['imageLocation'];
               <h2>&nbsp;Officials</h2>
             </div>
             <div class="col-sm-4">
-              <a href="registerOfficial.php" class=" text-dark btn btn-success"><i class="material-icons">&#xE147;</i> <span>Add New Official</span></a>
+              <a href="registerOfficial.php" class="btn btn-success"><i class="material-icons">&#xE147;</i> <span>Add New Official</span></a>
             </div>
           </div>
         </div>

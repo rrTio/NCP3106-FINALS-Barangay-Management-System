@@ -49,39 +49,37 @@
     </head>
     <body onload="checkPosition();">
         <aside class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
-        <i class="uil-bars close-aside d-md-none d-lg-none" data-close="show-side-navigation1"></i>
-        <div class="sidebar-header d-flex justify-content-center align-items-center px-3 py-4">
+            <div class="sidebar-header d-flex align-items-center px-3 py-4">
             <?php
             echo "<img class='rounded-pill img-fluid border-2' width='25%' src=" .  $image . " alt='Official's Image'>"
             ?>
             <div class="ms-2">
                 <h5 class="fs-6 mb-0">
-                    <a class="text-decoration-none headName" href="#"> &nbsp; <?php echo $name; ?></a>
+                <a class="text-decoration-none headName" href="viewUser.php"> &nbsp; <?php echo $name; ?></a>
                 </h5>
                 <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $position ?></p>
                 <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $purok ?></p>
             </div>
-        </div>
-        <ul class="categories list-unstyled">
+            </div>
+            <ul class="categories list-unstyled">
             <li><i class="fa fa-home sideIcons"></i><a href="dashboard.php"> Dashboard</a></li>
+            <li><i class="fa fa-user sideIcons"></i><a href="viewUser.php"> My Profile</a></li>
             <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Residents List</a></li>
             <li><i class="fa fa-user-plus sideIcons"></i><a href="registration.php"> Register Resident</a></li>
-            <li><i class="fa fa-users sideIcons"></i><a href="viewUser.php"> Accounts</a></li>
-            <li><i class="fa fa-plus sideIcons"></i><a href="registerOfficial.php"> Add Personnel</a></li>
+            <li><i class="fa fa-plus sideIcons"></i><a href="registerOfficial.php"> Register Official</a></li>
             <li><i class="fa fa-power-off sideIcons"></i><a href="index.php"> Logout</a></li>
-        </ul>
-    </aside>
+            </ul>
+        </aside>
         <section>
             <div class="container mt-5">
                 <form name="viewUser" method="POST" action="./database/database.php" enctype="multipart/form-data">
                     <input type="hidden" value='<?php echo $position?>' name='getPosition'>
-                    <input type='hidden' value = <?php echo $viewIdNumber ?> name = 'idNumber'>
+                    <input type='hidden' value='<?php echo $viewIdNumber ?>' name = 'idNumber'>
                     <div class="row welcome">
                         <div class="col-md-12">
                             <div class="content rounded-3 p-3">
                                 <h1>Officials Form</h1>
                                 <p>Barangay Official ID No.: <?php echo $viewIdNumber ?> </p>
-                                <p>IMAGE LOCATION: <?php echo $viewImage ?></p>
                             </div>
                         </div>
                     </div>
@@ -454,7 +452,7 @@
                     </div>
                     
                     <div class="row mb-4">
-                        <div class="col-md-12">
+                        <div class="col-md-12" id="saveEdit">
                             <button type="submit" name="btnEditOfficial" class="btn btn-success bg-gradient btn-block btn-large">SAVE CHANGES</button>
                         </div>
                     </div>

@@ -23,26 +23,25 @@
 </head>
 <body>
     <aside class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
-        <i class="uil-bars close-aside d-md-none d-lg-none" data-close="show-side-navigation1"></i>
-        <div class="sidebar-header d-flex justify-content-center align-items-center px-3 py-4">
-            <?php
-            echo "<img class='rounded-pill img-fluid border-2' width='25%' src=" .  $image . " alt='Official's Image'>"
-            ?>
-            <div class="ms-2">
-                <h5 class="fs-6 mb-0">
-                    <a class="text-decoration-none headName" href="#"> &nbsp; <?php echo $name; ?></a>
-                </h5>
-                <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $position ?></p>
-                <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $purok ?></p>
-            </div>
+        <div class="sidebar-header d-flex align-items-center px-3 py-4">
+        <?php
+        echo "<img class='rounded-pill img-fluid border-2' width='25%' src=" .  $image . " alt='Official's Image'>"
+        ?>
+        <div class="ms-2">
+            <h5 class="fs-6 mb-0">
+            <a class="text-decoration-none headName" href="viewUser.php"> &nbsp; <?php echo $name; ?></a>
+            </h5>
+            <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $position ?></p>
+            <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $purok ?></p>
+        </div>
         </div>
         <ul class="categories list-unstyled">
-            <li><i class="fa fa-home sideIcons"></i><a href="dashboard.php"> Dashboard</a></li>
-            <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Residents List</a></li>
-            <li><i class="fa fa-user-plus sideIcons"></i><a href="registration.php"> Register Resident</a></li>
-            <li><i class="fa fa-users sideIcons"></i><a href="viewUser.php"> Accounts</a></li>
-            <li><i class="fa fa-plus sideIcons"></i><a href="registerOfficial.php"> Add Personnel</a></li>
-            <li><i class="fa fa-power-off sideIcons"></i><a href="index.php"> Logout</a></li>
+        <li><i class="fa fa-home sideIcons"></i><a href="dashboard.php"> Dashboard</a></li>
+        <li><i class="fa fa-user sideIcons"></i><a href="viewUser.php"> My Profile</a></li>
+        <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Residents List</a></li>
+        <li><i class="fa fa-user-plus sideIcons"></i><a href="registration.php"> Register Resident</a></li>
+        <li><i class="fa fa-plus sideIcons"></i><a href="registerOfficial.php"> Register Official</a></li>
+        <li><i class="fa fa-power-off sideIcons"></i><a href="index.php"> Logout</a></li>
         </ul>
     </aside>
     

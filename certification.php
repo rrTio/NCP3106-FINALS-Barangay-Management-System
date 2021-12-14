@@ -1,7 +1,7 @@
 <?php
 require('./assets/fpdf184/fpdf.php');
 include_once('./database/database.php');
-
+session_start();
 $idNumber = $_SESSION['PDFIdNumber'];
 $lastName = $_SESSION['PDFLastName'];
 $firstName = $_SESSION['PDFFirstName'];
@@ -15,17 +15,19 @@ $encoderPosition = $_SESSION['PDFEncoderPosition'];
 $residentType = $_SESSION['PDFResidentType'];
 $residentStatus = $_SESSION['PDFResidentStatus'];
 $purok = $_SESSION['PDFPurok'];
-$cityAddress = $_SESSION['PDFCityAddress'];
-$email = $_SESSION['PDFEmail'];
+$imageLocation = $_SESSION['PDFImageLocation'];
 
 $date = date("F d, Y");
 
 $pdf = new FPDF();
 $pdf->AddPage();
 $pdf->SetFont('Arial','B',16);
-$pdf->MultiCell(80,10,$date);
-$pdf->MultiCell(100,10,"Name: ".$lastName.", ".$firstName." ".$middleName);
-$pdf->Cell(80,10,"Resident ID: ".$idNumber);
+$pdf->Image($imageLocation,80,6,0);
+$pdf->Cell(80,10,$date,0,1);
+$pdf->Cell(100,10,"Name: ".$lastName.", ".$firstName." ".$middleName,0,2);
+$pdf->Cell(80,10,"Resident ID: ".$idNumber,0,3);
+$pdf->MultiCell(100,10,"Purok: ".$purok,0,4);
+$pdf->Cell(80,10,"Image Location: ".$imageLocation,0,5);
 
 $pdf->Output('D', $idNumber.$lastName.'.pdf');
 ?>

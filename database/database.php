@@ -1,22 +1,6 @@
 <?php
 include_once('connection.php');
 
-$countOfficials = "SELECT * FROM officials;";
-$officialsQuery = mysqli_query($conn, $countOfficials);
-$rowOfficials = mysqli_num_rows($officialsQuery);
-
-$countResidents = "SELECT * FROM residents;";
-$residentsQuery = mysqli_query($conn, $countResidents);
-$rowResidents = mysqli_num_rows($residentsQuery);
-
-$countVoters = "SELECT * FROM residents WHERE voterStatus = 'Yes';";
-$VotersQuery = mysqli_query($conn, $countVoters);
-$rowVoters = mysqli_num_rows($VotersQuery);
-
-session_start();
-$_SESSION['officials'] = $rowOfficials;
-$_SESSION['residents'] = $rowResidents;
-$_SESSION['voters'] = $rowVoters;
 
 if (isset($_POST['btnLogin'])) {
     $adminUsername = $_POST['username'];
@@ -51,6 +35,12 @@ if (isset($_POST['btnLogin'])) {
         $_SESSION['purok'] = $purok;
         header("Location: ../dashboard.php");
     }
+
+    else{
+        echo '<script> alert("Error credentials"); </script>';
+        header("Location: ../index.php");
+    }
+
 }
 
 if (isset($_POST['btnChangePass'])) {
@@ -307,9 +297,11 @@ if (isset($_POST['btnEditOfficial'])) {
     $mobileNumberB = $_POST['mNumTwo'];
     $homeNumberA = $_POST['hNumOne'];
     $homeNumberB = $_POST['hNumTwo'];
-    $username = $_POST['username'];
+    $username = $_POST['uName'];
     $email = $_POST['email'];
     $password = $_POST['psswrd'];
+
+    $time = date("dmY-hisA");
 
     $file = $_FILES['viewOfficial'];
     $fileName = $_FILES['viewOfficial']['name'];
@@ -322,7 +314,7 @@ if (isset($_POST['btnEditOfficial'])) {
     $allow = array('jpg', 'jpeg', 'png');
 
     if(in_array($fileExtension, $allow)){
-        $fileNameNew = strtolower($idNumber.$lastName) . '.' . $fileExtension;
+        $fileNameNew = strtolower($idNumber.$lastName."_".$time) . '.' . $fileExtension;
         $filePath = './assets/images/officials/'.$fileNameNew;
         $sendToDirectory = '../assets/images/officials/'.$fileNameNew;
         move_uploaded_file($fileTmpName, $sendToDirectory);
@@ -339,13 +331,12 @@ if (isset($_POST['btnEditOfficial'])) {
     homeNumberA = '$homeNumberA',
     homeNumberB = '$homeNumberB',
     username = '$username',
-    officialPassword = '$password'
+    officialPassword = '$password',
     imageLocation = '$filePath'
     WHERE idNumber = '$idNumber';";
 
     mysqli_query($conn, $editQuery);
     header("Location: ../dashboard.php");
-
 }
 
 if (isset($_POST['btnDelete'])) {
@@ -377,6 +368,8 @@ if (isset($_POST['btnSaveEdit'])) {
     $residentType = $_POST['resType'];
     $residentStatus = $_POST['resStat'];
 
+    $time = date("dmY-hisA");
+
     $file = $_FILES['viewResident'];
     $fileName = $_FILES['viewResident']['name'];
     $fileTmpName = $_FILES['viewResident']['tmp_name'];
@@ -388,7 +381,7 @@ if (isset($_POST['btnSaveEdit'])) {
     $allow = array('jpg', 'jpeg', 'png');
 
     if(in_array($fileExtension, $allow)){
-        $fileNameNew = strtolower($idNumber.$lastName) . '.' . $fileExtension;
+        $fileNameNew = strtolower($idNumber.$lastName."-".$time) . '.' . $fileExtension;
         $filePath = './assets/images/residents/'.$fileNameNew;
         $saveToDirectory = '../assets/images/residents/'.$fileNameNew;
         move_uploaded_file($fileTmpName, $saveToDirectory);
@@ -408,7 +401,8 @@ if (isset($_POST['btnSaveEdit'])) {
     email = '$email', 
     mobileNumberA = '$mobileNumberA', 
     mobileNumberB = '$mobileNumberB', 
-    homeNumberA = '$homeNumberA', 
+    homeNumberA = '$homeNumberA',
+    homeNumberB = '$homeNumberB',
     residentType = '$residentType', 
     residentStatus = '$residentStatus', 
     imageLocation = '$filePath'
@@ -440,28 +434,14 @@ if(isset($_POST['btnDownloadCert'])){
             $viewMonth = $view['birthMonth'];
             $viewDay = $view['birthDay'];
             $viewYear = $view['birthYear'];
-            $viewPOB = $view['placeOB'];
-            $viewGender = $view['gender'];
-            $viewCivilStatus = $view['civilStatus'];
-            $viewVoterStatus = $view['voterStatus'];
-            $viewIfActive = $view['ifActive'];
-            $viewReligion = $view['religion'];
-            $viewNationality = $view['nationality'];
-            $viewOccupation = $view['occupation'];
-            $viewSector = $view['sector'];
-            $viewCityAddress = $view['cityAddress'];
-            $viewProvAddress = $view['provAddress'];
             $viewPurok = $view['purok'];
-            $viewEmail = $view['email'];
-            $viewMobileNumberA = $view['mobileNumberA'];
-            $viewMobileNumberB = $view['mobileNumberB'];
-            $viewHomeNumberA = $view['homeNumberA'];
-            $viewHomeNumberB = $view['homeNumberB'];
             $viewResidentType = $view['residentType'];
             $viewResidentStatus = $view['residentStatus'];
             $viewEncoder = $view['encoder'];
             $viewEncoderPosition = $view['encoderPosition'];
+            $viewImageLocation = $view['imageLocation'];
         }
+
         session_start();
         $_SESSION['PDFIdNumber'] = $viewIdNumber;
         $_SESSION['PDFLastName'] = $viewLastName;
@@ -471,27 +451,13 @@ if(isset($_POST['btnDownloadCert'])){
         $_SESSION['PDFMonth'] = $viewMonth;
         $_SESSION['PDFDay'] = $viewDay;
         $_SESSION['PDFYear'] = $viewYear;
-        $_SESSION['PDFPOB'] = $viewPOB;
-        $_SESSION['PDFGender'] = $viewGender;
-        $_SESSION['PDFCivilStatus'] = $viewCivilStatus;
-        $_SESSION['PDFVoterStatus'] = $viewVoterStatus;
-        $_SESSION['PDFIfActive'] = $viewIfActive;
-        $_SESSION['PDFReligion'] = $viewReligion;
-        $_SESSION['PDFNationality'] = $viewNationality;
-        $_SESSION['PDFOccupation'] = $viewOccupation;
-        $_SESSION['PDFSector'] = $viewSector;
-        $_SESSION['PDFCityAddress'] = $viewCityAddress;
-        $_SESSION['PDFProvAddress'] = $viewProvAddress;
-        $_SESSION['PDFPurok'] = $viewPurok;
-        $_SESSION['PDFEmail'] = $viewEmail;
-        $_SESSION['PDFMobileNumberA'] = $viewMobileNumberA;
-        $_SESSION['PDFMobileNumberB'] = $viewMobileNumberB;
-        $_SESSION['PDFHomeNumberA']  = $viewHomeNumberA;
-        $_SESSION['PDFHomeNumberB'] = $viewHomeNumberB;
         $_SESSION['PDFResidentType'] = $viewResidentType;
         $_SESSION['PDFResidentStatus'] = $viewResidentStatus;
         $_SESSION['PDFEncoder'] = $viewEncoder;
         $_SESSION['PDFEncoderPosition'] = $viewEncoderPosition;
+        $_SESSION['PDFPurok'] = $viewPurok;
+        $_SESSION['PDFImageLocation'] = $viewImageLocation;
+
         header("Location: ../certification.php");
     }
 }
