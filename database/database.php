@@ -20,7 +20,7 @@ if (isset($_POST['btnLogin'])) {
         header("Location: ../registerOfficial.php");
     }
 
-    if (mysqli_num_rows($login) == 1) {
+    else if (mysqli_num_rows($login) == 1) {
         while ($dashboard = mysqli_fetch_assoc($login)) {
             $name = $dashboard['nameAlias'];
             $position = $dashboard['position'];
@@ -565,12 +565,12 @@ if(isset($_POST['btnDownloadResidency'])){
             $viewFirstName = $view['nameFirst'];
             $viewMiddleName = $view['nameMiddle'];
             $viewAlias = $view['nameAlias'];
-            $viewMonth = $view['birthMonth'];
-            $viewDay = $view['birthDay'];
-            $viewYear = $view['birthYear'];
+            $viewCivilStatus = $view['civilStatus'];
+            $viewNationality = $view['nationality'];
             $viewPurok = $view['purok'];
+            $viewGender = $view['gender'];
+            $viewCityAddress = $view['cityAddress'];
             $viewResidentType = $view['residentType'];
-            $viewResidentStatus = $view['residentStatus'];
             $viewEncoder = $view['encoder'];
             $viewEncoderPosition = $view['encoderPosition'];
             $viewImageLocation = $view['imageLocation'];
@@ -582,15 +582,14 @@ if(isset($_POST['btnDownloadResidency'])){
         $_SESSION['PDFFirstName'] = $viewFirstName;
         $_SESSION['PDFMiddleName'] = $viewMiddleName;
         $_SESSION['PDFAlias'] = $viewAlias;
-        $_SESSION['PDFMonth'] = $viewMonth;
-        $_SESSION['PDFDay'] = $viewDay;
-        $_SESSION['PDFYear'] = $viewYear;
+        $_SESSION['PDFCivilStatus'] = $viewCivilStatus;
+        $_SESSION['PDFNationality'] = $viewNationality;
         $_SESSION['PDFResidentType'] = $viewResidentType;
-        $_SESSION['PDFResidentStatus'] = $viewResidentStatus;
         $_SESSION['PDFEncoder'] = $viewEncoder;
         $_SESSION['PDFEncoderPosition'] = $viewEncoderPosition;
         $_SESSION['PDFPurok'] = $viewPurok;
-        $_SESSION['PDFImageLocation'] = $viewImageLocation;
+        $_SESSION['PDFGender'] = $viewGender;
+        $_SESSION['PDFCityAddress'] = $viewCityAddress;
 
         $encoder = $_POST['encoder'];
         $encoderPosition = $_POST['encoderPosition'];
