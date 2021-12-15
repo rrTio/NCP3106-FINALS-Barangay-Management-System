@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./assets/css/index.css">
     <link rel="stylesheet" href="./assets/css/main.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <script src="./assets/js/index.js" type="text/javascript"></script>
   </head>
   <body>
   <div class="login">
@@ -17,7 +18,7 @@
         <input type="password" name="password" placeholder="Password" required="required" />
         <button type="submit" name="btnLogin" class="btn btn-primary btn-block btn-large">Enter</button>
         <center class="marginButton">
-          <a id="forgotPassword" onClick="">Forgot password?</a>
+          <a id="forgotPassword" onClick="return forgotPassword()">Forgot password?</a>
         </center>
         
       </form>

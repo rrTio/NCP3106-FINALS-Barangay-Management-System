@@ -172,11 +172,11 @@ if (isset($_POST['btnRegisterOfficial'])) {
     $transactionID = "RO-".date("Ymdhis");
     $officialFullName = $lastName.', '.$firstName.' '.$middleName;
 
-    $insertToOfficials = "INSERT INTO officials (idNumber, nameLast, nameFirst, nameMiddle, nameAlias, birthMonth, birthDay, birthYear, placeOB, gender, civilStatus, position, cityAddress, provAddress, purok, mobileNumberA, mobileNumberB, homeNumberA, homeNumberB, email, username, officialPassword, imageLocation)
-    VALUES ('$idNumber','$lastName','$firstName','$middleName','$alias','$birthMonth','$birthDay','$birthYear','$placeOfBirth','$gender','$civilStatus','$position','$cityAddress','$provAddress','$purok','$mobileNumberA','$mobileNumberB','$houseNumberA','$houseNumberB','$email','$username','$password', '$filePath');";
+    $insertToOfficials = "INSERT INTO officials (dateRegistered, timeRegistered, idNumber, nameLast, nameFirst, nameMiddle, nameAlias, birthMonth, birthDay, birthYear, placeOB, gender, civilStatus, position, cityAddress, provAddress, purok, mobileNumberA, mobileNumberB, homeNumberA, homeNumberB, email, username, officialPassword, imageLocation)
+    VALUES ('$date','$time','$idNumber','$lastName','$firstName','$middleName','$alias','$birthMonth','$birthDay','$birthYear','$placeOfBirth','$gender','$civilStatus','$position','$cityAddress','$provAddress','$purok','$mobileNumberA','$mobileNumberB','$houseNumberA','$houseNumberB','$email','$username','$password', '$filePath');";
 
     $insertToLogs = "INSERT INTO logs (log_date, log_time, log_timestamp, log_event, log_transactionID, log_encoder, log_encoderPosition, log_personID, log_personName, log_purok)
-                                VALUES ('$date','$time','$timestamp', '$event', '$transactionID', '$encoder', '$encoderPosition', '$idNumber', '$officialFullName', '$encoderPurok');";
+                    VALUES ('$date','$time','$timestamp', '$event', '$transactionID', '$encoder', '$encoderPosition', '$idNumber', '$officialFullName', '$encoderPurok');";
 
     mysqli_query($conn, $insertToOfficials);
     mysqli_query($conn, $insertToLogs);
