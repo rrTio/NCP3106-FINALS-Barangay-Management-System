@@ -27,6 +27,7 @@ if($gender == "Male"){
     $pronoun = "he";
     $nextPronoun = "his";
 }
+
 if($gender == "Female"){
     $pronoun = "she";
     $nextPronoun = "her";

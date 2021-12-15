@@ -96,7 +96,7 @@ $image = $_SESSION['imageLocation'];
                     "<tr><td>" . $logs['log_transactionID']
                       . "</td><td>" . $logs['log_timestamp']
                       . "</td><td>" . $logs['log_event']
-                      . "</td><td>" . $logs['log_personName']
+                      . "</td><td id='personName'>" . $logs['log_personName']
                       . "</td><td>" . $logs['log_personID']
                       . "</td><td>" . $logs['log_encoder']
                       . "</td><td>" . $logs['log_encoderPosition']

@@ -90,7 +90,7 @@ $image = $_SESSION['imageLocation'];
             <tbody>
               <?php
                 include_once("./database/connection.php");
-                $getResidents = "SELECT * FROM residents";
+                $getResidents = "SELECT * FROM residents ORDER BY `dateRegistered` DESC, `timeRegistered` DESC";
                 $result = mysqli_query($conn, $getResidents);
                 if (mysqli_num_rows($result) > 0) {
                   while ($residents = mysqli_fetch_assoc($result)) {
