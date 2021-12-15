@@ -1,7 +1,6 @@
 <?php
 include_once('connection.php');
 
-
 if (isset($_POST['btnLogin'])) {
     $adminUsername = $_POST['username'];
     $adminPassword = $_POST['password'];
@@ -51,6 +50,8 @@ if (isset($_POST['btnChangePass'])) {
     header("Location: ../index.php");
 }
 
+########################################################################################################################################################################################## REGISTRATION
+
 if (isset($_POST['btnRegisterResident'])) {
     $residentID = date("Y") . "-" . substr(hexdec(uniqid()), 12) . date("s");
     $lastName = $_POST['lastName'];
@@ -79,9 +80,7 @@ if (isset($_POST['btnRegisterResident'])) {
     $houseNumberB = $_POST['hNumTwo'];
     $residentType = $_POST['resType'];
     $residentStatus = $_POST['resStat'];
-    $encoder = $_POST['encoder'];
-    $encoderPosition = $_POST['encoderPosition'];
-
+    
     $file = $_FILES['imageResident'];
     $fileName = $_FILES['imageResident']['name'];
     $fileTmpName = $_FILES['imageResident']['tmp_name'];
@@ -99,9 +98,25 @@ if (isset($_POST['btnRegisterResident'])) {
         move_uploaded_file($fileTmpName, $sendToDirectory);
     }
 
+    $encoder = $_POST['encoder'];
+    $encoderPosition = $_POST['encoderPosition'];
+    $encoderPurok = $_POST['encoderPurok'];
+    $event = "Registered resident ";
+    $timezone = date_default_timezone_set('Asia/Manila');
+    $date = date("Y-m-d");
+    $time = date("h:i:s A");
+    $timestamp = date("Y-m-d h:i:s A");
+    $transactionID = "RR-".date("Ymdhis");
+    $residentFullName = $lastName.', '.$firstName.' '.$middleName;
+
     $insertToResident = "INSERT INTO residents (residentID, nameFirst, nameMiddle, nameLast, nameAlias, birthMonth, birthDay, birthYear, placeOB, gender, civilStatus, voterStatus, ifActive, religion, nationality, occupation, sector, cityAddress, provAddress, purok, email, mobileNumberA, mobileNumberB, homeNumberA, homeNumberB, residentType, residentStatus, encoder, encoderPosition, imageLocation)
         VALUES ('$residentID','$firstName', '$middleName', '$lastName', '$alias', '$birthMonth', '$birthDay', '$birthYear', '$placeOfBirth', '$gender', '$civilStatus', '$voterStatus', '$ifActive', '$religion', '$nationality', '$occupation', '$sector', '$cityAddress', '$provAddress', '$purok', '$email', '$mobileNumberA', '$mobileNumberB', '$houseNumberA', '$houseNumberB', '$residentType', '$residentStatus', '$encoder', '$encoderPosition', '$filePath');";
+    
+    $insertToLogs = "INSERT INTO logs (log_date, log_time, log_timestamp, log_event, log_transactionID, log_encoder, log_encoderPosition, log_personID, log_personName, log_purok)
+                                VALUES ('$date','$time','$timestamp', '$event', '$transactionID', '$encoder', '$encoderPosition', '$residentID', '$residentFullName', '$encoderPurok');";
+
     mysqli_query($conn, $insertToResident);
+    mysqli_query($conn, $insertToLogs);
     header("Location: ../residents.php");
 }
 
@@ -146,11 +161,29 @@ if (isset($_POST['btnRegisterOfficial'])) {
         move_uploaded_file($fileTmpName, $sendToDirectory);
     }
 
+    $encoder = $_POST['encoder'];
+    $encoderPosition = $_POST['encoderPosition'];
+    $encoderPurok = $_POST['encoderPurok'];
+    $event = "Registered official ";
+    $timezone = date_default_timezone_set('Asia/Manila');
+    $date = date("Y-m-d");
+    $time = date("h:i:s A");
+    $timestamp = date("Y-m-d h:i:s A");
+    $transactionID = "RO-".date("Ymdhis");
+    $officialFullName = $lastName.', '.$firstName.' '.$middleName;
+
     $insertToOfficials = "INSERT INTO officials (idNumber, nameLast, nameFirst, nameMiddle, nameAlias, birthMonth, birthDay, birthYear, placeOB, gender, civilStatus, position, cityAddress, provAddress, purok, mobileNumberA, mobileNumberB, homeNumberA, homeNumberB, email, username, officialPassword, imageLocation)
     VALUES ('$idNumber','$lastName','$firstName','$middleName','$alias','$birthMonth','$birthDay','$birthYear','$placeOfBirth','$gender','$civilStatus','$position','$cityAddress','$provAddress','$purok','$mobileNumberA','$mobileNumberB','$houseNumberA','$houseNumberB','$email','$username','$password', '$filePath');";
+
+    $insertToLogs = "INSERT INTO logs (log_date, log_time, log_timestamp, log_event, log_transactionID, log_encoder, log_encoderPosition, log_personID, log_personName, log_purok)
+                                VALUES ('$date','$time','$timestamp', '$event', '$transactionID', '$encoder', '$encoderPosition', '$idNumber', '$officialFullName', '$encoderPurok');";
+
     mysqli_query($conn, $insertToOfficials);
+    mysqli_query($conn, $insertToLogs);
     header("Location: ../dashboard.php");
 }
+
+########################################################################################################################################################################################## VIEWING
 
 if (isset($_POST['btnView'])) {
     $getID = $_POST['btnView'];
@@ -286,6 +319,8 @@ if (isset($_POST['btnViewResident'])) {
     }
 }
 
+########################################################################################################################################################################################## EDITING
+
 if (isset($_POST['btnEditOfficial'])) {
     $idNumber = $_POST['idNumber'];
     $civilStatus = $_POST['cStatus'];
@@ -320,6 +355,22 @@ if (isset($_POST['btnEditOfficial'])) {
         move_uploaded_file($fileTmpName, $sendToDirectory);
     }
 
+    $firstName = $_POST['firstName'];
+    $middleName = $_POST['middleName'];
+    $lastName = $_POST['lastName'];
+    $timezone = date_default_timezone_set('Asia/Manila');
+    $time = date("dmY-hisA");
+    $encoder = $_POST['encoder'];
+    $encoderPosition = $_POST['encoderPosition'];
+    $encoderPurok = $_POST['encoderPurok'];
+    $event = "Updated official ";
+    $timezone = date_default_timezone_set('Asia/Manila');
+    $date = date("Y-m-d");
+    $time = date("h:i:s A");
+    $timestamp = date("Y-m-d h:i:s A");
+    $transactionID = "UO-".date("Ymdhis");
+    $officialFullName = $lastName.', '.$firstName.' '.$middleName;
+
     $editQuery = "UPDATE officials 
     SET civilStatus = '$civilStatus', 
     position = '$position',
@@ -335,15 +386,12 @@ if (isset($_POST['btnEditOfficial'])) {
     imageLocation = '$filePath'
     WHERE idNumber = '$idNumber';";
 
+    $insertToLogs = "INSERT INTO logs (log_date, log_time, log_timestamp, log_event, log_transactionID, log_encoder, log_encoderPosition, log_personID, log_personName, log_purok)
+                                VALUES ('$date','$time','$timestamp', '$event', '$transactionID', '$encoder', '$encoderPosition', '$idNumber', '$officialFullName', '$encoderPurok');";
+
+
     mysqli_query($conn, $editQuery);
-    header("Location: ../dashboard.php");
-}
-
-if (isset($_POST['btnDelete'])) {
-    $getID = $_POST['btnDelete'];
-
-    $deleteOfficial = "DELETE FROM officials WHERE idNumber = '$getID';";
-    mysqli_query($conn, $deleteOfficial);
+    mysqli_query($conn, $insertToLogs);
     header("Location: ../dashboard.php");
 }
 
@@ -368,8 +416,6 @@ if (isset($_POST['btnSaveEdit'])) {
     $residentType = $_POST['resType'];
     $residentStatus = $_POST['resStat'];
 
-    $time = date("dmY-hisA");
-
     $file = $_FILES['viewResident'];
     $fileName = $_FILES['viewResident']['name'];
     $fileTmpName = $_FILES['viewResident']['tmp_name'];
@@ -386,6 +432,25 @@ if (isset($_POST['btnSaveEdit'])) {
         $saveToDirectory = '../assets/images/residents/'.$fileNameNew;
         move_uploaded_file($fileTmpName, $saveToDirectory);
     }
+
+    $firstName = $_POST['firstName'];
+    $middleName = $_POST['middleName'];
+    $timezone = date_default_timezone_set('Asia/Manila');
+    $time = date("dmY-hisA");
+    $encoder = $_POST['encoder'];
+    $encoderPosition = $_POST['encoderPosition'];
+    $encoderPurok = $_POST['encoderPurok'];
+    $event = "Updated resident ";
+    $timezone = date_default_timezone_set('Asia/Manila');
+    $date = date("Y-m-d");
+    $time = date("h:i:s A");
+    $timestamp = date("Y-m-d h:i:s A");
+    $transactionID = "UR-".date("Ymdhis");
+    $residentFullName = $lastName.', '.$firstName.' '.$middleName;
+
+    $insertToLogs = "INSERT INTO logs (log_date, log_time, log_timestamp, log_event, log_transactionID, log_encoder, log_encoderPosition, log_personID, log_personName, log_purok)
+                                VALUES ('$date','$time','$timestamp', '$event', '$transactionID', '$encoder', '$encoderPosition', '$idNumber', '$residentFullName', '$encoderPurok');";
+
 
     $editQuery = "UPDATE residents 
     SET civilStatus = '$civilStatus', 
@@ -409,19 +474,88 @@ if (isset($_POST['btnSaveEdit'])) {
     WHERE residentID = '$idNumber';";
 
     mysqli_query($conn, $editQuery);
+    mysqli_query($conn, $insertToLogs);
+
     header("Location: ../residents.php");
+}
+
+########################################################################################################################################################################################## DELETION
+
+if (isset($_POST['btnDelete'])) {
+    $getID = $_POST['btnDelete'];
+    
+    $encoder = $_POST['getEncoder'];
+    $encoderPosition = $_POST['getPosition']; 
+    $encoderPurok = $_POST['getPurok'];
+
+    $selectOfficial = "SELECT * FROM officials WHERE idNumber = '$getID';";
+    $getInfo = mysqli_query($conn, $selectOfficial);
+    if(mysqli_num_rows($getInfo) == 1){
+        while($data = mysqli_fetch_assoc($getInfo)){
+            $lastName = $data['nameLast'];
+            $firstName = $data['nameFirst'];
+            $middleName = $data['nameMiddle'];
+        }
+        $event = "Deleted official ";
+        $timezone = date_default_timezone_set('Asia/Manila');
+        $date = date("Y-m-d");
+        $time = date("h:i:s A");
+        $timestamp = date("Y-m-d h:i:s A");
+        $transactionID = "DO-".date("Ymdhis");
+        $residentFullName = $lastName.', '.$firstName.' '.$middleName;
+
+        $insertToLogs = "INSERT INTO logs (log_date, log_time, log_timestamp, log_event, log_transactionID, log_encoder, log_encoderPosition, log_personID, log_personName, log_purok)
+                                VALUES ('$date','$time','$timestamp', '$event', '$transactionID', '$encoder', '$encoderPosition', '$getID', '$residentFullName', '$encoderPurok');";
+        mysqli_query($conn, $insertToLogs);
+    }
+
+    $deleteOfficial = "DELETE FROM officials WHERE idNumber = '$getID';";
+    mysqli_query($conn, $deleteOfficial);
+    
+    header("Location: ../dashboard.php");
 }
 
 if (isset($_POST['btnDeleteResident'])) {
     $getID = $_POST['btnDeleteResident'];
+
+    $encoder = $_POST['encoder'];
+    $encoderPosition = $_POST['encoderPosition']; 
+    $encoderPurok = $_POST['encoderPurok'];
+
+    $selectResident = "SELECT * FROM residents WHERE residentID = '$getID';";
+    $getInfo = mysqli_query($conn, $selectResident);
+    if(mysqli_num_rows($getInfo) == 1){
+        while($data = mysqli_fetch_assoc($getInfo)){
+            $lastName = $data['nameLast'];
+            $firstName = $data['nameFirst'];
+            $middleName = $data['nameMiddle'];
+        }
+        $event = "Deleted resident ";
+        $timezone = date_default_timezone_set('Asia/Manila');
+        $date = date("Y-m-d");
+        $time = date("h:i:s A");
+        $timestamp = date("Y-m-d h:i:s A");
+        $transactionID = "DR-".date("Ymdhis");
+        $residentFullName = $lastName.', '.$firstName.' '.$middleName;
+
+        $insertToLogs = "INSERT INTO logs (log_date, log_time, log_timestamp, log_event, log_transactionID, log_encoder, log_encoderPosition, log_personID, log_personName, log_purok)
+                                VALUES ('$date','$time','$timestamp', '$event', '$transactionID', '$encoder', '$encoderPosition', '$getID', '$residentFullName', '$encoderPurok');";
+        mysqli_query($conn, $insertToLogs);
+    }
+
+    
 
     $deleteResident = "DELETE FROM residents WHERE residentID = '$getID';";
     mysqli_query($conn, $deleteResident);
     header("Location: ../residents.php");
 }
 
-if(isset($_POST['btnDownloadCert'])){
-    $getId = $_POST['btnDownloadCert'];
+
+########################################################################################################################################################################################## DOWNLOAD
+
+if(isset($_POST['btnDownloadResidency'])){
+    $getId = $_POST['btnDownloadResidency'];
+
     $getQuery = "SELECT * FROM residents WHERE residentID = '$getId';";
     $getResidents = mysqli_query($conn, $getQuery);
     if (mysqli_num_rows($getResidents) > 0) {
@@ -458,6 +592,90 @@ if(isset($_POST['btnDownloadCert'])){
         $_SESSION['PDFPurok'] = $viewPurok;
         $_SESSION['PDFImageLocation'] = $viewImageLocation;
 
-        header("Location: ../certification.php");
+        $encoder = $_POST['encoder'];
+        $encoderPosition = $_POST['encoderPosition'];
+        $encoderPurok = $_POST['encoderPurok'];
+
+        $firstName = $_POST['firstName'];
+        $middleName = $_POST['middleName'];
+        $timezone = date_default_timezone_set('Asia/Manila');
+        $time = date("dmY-hisA");
+        $encoder = $_POST['encoder'];
+        $encoderPosition = $_POST['encoderPosition'];
+        $encoderPurok = $_POST['encoderPurok'];
+        $event = "Downloaded Certificate of Residency ";
+        $timezone = date_default_timezone_set('Asia/Manila');
+        $date = date("Y-m-d");
+        $time = date("h:i:s A");
+        $timestamp = date("Y-m-d h:i:s A");
+        $transactionID = "DLCR-".date("Ymdhis");
+        $residentFullName = $viewLastName.', '.$viewFirstName.' '.$viewMiddleName;
+
+        $log = "INSERT INTO logs (log_date, log_time, log_timestamp, log_event, log_transactionID, log_encoder, log_encoderPosition, log_personID, log_personName, log_purok) 
+        VALUES('$date','$time', '$timestamp', '$event', '$transactionID', '$encoder', '$encoderPosition', '$getId', '$residentFullName', '$encoderPurok');";
+        mysqli_query($conn, $log);
+        header("Location: ../certificateResidency.php");
+    }
+    
+}
+
+if(isset($_POST['btnDownloadClearance'])){
+    $getId = $_POST['btnDownloadClearance'];
+    $getQuery = "SELECT * FROM residents WHERE residentID = '$getId';";
+    $getResidents = mysqli_query($conn, $getQuery);
+    if (mysqli_num_rows($getResidents) > 0) {
+        while ($view = mysqli_fetch_assoc($getResidents)) {
+            $viewIdNumber = $view['residentID'];
+            $viewLastName = $view['nameLast'];
+            $viewFirstName = $view['nameFirst'];
+            $viewMiddleName = $view['nameMiddle'];
+            $viewAlias = $view['nameAlias'];
+            $viewMonth = $view['birthMonth'];
+            $viewDay = $view['birthDay'];
+            $viewYear = $view['birthYear'];
+            $viewPurok = $view['purok'];
+            $viewResidentType = $view['residentType'];
+            $viewResidentStatus = $view['residentStatus'];
+            $viewEncoder = $view['encoder'];
+            $viewEncoderPosition = $view['encoderPosition'];
+            $viewImageLocation = $view['imageLocation'];
+        }
+
+        session_start();
+        $_SESSION['PDFIdNumber'] = $viewIdNumber;
+        $_SESSION['PDFLastName'] = $viewLastName;
+        $_SESSION['PDFFirstName'] = $viewFirstName;
+        $_SESSION['PDFMiddleName'] = $viewMiddleName;
+        $_SESSION['PDFAlias'] = $viewAlias;
+        $_SESSION['PDFMonth'] = $viewMonth;
+        $_SESSION['PDFDay'] = $viewDay;
+        $_SESSION['PDFYear'] = $viewYear;
+        $_SESSION['PDFResidentType'] = $viewResidentType;
+        $_SESSION['PDFResidentStatus'] = $viewResidentStatus;
+        $_SESSION['PDFEncoder'] = $viewEncoder;
+        $_SESSION['PDFEncoderPosition'] = $viewEncoderPosition;
+        $_SESSION['PDFPurok'] = $viewPurok;
+        $_SESSION['PDFImageLocation'] = $viewImageLocation;
+
+        $encoder = $_POST['encoder'];
+        $encoderPosition = $_POST['encoderPosition'];
+        $encoderPurok = $_POST['encoderPurok'];
+        $timezone = date_default_timezone_set('Asia/Manila');
+        $time = date("dmY-hisA");
+        $encoder = $_POST['encoder'];
+        $encoderPosition = $_POST['encoderPosition'];
+        $encoderPurok = $_POST['encoderPurok'];
+        $event = "Downloaded Barangay Clearance ";
+        $timezone = date_default_timezone_set('Asia/Manila');
+        $date = date("Y-m-d");
+        $time = date("h:i:s A");
+        $timestamp = date("Y-m-d h:i:s A");
+        $transactionID = "DLBC-".date("Ymdhis");
+        $residentFullName = $viewLastName.', '.$viewFirstName.' '.$viewMiddleName;
+
+        $log = "INSERT INTO logs (log_date, log_time, log_timestamp, log_event, log_transactionID, log_encoder, log_encoderPosition, log_personID, log_personName, log_purok) 
+        VALUES('$date','$time', '$timestamp', '$event', '$transactionID', '$encoder', '$encoderPosition', '$getId', '$residentFullName', '$encoderPurok');";
+        mysqli_query($conn, $log);
+        header("Location: ../barangayClearance.php");
     }
 }

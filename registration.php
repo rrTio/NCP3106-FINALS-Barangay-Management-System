@@ -18,6 +18,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css'>
     <link rel='stylesheet' href='https://unicons.iconscout.com/release/v3.0.6/css/line.css'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/registration.css">
     <link rel="stylesheet" href="./assets/css/main.css">
 </head>
@@ -48,6 +49,9 @@
     <section>
         <div class="container mt-5">
             <form name="residents" method="POST" action="./database/database.php" enctype="multipart/form-data">
+                <input type="hidden" name="encoder" value="<?php echo $name ?>">
+                <input type="hidden" name="encoderPosition" value="<?php echo $position ?>">
+                <input type="hidden" name="encoderPurok" value="<?php echo $purok?>">
                 <div class="row welcome mb-2">
                     <div class="col-md-12">
                         <div class="content rounded-3 p-3 col-md-12">
@@ -402,8 +406,6 @@
                     <div class="col-md-2">
                         <div class="form-floating">
                             <input class="form-control form-control-lg" type="text" id="purok" name="purok" placeholder="Purok">
-                            <input type="hidden" name="encoder" value="<?php echo $name ?>" readonly>
-                            <input type="hidden" name="encoderPosition" value="<?php echo $position ?>" readonly>
                             <label class="form-label" for="purok">PUROK</label>    
                         </div>
                     </div>

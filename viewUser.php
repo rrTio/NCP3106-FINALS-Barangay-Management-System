@@ -42,6 +42,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
         <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css'>
         <link rel='stylesheet' href='https://unicons.iconscout.com/release/v3.0.6/css/line.css'>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
         <link rel='stylesheet' href="./assets/css/viewUser.css">
         <link rel="stylesheet" href="./assets/css/main.css">
         <script src='./assets/js/viewUser.js'></script>
@@ -62,19 +63,22 @@
             </div>
             </div>
             <ul class="categories list-unstyled">
-            <li><i class="fa fa-home sideIcons"></i><a href="dashboard.php"> Dashboard</a></li>
-            <li><i class="fa fa-user sideIcons"></i><a href="viewUser.php"> My Profile</a></li>
-            <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Residents List</a></li>
-            <li><i class="fa fa-user-plus sideIcons"></i><a href="registration.php"> Register Resident</a></li>
-            <li><i class="fa fa-plus sideIcons"></i><a href="registerOfficial.php"> Register Official</a></li>
-            <li><i class="fa fa-power-off sideIcons"></i><a href="index.php"> Logout</a></li>
+                <li><i class="fa fa-home sideIcons"></i><a href="dashboard.php"> Dashboard</a></li>
+                <li><i class="fa fa-user sideIcons"></i><a href="viewUser.php"> My Profile</a></li>
+                <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Residents List</a></li>
+                <li><i class="fa fa-user-plus sideIcons"></i><a href="registration.php"> Register Resident</a></li>
+                <li><i class="fa fa-plus sideIcons"></i><a href="registerOfficial.php"> Register Official</a></li>
+                <li><i class="fa fa-calendar sideIcons"></i><a href="logs.php"> Logs</a></li>
+                <li><i class="fa fa-power-off sideIcons"></i><a href="index.php"> Logout</a></li>
             </ul>
         </aside>
         <section>
             <div class="container mt-5">
                 <form name="viewUser" method="POST" action="./database/database.php" enctype="multipart/form-data">
-                    <input type="hidden" value='<?php echo $position?>' name='getPosition'>
+                    <input type="hidden" value='<?php echo $position?>' name='encoderPosition'>
+                    <input type="hidden" value='<?php echo $name?>' name='encoder'>
                     <input type='hidden' value='<?php echo $viewIdNumber ?>' name = 'idNumber'>
+                    <input type='hidden' value='<?php echo $purok?>' name = 'encoderPurok'>
                     <div class="row welcome">
                         <div class="col-md-12">
                             <div class="content rounded-3 p-3">
@@ -306,7 +310,7 @@
                                         <option value="1901" <?php echo ($viewYear=='1901')?('selected'):(''); ?> >1901</option>
                                         <option value="1900" <?php echo ($viewYear=='1900')?('selected'):(''); ?> >1900</option>
                                         </select>
-                                    <label class="form-label" for="bYear">YEAR</label>    
+                                        <label class="form-label" for="bYear">YEAR</label>    
                                     </div>
                                 </div>
                             </div>
@@ -412,7 +416,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="row mb-2">
                         <div class="col-md-12">
                             <h4>
@@ -420,8 +423,6 @@
                             </h4>
                         </div>    
                     </div>
-                    
-                    
                     <div class="row mb-4">
                         <div class="col-md-6">
                             <div class="form-floating">
@@ -450,7 +451,6 @@
                             </div>
                         </div>
                     </div>
-                    
                     <div class="row mb-4">
                         <div class="col-md-12" id="saveEdit">
                             <button type="submit" name="btnEditOfficial" class="btn btn-success bg-gradient btn-block btn-large">SAVE CHANGES</button>

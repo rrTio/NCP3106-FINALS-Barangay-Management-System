@@ -27,6 +27,7 @@ $image = $_SESSION['imageLocation'];
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
   <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
   <link rel="stylesheet" href="./assets/css/residents.css" />
   <script src="./assets/js/residents.js" type="text/javascript"></script>
 </head>
@@ -51,6 +52,7 @@ $image = $_SESSION['imageLocation'];
       <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Residents List</a></li>
       <li><i class="fa fa-user-plus sideIcons"></i><a href="registration.php"> Register Resident</a></li>
       <li><i class="fa fa-plus sideIcons"></i><a href="registerOfficial.php"> Register Official</a></li>
+      <li><i class="fa fa-calendar sideIcons"></i><a href="logs.php"> Logs</a></li>
       <li><i class="fa fa-power-off sideIcons"></i><a href="index.php"> Logout</a></li>
     </ul>
   </aside>
@@ -92,25 +94,26 @@ $image = $_SESSION['imageLocation'];
                 $result = mysqli_query($conn, $getResidents);
                 if (mysqli_num_rows($result) > 0) {
                   while ($residents = mysqli_fetch_assoc($result)) {
-                    $lastName = $residents['nameLast'];
-                    $firstName = $residents['nameFirst'];
-                    $middleName = $residents['nameMiddle'];
-                    $purok = $residents['purok'];
                     echo
-                    "<tr id='residentRow'><td>" . $residents['residentID']
-                      . "</td><td>" . $residents['nameLast']
-                      . "</td><td>" . $residents['nameFirst']
-                      . "</td><td>" . $residents['nameMiddle']
+                    "<tr id='residentRow'><td>" . $_SESSION['residentID'] = $residents['residentID']
+                      . "</td><td name='lastName' value".$residents['nameLast'].">" . $residents['nameLast']
+                      . "</td><td name='firstName' value".$residents['nameFirst'].">" . $residents['nameFirst']
+                      . "</td><td name='middleName' value".$residents['nameMiddle'].">" . $residents['nameMiddle']
                       . "</td><td>" . $residents['gender']
                       . "</td><td>" . $residents['purok']
-                      . "<td> <button name='btnViewResident' target='_blank' title='View' type='submit' value=" . $residents['residentID'] . " class='btn btn-success bg-gradient text-dark fa fa-eye'></button>
-                              <button name='btnDeleteResident' target='_blank' title='Delete' type='submit' value=" . $residents['residentID'] . " class='btn btn-danger bg-gradient text-dark fa fa-trash'></button>
-                              <button name='btnDownloadCert' target='_blank' title='Download Certificate' type='submit' value=" . $residents['residentID'] . " class='btn btn-info bg-gradient text-dark fa fa-download'>&nbsp;".$residents['residentID']."</button></td>"
+                      . "<td> <button name='btnViewResident' target='_blank' title='View Resident' type='submit' value=" . $residents['residentID'] . " class='btn btn-success bg-gradient text-dark fa fa-eye'></button>
+                              <button name='btnDeleteResident' target='_blank' title='Delete Resident' type='submit' value=" . $residents['residentID'] . " class='btn btn-danger bg-gradient text-dark fa fa-trash'></button>
+                              <button name='btnDownloadResidency' target='_blank' title='Download Certificate of Residency' type='submit' value=" . $residents['residentID'] . " class='btn btn-info bg-gradient text-dark fas fa-file-export'></button>
+                              <button name='btnDownloadClearance' target='_blank' title='Download Barangay Clearance' type='submit' value=" . $residents['residentID'] . " class='btn btn-warning bg-gradient text-dark fas fa-file-download'></button>"
                       . "</td></tr>";
                   }
                 }
               ?>
             </tbody>
+            <input type="hidden" value="<?php echo $name?>" name='encoder'>
+            <input type='hidden' value='<?php echo $position?>' name='encoderPosition'>
+            <input type='hidden' value='<?php echo $purok?>' name='encoderPurok'>
+            
           </form>
         </table>
       </div>

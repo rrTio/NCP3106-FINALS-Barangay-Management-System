@@ -49,6 +49,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
         <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css'>
         <link rel='stylesheet' href='https://unicons.iconscout.com/release/v3.0.6/css/line.css'>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
         <link rel='stylesheet' href='./assets/css/viewResident.css'>
         <link rel="stylesheet" href="./assets/css/main.css">
     </head>
@@ -72,6 +73,7 @@
             <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Residents List</a></li>
             <li><i class="fa fa-user-plus sideIcons"></i><a href="registration.php"> Register Resident</a></li>
             <li><i class="fa fa-plus sideIcons"></i><a href="registerOfficial.php"> Register Official</a></li>
+            <li><i class="fa fa-calendar sideIcons"></i><a href="logs.php"> Logs</a></li>
             <li><i class="fa fa-power-off sideIcons"></i><a href="index.php"> Logout</a></li>
             </ul>
         </aside>
@@ -79,13 +81,15 @@
     <section>
         <div class="container mt-5">
             <form name="residents" method="POST" action="./database/database.php" enctype="multipart/form-data">
+                <input type="hidden" value="<?php echo $name?>" name='encoder'>
+                <input type='hidden' value='<?php echo $position?>' name='encoderPosition'>
+                <input type='hidden' value='<?php echo $purok?>' name='encoderPurok'>
+                <input type='hidden' value='<?php echo $viewIdNumber?>' name='resID'>
                 <div class="row welcome mb-2">
                     <div class="col-md-12">
                         <div class="content rounded-3 p-3 col-md-12">
                             <h1>Registered Resident Form</h1>
-                            <p>Resident ID No.: <?php echo $viewIdNumber; ?> 
-                            <input type='hidden' name='resID' value='<?php echo $viewIdNumber?>'></p>
-                            <p>Image Location: <?php echo $viewImage; ?></p>
+                            <p>Resident ID No.: <?php echo $viewIdNumber; ?></p>
                         </div>
                     </div>
                 </div>

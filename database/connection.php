@@ -17,6 +17,8 @@ if(!$conn){die("mysqli_connect_error()");}
 
 //QUERIES FOR CREATING TABLE AND COLUMNS
 $createResidentTable = "CREATE TABLE IF NOT EXISTS `residents`(
+	`dateRegistered` TEXT,
+	`timeRegistered` TEXT,
 	`residentID` TEXT UNIQUE,
 	`nameFirst` TEXT,
 	`nameMiddle` TEXT,
@@ -50,6 +52,8 @@ $createResidentTable = "CREATE TABLE IF NOT EXISTS `residents`(
 );";
 
 $createOfficialsTable = "CREATE TABLE IF NOT EXISTS `officials`(
+	`dateRegistered` TEXT,
+	`timeRegistered` TEXT,
 	`idNumber` TEXT UNIQUE,
 	`nameLast` TEXT,
 	`nameFirst` TEXT,
@@ -75,6 +79,20 @@ $createOfficialsTable = "CREATE TABLE IF NOT EXISTS `officials`(
 	`imageLocation` TEXT
 );";
 
+$createLogs = "CREATE TABLE IF NOT EXISTS `logs`(
+	`log_date` TEXT,
+	`log_time` TEXT,
+	`log_timestamp` TEXT,
+	`log_event` TEXT,
+	`log_transactionID` TEXT UNIQUE,
+	`log_encoder` TEXT,
+	`log_encoderPosition` TEXT,
+	`log_personID` TEXT,
+	`log_personName` TEXT,
+	`log_purok` TEXT
+);";
+
 //EXECUTION FOR CREATING TABLE AND COLUMNS
 mysqli_query($conn, $createResidentTable);
 mysqli_query($conn, $createOfficialsTable);
+mysqli_query($conn, $createLogs);

@@ -33,6 +33,7 @@ $image = $_SESSION['imageLocation'];
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
   <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css'>
   <link rel='stylesheet' href='https://unicons.iconscout.com/release/v3.0.6/css/line.css'>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
   <link rel="stylesheet" href="./assets/css/dashboard.css">
   <link rel="stylesheet" href="./assets/css/main.css">
   <script type="text/javascript" src="./assets/js/dashboard.js"></script>
@@ -58,13 +59,14 @@ $image = $_SESSION['imageLocation'];
       <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Residents List</a></li>
       <li><i class="fa fa-user-plus sideIcons"></i><a href="registration.php"> Register Resident</a></li>
       <li><i class="fa fa-plus sideIcons"></i><a href="registerOfficial.php"> Register Official</a></li>
+      <li><i class="fa fa-calendar sideIcons"></i><a href="logs.php"> Logs</a></li>
       <li><i class="fa fa-power-off sideIcons"></i><a href="index.php"> Logout</a></li>
     </ul>
   </aside>
 
   <section>
     <form name="position">
-      <input type="hidden" name="getPosition" value="<?php echo $position?>">
+      
     </form>
     <div class="p-4">
       <div class="welcome">
@@ -106,8 +108,8 @@ $image = $_SESSION['imageLocation'];
             </div>
           </div>
         </div>
-    </div>
-  </section>
+      </div>
+    </section>
   <section class="officials">
     <div class="container">
       <div class="table-wrapper">
@@ -135,6 +137,9 @@ $image = $_SESSION['imageLocation'];
             </tr>
           </thead>
           <form method="POST" action="./database/database.php">
+            <input type="hidden" name="getPosition" value="<?php echo $position?>">
+            <input type="hidden" name="getEncoder" value="<?php echo $name?>">
+            <input type="hidden" name="getPurok" value="<?php echo $purok?>">
             <tbody>
               <?php
               include_once("./database/connection.php");
@@ -149,9 +154,9 @@ $image = $_SESSION['imageLocation'];
                   echo "<tr>"
                     . "<td>" . $officials['idNumber']
                     . "</td><td>" . $officials['position']
-                    . "</td><td>" . $officials['nameLast']
-                    . "</td><td>" . $officials['nameFirst']
-                    . "</td><td>" . $officials['nameMiddle']
+                    . "</td><td name='tdLastName' value=".$officials['nameLast'].">" . $officials['nameLast']
+                    . "</td><td name='tdFirstName' value=".$officials['nameFirst'].">" . $officials['nameFirst']
+                    . "</td><td name='tdMiddleName' value=".$officials['nameMiddle'].">" . $officials['nameMiddle']
                     . "</td><td>" . $officials['nameAlias']
                     . "</td><td>" . $officials['purok']
                     . "</td><td><button name='btnView' type='submit' value=" . $officials['idNumber'] . " class='btn btn-success text-dark bg-gradient fa fa-eye'></button>
@@ -163,27 +168,6 @@ $image = $_SESSION['imageLocation'];
             </tbody>
           </form>
         </table>
-      </div>
-    </div>
-    <!-- Delete Modal HTML -->
-    <div id="deleteEmployeeModal" class="modal fade">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <form>
-            <div class="modal-header">
-              <h4 class="modal-title">Delete Resident</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            </div>
-            <div class="modal-body">
-              <p>Are you sure you want to delete these Records?</p>
-              <p class="text-warning"><small>This action cannot be undone.</small></p>
-            </div>
-            <div class="modal-footer">
-              <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-              <input type="submit" class="btn btn-danger" value="Delete">
-            </div>
-          </form>
-        </div>
       </div>
     </div>
   </section>
