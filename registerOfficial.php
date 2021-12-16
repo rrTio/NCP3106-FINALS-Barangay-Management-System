@@ -47,7 +47,6 @@
         <li><i class="fa fa-power-off sideIcons"></i><a href="index.php"> Logout</a></li>
         </ul>
     </aside>
-
     <section>
             <div class="container mt-5">
                 <form name="officials" method="POST" action="./database/database.php" enctype="multipart/form-data">

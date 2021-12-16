@@ -145,21 +145,21 @@
                                 <div class="col-md-3">
                                     <div class="form-floating">
                                         <select class="form-control form-control-lg p-2 pt-3" id="bMonth" name="bMonth" readonly>
-                                        <option selected disabled>--SELECT--</option>
-                                        <option value="01"  <?php echo ($viewMonth=='01')?('selected'):(''); ?> >January</option>
-                                        <option value="02" <?php echo ($viewMonth=='02')?('selected'):(''); ?> >February</option>
-                                        <option value="03" <?php echo ($viewMonth=='03')?('selected'):(''); ?> >March</option>
-                                        <option value="04" <?php echo ($viewMonth=='04')?('selected'):(''); ?> >April</option>
-                                        <option value="05" <?php echo ($viewMonth=='05')?('selected'):(''); ?> >May</option>
-                                        <option value="06" <?php echo ($viewMonth=='06')?('selected'):(''); ?> >June</option>
-                                        <option value="07" <?php echo ($viewMonth=='07')?('selected'):(''); ?> >July</option>
-                                        <option value="08" <?php echo ($viewMonth=='08')?('selected'):(''); ?> >August</option>
-                                        <option value="09" <?php echo ($viewMonth=='09')?('selected'):(''); ?> >September</option>
-                                        <option value="10" <?php echo ($viewMonth=='10')?('selected'):(''); ?> >October</option>
-                                        <option value="11" <?php echo ($viewMonth=='11')?('selected'):(''); ?> >November</option>
-                                        <option value="12" <?php echo ($viewMonth=='12')?('selected'):(''); ?> >December</option>
+                                            <option selected disabled>--SELECT--</option>
+                                            <option value="01" <?php echo ($viewMonth=='01')?('selected'):(''); ?> >January</option>
+                                            <option value="02" <?php echo ($viewMonth=='02')?('selected'):(''); ?> >February</option>
+                                            <option value="03" <?php echo ($viewMonth=='03')?('selected'):(''); ?> >March</option>
+                                            <option value="04" <?php echo ($viewMonth=='04')?('selected'):(''); ?> >April</option>
+                                            <option value="05" <?php echo ($viewMonth=='05')?('selected'):(''); ?> >May</option>
+                                            <option value="06" <?php echo ($viewMonth=='06')?('selected'):(''); ?> >June</option>
+                                            <option value="07" <?php echo ($viewMonth=='07')?('selected'):(''); ?> >July</option>
+                                            <option value="08" <?php echo ($viewMonth=='08')?('selected'):(''); ?> >August</option>
+                                            <option value="09" <?php echo ($viewMonth=='09')?('selected'):(''); ?> >September</option>
+                                            <option value="10" <?php echo ($viewMonth=='10')?('selected'):(''); ?> >October</option>
+                                            <option value="11" <?php echo ($viewMonth=='11')?('selected'):(''); ?> >November</option>
+                                            <option value="12" <?php echo ($viewMonth=='12')?('selected'):(''); ?> >December</option>
                                         </select>
-                                    <label class="form-label" for="bMonth">MONTH</label>    
+                                        <label class="form-label" for="bMonth">MONTH</label>    
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -199,116 +199,116 @@
                                             <option value="31" <?php echo ($viewDay=='31')?('selected'):(''); ?> >31</option>
                                         </select>
                                     <label class="form-label" for="bDay">DAY</label>
-                                    </div> 
+                                    </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-floating">
                                         <select class="form-control form-control-lg p-2 pt-3" id="bYear" name="bYear" readonly>
-                                        <option selected disabled>--SELECT--</option>
-                                        <option value="2003" <?php echo ($viewYear=='2003')?('selected'):(''); ?> >2003</option>
-                                        <option value="2002" <?php echo ($viewYear=='2002')?('selected'):(''); ?> >2002</option>
-                                        <option value="2001" <?php echo ($viewYear=='2001')?('selected'):(''); ?> >2001</option>
-                                        <option value="2000" <?php echo ($viewYear=='2000')?('selected'):(''); ?> >2000</option>
-                                        <option value="1999" <?php echo ($viewYear=='1999')?('selected'):(''); ?> >1999</option>
-                                        <option value="1998" <?php echo ($viewYear=='1998')?('selected'):(''); ?> >1998</option>
-                                        <option value="1997" <?php echo ($viewYear=='1997')?('selected'):(''); ?> >1997</option>
-                                        <option value="1996" <?php echo ($viewYear=='1996')?('selected'):(''); ?> >1996</option>
-                                        <option value="1995" <?php echo ($viewYear=='1995')?('selected'):(''); ?> >1995</option>
-                                        <option value="1994" <?php echo ($viewYear=='1994')?('selected'):(''); ?> >1994</option>
-                                        <option value="1993" <?php echo ($viewYear=='1993')?('selected'):(''); ?> >1993</option>
-                                        <option value="1992" <?php echo ($viewYear=='1992')?('selected'):(''); ?> >1992</option>
-                                        <option value="1991" <?php echo ($viewYear=='1991')?('selected'):(''); ?> >1991</option>
-                                        <option value="1990" <?php echo ($viewYear=='1990')?('selected'):(''); ?> >1990</option>
-                                        <option value="1989" <?php echo ($viewYear=='1989')?('selected'):(''); ?> >1989</option>
-                                        <option value="1988" <?php echo ($viewYear=='1988')?('selected'):(''); ?> >1988</option>
-                                        <option value="1987" <?php echo ($viewYear=='1987')?('selected'):(''); ?> >1987</option>
-                                        <option value="1986" <?php echo ($viewYear=='1986')?('selected'):(''); ?> >1986</option>
-                                        <option value="1985" <?php echo ($viewYear=='1985')?('selected'):(''); ?> >1985</option>
-                                        <option value="1984" <?php echo ($viewYear=='1984')?('selected'):(''); ?> >1984</option>
-                                        <option value="1983" <?php echo ($viewYear=='1983')?('selected'):(''); ?> >1983</option>
-                                        <option value="1982" <?php echo ($viewYear=='1982')?('selected'):(''); ?> >1982</option>
-                                        <option value="1981" <?php echo ($viewYear=='1981')?('selected'):(''); ?> >1981</option>
-                                        <option value="1980" <?php echo ($viewYear=='1980')?('selected'):(''); ?> >1980</option>
-                                        <option value="1979" <?php echo ($viewYear=='1979')?('selected'):(''); ?> >1979</option>
-                                        <option value="1978" <?php echo ($viewYear=='1978')?('selected'):(''); ?> >1978</option>
-                                        <option value="1977" <?php echo ($viewYear=='1977')?('selected'):(''); ?> >1977</option>
-                                        <option value="1976" <?php echo ($viewYear=='1976')?('selected'):(''); ?> >1976</option>
-                                        <option value="1975" <?php echo ($viewYear=='1975')?('selected'):(''); ?> >1975</option>
-                                        <option value="1974" <?php echo ($viewYear=='1974')?('selected'):(''); ?> >1974</option>
-                                        <option value="1973" <?php echo ($viewYear=='1973')?('selected'):(''); ?> >1973</option>
-                                        <option value="1972" <?php echo ($viewYear=='1972')?('selected'):(''); ?> >1972</option>
-                                        <option value="1971" <?php echo ($viewYear=='1971')?('selected'):(''); ?> >1971</option>
-                                        <option value="1970" <?php echo ($viewYear=='1970')?('selected'):(''); ?> >1970</option>
-                                        <option value="1969" <?php echo ($viewYear=='1969')?('selected'):(''); ?> >1969</option>
-                                        <option value="1968" <?php echo ($viewYear=='1968')?('selected'):(''); ?> >1968</option>
-                                        <option value="1967" <?php echo ($viewYear=='1967')?('selected'):(''); ?> >1967</option>
-                                        <option value="1966" <?php echo ($viewYear=='1966')?('selected'):(''); ?> >1966</option>
-                                        <option value="1965" <?php echo ($viewYear=='1965')?('selected'):(''); ?> >1965</option>
-                                        <option value="1964" <?php echo ($viewYear=='1964')?('selected'):(''); ?> >1964</option>
-                                        <option value="1963" <?php echo ($viewYear=='1963')?('selected'):(''); ?> >1963</option>
-                                        <option value="1962" <?php echo ($viewYear=='1962')?('selected'):(''); ?> >1962</option>
-                                        <option value="1961" <?php echo ($viewYear=='1961')?('selected'):(''); ?> >1961</option>
-                                        <option value="1960" <?php echo ($viewYear=='1960')?('selected'):(''); ?> >1960</option>
-                                        <option value="1959" <?php echo ($viewYear=='1959')?('selected'):(''); ?> >1959</option>
-                                        <option value="1958" <?php echo ($viewYear=='1958')?('selected'):(''); ?> >1958</option>
-                                        <option value="1957" <?php echo ($viewYear=='1957')?('selected'):(''); ?> >1957</option>
-                                        <option value="1956" <?php echo ($viewYear=='1956')?('selected'):(''); ?> >1956</option>
-                                        <option value="1955" <?php echo ($viewYear=='1955')?('selected'):(''); ?> >1955</option>
-                                        <option value="1954" <?php echo ($viewYear=='1954')?('selected'):(''); ?> >1954</option>
-                                        <option value="1953" <?php echo ($viewYear=='1953')?('selected'):(''); ?> >1953</option>
-                                        <option value="1952" <?php echo ($viewYear=='1952')?('selected'):(''); ?> >1952</option>
-                                        <option value="1951" <?php echo ($viewYear=='1951')?('selected'):(''); ?> >1951</option>
-                                        <option value="1950" <?php echo ($viewYear=='1950')?('selected'):(''); ?> >1950</option>
-                                        <option value="1949" <?php echo ($viewYear=='1949')?('selected'):(''); ?> >1949</option>
-                                        <option value="1948" <?php echo ($viewYear=='1948')?('selected'):(''); ?> >1948</option>
-                                        <option value="1947" <?php echo ($viewYear=='1947')?('selected'):(''); ?> >1947</option>
-                                        <option value="1946" <?php echo ($viewYear=='1946')?('selected'):(''); ?> >1946</option>
-                                        <option value="1945" <?php echo ($viewYear=='1945')?('selected'):(''); ?> >1945</option>
-                                        <option value="1944" <?php echo ($viewYear=='1944')?('selected'):(''); ?> >1944</option>
-                                        <option value="1943" <?php echo ($viewYear=='1943')?('selected'):(''); ?> >1943</option>
-                                        <option value="1942" <?php echo ($viewYear=='1942')?('selected'):(''); ?> >1942</option>
-                                        <option value="1941" <?php echo ($viewYear=='1941')?('selected'):(''); ?> >1941</option>
-                                        <option value="1940" <?php echo ($viewYear=='1940')?('selected'):(''); ?> >1940</option>
-                                        <option value="1939" <?php echo ($viewYear=='1939')?('selected'):(''); ?> >1939</option>
-                                        <option value="1938" <?php echo ($viewYear=='1938')?('selected'):(''); ?> >1938</option>
-                                        <option value="1937" <?php echo ($viewYear=='1937')?('selected'):(''); ?> >1937</option>
-                                        <option value="1936" <?php echo ($viewYear=='1936')?('selected'):(''); ?> >1936</option>
-                                        <option value="1935" <?php echo ($viewYear=='1935')?('selected'):(''); ?> >1935</option>
-                                        <option value="1934" <?php echo ($viewYear=='1934')?('selected'):(''); ?> >1934</option>
-                                        <option value="1933" <?php echo ($viewYear=='1933')?('selected'):(''); ?> >1933</option>
-                                        <option value="1932" <?php echo ($viewYear=='1932')?('selected'):(''); ?> >1932</option>
-                                        <option value="1931" <?php echo ($viewYear=='1931')?('selected'):(''); ?> >1931</option>
-                                        <option value="1930" <?php echo ($viewYear=='1930')?('selected'):(''); ?> >1930</option>
-                                        <option value="1929" <?php echo ($viewYear=='1929')?('selected'):(''); ?> >1929</option>
-                                        <option value="1928" <?php echo ($viewYear=='1928')?('selected'):(''); ?> >1928</option>
-                                        <option value="1927" <?php echo ($viewYear=='1927')?('selected'):(''); ?> >1927</option>
-                                        <option value="1926" <?php echo ($viewYear=='1926')?('selected'):(''); ?> >1926</option>
-                                        <option value="1925" <?php echo ($viewYear=='1925')?('selected'):(''); ?> >1925</option>
-                                        <option value="1924" <?php echo ($viewYear=='1924')?('selected'):(''); ?> >1924</option>
-                                        <option value="1923" <?php echo ($viewYear=='1923')?('selected'):(''); ?> >1923</option>
-                                        <option value="1922" <?php echo ($viewYear=='1922')?('selected'):(''); ?> >1922</option>
-                                        <option value="1921" <?php echo ($viewYear=='1921')?('selected'):(''); ?> >1921</option>
-                                        <option value="1920" <?php echo ($viewYear=='1920')?('selected'):(''); ?> >1920</option>
-                                        <option value="1919" <?php echo ($viewYear=='1919')?('selected'):(''); ?> >1919</option>
-                                        <option value="1918" <?php echo ($viewYear=='1918')?('selected'):(''); ?> >1918</option>
-                                        <option value="1917" <?php echo ($viewYear=='1917')?('selected'):(''); ?> >1917</option>
-                                        <option value="1916" <?php echo ($viewYear=='1916')?('selected'):(''); ?> >1916</option>
-                                        <option value="1915" <?php echo ($viewYear=='1915')?('selected'):(''); ?> >1915</option>
-                                        <option value="1914" <?php echo ($viewYear=='1914')?('selected'):(''); ?> >1914</option>
-                                        <option value="1913" <?php echo ($viewYear=='1913')?('selected'):(''); ?> >1913</option>
-                                        <option value="1912" <?php echo ($viewYear=='1912')?('selected'):(''); ?> >1912</option>
-                                        <option value="1911" <?php echo ($viewYear=='1911')?('selected'):(''); ?> >1911</option>
-                                        <option value="1910" <?php echo ($viewYear=='1910')?('selected'):(''); ?> >1910</option>
-                                        <option value="1909" <?php echo ($viewYear=='1909')?('selected'):(''); ?> >1909</option>
-                                        <option value="1908" <?php echo ($viewYear=='1908')?('selected'):(''); ?> >1908</option>
-                                        <option value="1907" <?php echo ($viewYear=='1907')?('selected'):(''); ?> >1907</option>
-                                        <option value="1906" <?php echo ($viewYear=='1906')?('selected'):(''); ?> >1906</option>
-                                        <option value="1905" <?php echo ($viewYear=='1905')?('selected'):(''); ?> >1905</option>
-                                        <option value="1904" <?php echo ($viewYear=='1904')?('selected'):(''); ?> >1904</option>
-                                        <option value="1903" <?php echo ($viewYear=='1903')?('selected'):(''); ?> >1903</option>
-                                        <option value="1902" <?php echo ($viewYear=='1902')?('selected'):(''); ?> >1902</option>
-                                        <option value="1901" <?php echo ($viewYear=='1901')?('selected'):(''); ?> >1901</option>
-                                        <option value="1900" <?php echo ($viewYear=='1900')?('selected'):(''); ?> >1900</option>
+                                            <option selected disabled>--SELECT--</option>
+                                            <option value="2003" <?php echo ($viewYear=='2003')?('selected'):(''); ?> >2003</option>
+                                            <option value="2002" <?php echo ($viewYear=='2002')?('selected'):(''); ?> >2002</option>
+                                            <option value="2001" <?php echo ($viewYear=='2001')?('selected'):(''); ?> >2001</option>
+                                            <option value="2000" <?php echo ($viewYear=='2000')?('selected'):(''); ?> >2000</option>
+                                            <option value="1999" <?php echo ($viewYear=='1999')?('selected'):(''); ?> >1999</option>
+                                            <option value="1998" <?php echo ($viewYear=='1998')?('selected'):(''); ?> >1998</option>
+                                            <option value="1997" <?php echo ($viewYear=='1997')?('selected'):(''); ?> >1997</option>
+                                            <option value="1996" <?php echo ($viewYear=='1996')?('selected'):(''); ?> >1996</option>
+                                            <option value="1995" <?php echo ($viewYear=='1995')?('selected'):(''); ?> >1995</option>
+                                            <option value="1994" <?php echo ($viewYear=='1994')?('selected'):(''); ?> >1994</option>
+                                            <option value="1993" <?php echo ($viewYear=='1993')?('selected'):(''); ?> >1993</option>
+                                            <option value="1992" <?php echo ($viewYear=='1992')?('selected'):(''); ?> >1992</option>
+                                            <option value="1991" <?php echo ($viewYear=='1991')?('selected'):(''); ?> >1991</option>
+                                            <option value="1990" <?php echo ($viewYear=='1990')?('selected'):(''); ?> >1990</option>
+                                            <option value="1989" <?php echo ($viewYear=='1989')?('selected'):(''); ?> >1989</option>
+                                            <option value="1988" <?php echo ($viewYear=='1988')?('selected'):(''); ?> >1988</option>
+                                            <option value="1987" <?php echo ($viewYear=='1987')?('selected'):(''); ?> >1987</option>
+                                            <option value="1986" <?php echo ($viewYear=='1986')?('selected'):(''); ?> >1986</option>
+                                            <option value="1985" <?php echo ($viewYear=='1985')?('selected'):(''); ?> >1985</option>
+                                            <option value="1984" <?php echo ($viewYear=='1984')?('selected'):(''); ?> >1984</option>
+                                            <option value="1983" <?php echo ($viewYear=='1983')?('selected'):(''); ?> >1983</option>
+                                            <option value="1982" <?php echo ($viewYear=='1982')?('selected'):(''); ?> >1982</option>
+                                            <option value="1981" <?php echo ($viewYear=='1981')?('selected'):(''); ?> >1981</option>
+                                            <option value="1980" <?php echo ($viewYear=='1980')?('selected'):(''); ?> >1980</option>
+                                            <option value="1979" <?php echo ($viewYear=='1979')?('selected'):(''); ?> >1979</option>
+                                            <option value="1978" <?php echo ($viewYear=='1978')?('selected'):(''); ?> >1978</option>
+                                            <option value="1977" <?php echo ($viewYear=='1977')?('selected'):(''); ?> >1977</option>
+                                            <option value="1976" <?php echo ($viewYear=='1976')?('selected'):(''); ?> >1976</option>
+                                            <option value="1975" <?php echo ($viewYear=='1975')?('selected'):(''); ?> >1975</option>
+                                            <option value="1974" <?php echo ($viewYear=='1974')?('selected'):(''); ?> >1974</option>
+                                            <option value="1973" <?php echo ($viewYear=='1973')?('selected'):(''); ?> >1973</option>
+                                            <option value="1972" <?php echo ($viewYear=='1972')?('selected'):(''); ?> >1972</option>
+                                            <option value="1971" <?php echo ($viewYear=='1971')?('selected'):(''); ?> >1971</option>
+                                            <option value="1970" <?php echo ($viewYear=='1970')?('selected'):(''); ?> >1970</option>
+                                            <option value="1969" <?php echo ($viewYear=='1969')?('selected'):(''); ?> >1969</option>
+                                            <option value="1968" <?php echo ($viewYear=='1968')?('selected'):(''); ?> >1968</option>
+                                            <option value="1967" <?php echo ($viewYear=='1967')?('selected'):(''); ?> >1967</option>
+                                            <option value="1966" <?php echo ($viewYear=='1966')?('selected'):(''); ?> >1966</option>
+                                            <option value="1965" <?php echo ($viewYear=='1965')?('selected'):(''); ?> >1965</option>
+                                            <option value="1964" <?php echo ($viewYear=='1964')?('selected'):(''); ?> >1964</option>
+                                            <option value="1963" <?php echo ($viewYear=='1963')?('selected'):(''); ?> >1963</option>
+                                            <option value="1962" <?php echo ($viewYear=='1962')?('selected'):(''); ?> >1962</option>
+                                            <option value="1961" <?php echo ($viewYear=='1961')?('selected'):(''); ?> >1961</option>
+                                            <option value="1960" <?php echo ($viewYear=='1960')?('selected'):(''); ?> >1960</option>
+                                            <option value="1959" <?php echo ($viewYear=='1959')?('selected'):(''); ?> >1959</option>
+                                            <option value="1958" <?php echo ($viewYear=='1958')?('selected'):(''); ?> >1958</option>
+                                            <option value="1957" <?php echo ($viewYear=='1957')?('selected'):(''); ?> >1957</option>
+                                            <option value="1956" <?php echo ($viewYear=='1956')?('selected'):(''); ?> >1956</option>
+                                            <option value="1955" <?php echo ($viewYear=='1955')?('selected'):(''); ?> >1955</option>
+                                            <option value="1954" <?php echo ($viewYear=='1954')?('selected'):(''); ?> >1954</option>
+                                            <option value="1953" <?php echo ($viewYear=='1953')?('selected'):(''); ?> >1953</option>
+                                            <option value="1952" <?php echo ($viewYear=='1952')?('selected'):(''); ?> >1952</option>
+                                            <option value="1951" <?php echo ($viewYear=='1951')?('selected'):(''); ?> >1951</option>
+                                            <option value="1950" <?php echo ($viewYear=='1950')?('selected'):(''); ?> >1950</option>
+                                            <option value="1949" <?php echo ($viewYear=='1949')?('selected'):(''); ?> >1949</option>
+                                            <option value="1948" <?php echo ($viewYear=='1948')?('selected'):(''); ?> >1948</option>
+                                            <option value="1947" <?php echo ($viewYear=='1947')?('selected'):(''); ?> >1947</option>
+                                            <option value="1946" <?php echo ($viewYear=='1946')?('selected'):(''); ?> >1946</option>
+                                            <option value="1945" <?php echo ($viewYear=='1945')?('selected'):(''); ?> >1945</option>
+                                            <option value="1944" <?php echo ($viewYear=='1944')?('selected'):(''); ?> >1944</option>
+                                            <option value="1943" <?php echo ($viewYear=='1943')?('selected'):(''); ?> >1943</option>
+                                            <option value="1942" <?php echo ($viewYear=='1942')?('selected'):(''); ?> >1942</option>
+                                            <option value="1941" <?php echo ($viewYear=='1941')?('selected'):(''); ?> >1941</option>
+                                            <option value="1940" <?php echo ($viewYear=='1940')?('selected'):(''); ?> >1940</option>
+                                            <option value="1939" <?php echo ($viewYear=='1939')?('selected'):(''); ?> >1939</option>
+                                            <option value="1938" <?php echo ($viewYear=='1938')?('selected'):(''); ?> >1938</option>
+                                            <option value="1937" <?php echo ($viewYear=='1937')?('selected'):(''); ?> >1937</option>
+                                            <option value="1936" <?php echo ($viewYear=='1936')?('selected'):(''); ?> >1936</option>
+                                            <option value="1935" <?php echo ($viewYear=='1935')?('selected'):(''); ?> >1935</option>
+                                            <option value="1934" <?php echo ($viewYear=='1934')?('selected'):(''); ?> >1934</option>
+                                            <option value="1933" <?php echo ($viewYear=='1933')?('selected'):(''); ?> >1933</option>
+                                            <option value="1932" <?php echo ($viewYear=='1932')?('selected'):(''); ?> >1932</option>
+                                            <option value="1931" <?php echo ($viewYear=='1931')?('selected'):(''); ?> >1931</option>
+                                            <option value="1930" <?php echo ($viewYear=='1930')?('selected'):(''); ?> >1930</option>
+                                            <option value="1929" <?php echo ($viewYear=='1929')?('selected'):(''); ?> >1929</option>
+                                            <option value="1928" <?php echo ($viewYear=='1928')?('selected'):(''); ?> >1928</option>
+                                            <option value="1927" <?php echo ($viewYear=='1927')?('selected'):(''); ?> >1927</option>
+                                            <option value="1926" <?php echo ($viewYear=='1926')?('selected'):(''); ?> >1926</option>
+                                            <option value="1925" <?php echo ($viewYear=='1925')?('selected'):(''); ?> >1925</option>
+                                            <option value="1924" <?php echo ($viewYear=='1924')?('selected'):(''); ?> >1924</option>
+                                            <option value="1923" <?php echo ($viewYear=='1923')?('selected'):(''); ?> >1923</option>
+                                            <option value="1922" <?php echo ($viewYear=='1922')?('selected'):(''); ?> >1922</option>
+                                            <option value="1921" <?php echo ($viewYear=='1921')?('selected'):(''); ?> >1921</option>
+                                            <option value="1920" <?php echo ($viewYear=='1920')?('selected'):(''); ?> >1920</option>
+                                            <option value="1919" <?php echo ($viewYear=='1919')?('selected'):(''); ?> >1919</option>
+                                            <option value="1918" <?php echo ($viewYear=='1918')?('selected'):(''); ?> >1918</option>
+                                            <option value="1917" <?php echo ($viewYear=='1917')?('selected'):(''); ?> >1917</option>
+                                            <option value="1916" <?php echo ($viewYear=='1916')?('selected'):(''); ?> >1916</option>
+                                            <option value="1915" <?php echo ($viewYear=='1915')?('selected'):(''); ?> >1915</option>
+                                            <option value="1914" <?php echo ($viewYear=='1914')?('selected'):(''); ?> >1914</option>
+                                            <option value="1913" <?php echo ($viewYear=='1913')?('selected'):(''); ?> >1913</option>
+                                            <option value="1912" <?php echo ($viewYear=='1912')?('selected'):(''); ?> >1912</option>
+                                            <option value="1911" <?php echo ($viewYear=='1911')?('selected'):(''); ?> >1911</option>
+                                            <option value="1910" <?php echo ($viewYear=='1910')?('selected'):(''); ?> >1910</option>
+                                            <option value="1909" <?php echo ($viewYear=='1909')?('selected'):(''); ?> >1909</option>
+                                            <option value="1908" <?php echo ($viewYear=='1908')?('selected'):(''); ?> >1908</option>
+                                            <option value="1907" <?php echo ($viewYear=='1907')?('selected'):(''); ?> >1907</option>
+                                            <option value="1906" <?php echo ($viewYear=='1906')?('selected'):(''); ?> >1906</option>
+                                            <option value="1905" <?php echo ($viewYear=='1905')?('selected'):(''); ?> >1905</option>
+                                            <option value="1904" <?php echo ($viewYear=='1904')?('selected'):(''); ?> >1904</option>
+                                            <option value="1903" <?php echo ($viewYear=='1903')?('selected'):(''); ?> >1903</option>
+                                            <option value="1902" <?php echo ($viewYear=='1902')?('selected'):(''); ?> >1902</option>
+                                            <option value="1901" <?php echo ($viewYear=='1901')?('selected'):(''); ?> >1901</option>
+                                            <option value="1900" <?php echo ($viewYear=='1900')?('selected'):(''); ?> >1900</option>
                                         </select>
                                         <label class="form-label" for="bYear">YEAR</label>    
                                     </div>
@@ -337,14 +337,14 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-floating">
-                                        <select class="form-control form-control-lg p-2 pt-3" id="cStatus" name="cStatus" required>
-                                            <option selected disabled>--SELECT--</option>
-                                            <option value="Single" <?php echo ($viewCivilStatus=='Single')?('selected'):(''); ?> >Single</option>
-                                            <option value="Married" <?php echo ($viewCivilStatus=='Married')?('selected'):(''); ?> >Married</option>
-                                            <option value="Widowed" <?php echo ($viewCivilStatus=='Widowed')?('selected'):(''); ?> >Widowed</option>
-                                            <option value="Separated" <?php echo ($viewCivilStatus=='Separated')?('selected'):(''); ?> >Separated</option>
-                                        </select>
-                                        <label class="form-label" for="cStatus">CIVIL STATUS</label>    
+                                <select class="form-control form-control-lg p-2 pt-3" id="cStatus" name="cStatus" required>
+                                    <option selected disabled>--SELECT--</option>
+                                    <option value="Single" <?php echo ($viewCivilStatus=='Single')?('selected'):(''); ?> >Single</option>
+                                    <option value="Married" <?php echo ($viewCivilStatus=='Married')?('selected'):(''); ?> >Married</option>
+                                    <option value="Widowed" <?php echo ($viewCivilStatus=='Widowed')?('selected'):(''); ?> >Widowed</option>
+                                    <option value="Separated" <?php echo ($viewCivilStatus=='Separated')?('selected'):(''); ?> >Separated</option>
+                                </select>
+                                <label class="form-label" for="cStatus">CIVIL STATUS</label>    
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -352,10 +352,10 @@
                                 
                                 <div class="col-md-12">
                                     <div class="form-floating">
-                                    <select class="form-control form-control-lg p-2 pt-3" id="brgyPosition" name="brgyPosition" required>  
-                                        <option selected disabled>--SELECT--</option>
-                                        <option value="Barangay Captain" <?php echo ($viewPosition=='Barangay Captain')?('selected'):(''); ?> >Barangay Captain</option>
-                                        <option value="Kagawad"  <?php echo ($viewPosition=='Kagawad')?('selected'):(''); ?> >Kagawad</option>
+                                        <select class="form-control form-control-lg p-2 pt-3" id="brgyPosition" name="brgyPosition" required>  
+                                            <option selected disabled>--SELECT--</option>
+                                            <option value="Barangay Captain" <?php echo ($viewPosition=='Barangay Captain')?('selected'):(''); ?> >Barangay Captain</option>
+                                            <option value="Kagawad"  <?php echo ($viewPosition=='Kagawad')?('selected'):(''); ?> >Kagawad</option>
                                         </select>
                                         <label class="form-label" for="cStatus">POSITION</label>
                                     </div>    
